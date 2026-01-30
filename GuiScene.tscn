@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cnt1v2ckbdof7" path="res://Scripts/GuiSceneScript.gd" id="1_y7y7g"]
 [ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="2_ip3d8"]
+[ext_resource type="Texture2D" uid="uid://d4h8al4lpk45s" path="res://Resources/GUI/MaskOverlays/MaskOverlay1.png" id="2_tn4uk"]
+[ext_resource type="Texture2D" uid="uid://bq4iufwc5uhx8" path="res://Resources/GUI/MaskOverlays/MaskOverlay2.png" id="3_aq4jo"]
+[ext_resource type="Texture2D" uid="uid://8c883gtsc7q6" path="res://Resources/GUI/MaskOverlays/MaskOverlay3.png" id="4_x58cy"]
+[ext_resource type="Texture2D" uid="uid://c42us86pndhes" path="res://Resources/GUI/MaskOverlays/MaskOverlay4.png" id="5_a0emc"]
 
 [node name="GuiScene" type="Node2D" unique_id=351606991]
 script = ExtResource("1_y7y7g")
 
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=1066602322]
+layer = 10
 
 [node name="LifeBar" type="Node2D" parent="GuiCanvasLayer" unique_id=1743064398]
 
@@ -41,3 +46,29 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
+
+[node name="MaskOverlaySprites" type="Node2D" parent="GuiCanvasLayer" unique_id=1823076876]
+unique_name_in_owner = true
+
+[node name="S1" type="Sprite2D" parent="GuiCanvasLayer/MaskOverlaySprites" unique_id=861649816]
+scale = Vector2(5, 3.7499998)
+texture = ExtResource("2_tn4uk")
+centered = false
+
+[node name="S2" type="Sprite2D" parent="GuiCanvasLayer/MaskOverlaySprites" unique_id=889659488]
+visible = false
+scale = Vector2(5, 3.7499998)
+texture = ExtResource("3_aq4jo")
+centered = false
+
+[node name="S3" type="Sprite2D" parent="GuiCanvasLayer/MaskOverlaySprites" unique_id=1182827341]
+visible = false
+scale = Vector2(5, 3.7499998)
+texture = ExtResource("4_x58cy")
+centered = false
+
+[node name="S4" type="Sprite2D" parent="GuiCanvasLayer/MaskOverlaySprites" unique_id=1648840733]
+visible = false
+scale = Vector2(5, 3.7499998)
+texture = ExtResource("5_a0emc")
+centered = false
