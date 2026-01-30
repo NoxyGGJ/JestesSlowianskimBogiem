@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://big68lx40uvdb"]
 
+[ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_q4iis"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="1_wkftn"]
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
@@ -11,6 +12,7 @@ mode = 0
 textures = [[ExtResource("4_mxnmf")], [null]]
 
 [node name="Level" type="Node3D" unique_id=435008576]
+script = ExtResource("1_q4iis")
 
 [node name="HTerrain" type="Node3D" parent="." unique_id=1004625275]
 script = ExtResource("1_wkftn")
@@ -33,3 +35,5 @@ shader_params/u_globalmap_blend_start = null
 shader_params/u_globalmap_blend_distance = null
 shader_params/u_colormap_opacity_per_texture = null
 metadata/_custom_type_script = "uid://cr81v46v6n1ys"
+
+[node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=687540199]
