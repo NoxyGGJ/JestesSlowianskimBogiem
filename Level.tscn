@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
-[ext_resource type="PackedScene" path="res://GuiScene.tscn" id="6_m3clv"]
+[ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
 
@@ -13,6 +13,9 @@
 script = ExtResource("3_m3clv")
 mode = 0
 textures = [[ExtResource("4_mxnmf")], [null]]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4eo0i"]
+size = Vector3(1, 50, 530)
 
 [node name="Level" type="Node3D" unique_id=435008576]
 script = ExtResource("1_q4iis")
@@ -47,3 +50,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61231, 18.151953, 6.694071)
 
 [node name="Enemy" parent="." unique_id=1012680412 instance=ExtResource("8_4eo0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.824657, 18.068104, 17.921127)
+
+[node name="LevelBoundaries" type="StaticBody3D" parent="." unique_id=480795649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelBoundaries" unique_id=721874496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 17.002651, 255.25195)
+shape = SubResource("BoxShape3D_4eo0i")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1577475537]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, -0.49164003)
+shape = SubResource("BoxShape3D_4eo0i")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1121530514]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, 512.4363)
+shape = SubResource("BoxShape3D_4eo0i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1736933347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.4598, 17.002651, 255.25195)
+shape = SubResource("BoxShape3D_4eo0i")
