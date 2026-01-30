@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="JestesSlowianskimBogiem"
+run/main_scene="uid://bn8oegdwigt3o"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalObject="*uid://dv78nbuk7fgp2"
 
 [physics]
 
