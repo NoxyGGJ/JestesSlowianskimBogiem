@@ -5,7 +5,9 @@
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
-[ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
+[ext_resource type="PackedScene" path="res://GuiScene.tscn" id="6_m3clv"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="7_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
@@ -39,3 +41,9 @@ metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 
 [node name="Gui" parent="." unique_id=351606991 instance=ExtResource("6_m3clv")]
 unique_name_in_owner = true
+
+[node name="Player" parent="." unique_id=290452896 instance=ExtResource("7_mxnmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61231, 18.151953, 6.694071)
+
+[node name="Enemy" parent="." unique_id=1012680412 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.824657, 18.068104, 17.921127)
