@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c57icetv33aaj"]
+
+[ext_resource type="Script" uid="uid://cnt1v2ckbdof7" path="res://Scripts/GuiSceneScript.gd" id="1_y7y7g"]
+[ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="2_ip3d8"]
+
+[node name="GuiScene" type="Node2D" unique_id=351606991]
+script = ExtResource("1_y7y7g")
+
+[node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=1066602322]
+
+[node name="LifeBar" type="Node2D" parent="GuiCanvasLayer" unique_id=1743064398]
+
+[node name="HeartSymbol" type="Sprite2D" parent="GuiCanvasLayer/LifeBar" unique_id=1103081484]
+position = Vector2(48.25, 839.1218)
+scale = Vector2(1.5256411, 1.525641)
+texture = ExtResource("2_ip3d8")
+region_enabled = true
+region_rect = Rect2(1.8662338, 2.382759, 39.712746, 49.159702)
+
+[node name="Frame" type="NinePatchRect" parent="GuiCanvasLayer/LifeBar" unique_id=1064955232]
+offset_left = 84.0
+offset_top = 803.0
+offset_right = 497.0
+offset_bottom = 870.0
+texture = ExtResource("2_ip3d8")
+region_rect = Rect2(202.7323, 0, 64.2677, 65)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="InteriorLife" type="NinePatchRect" parent="GuiCanvasLayer/LifeBar" unique_id=1875619573]
+unique_name_in_owner = true
+offset_left = 92.0
+offset_top = 811.0
+offset_right = 490.0
+offset_bottom = 871.0
+texture = ExtResource("2_ip3d8")
+region_rect = Rect2(50.993538, 0, 150.83182, 65)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
