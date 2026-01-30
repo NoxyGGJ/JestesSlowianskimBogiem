@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cjxk7wqrawbae"]
+
+[ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="1_rupst"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wt17y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rupst"]
+
+[node name="Node3D" type="Node3D" unique_id=46189256]
+
+[node name="Player" parent="." unique_id=290452896 instance=ExtResource("1_rupst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39775705, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1657213816]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1737441488]
+shape = SubResource("WorldBoundaryShape3D_wt17y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=498373417]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rupst")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=933751452]
+transform = Transform3D(-0.5511218, 0.5317141, -0.64307463, 0, 0.7706802, 0.6372223, 0.834425, 0.35118708, -0.42473862, 0, 3.8765116, 0)
