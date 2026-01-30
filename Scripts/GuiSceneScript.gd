@@ -29,3 +29,9 @@ func update_health(percent: float) -> void:
 	else:
 		%InteriorLife.visible = true
 		%InteriorLife.size.x = percent * health_bar_max_width
+
+# Use index 0...3 or -1 to disable any masks.
+func update_mask_overlay(index: int) -> void:
+	var sprites_node = %MaskOverlaySprites
+	for i in 4:
+		sprites_node.get_child(i).visible = (i == index)
