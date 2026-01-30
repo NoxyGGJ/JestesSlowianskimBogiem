@@ -28,6 +28,12 @@ window/size/viewport_height=900
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
 
+[importer_defaults]
+
+texture={
+&"mipmaps/generate": true
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

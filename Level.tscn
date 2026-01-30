@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
+[ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="6_m3clv"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
@@ -37,3 +38,36 @@ shader_params/u_colormap_opacity_per_texture = null
 metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=687540199]
+
+[node name="LifeBar" type="Node2D" parent="GuiCanvasLayer" unique_id=1460373517]
+
+[node name="HeartSymbol" type="Sprite2D" parent="GuiCanvasLayer/LifeBar" unique_id=681009268]
+position = Vector2(48.25, 839.1218)
+scale = Vector2(1.5256411, 1.525641)
+texture = ExtResource("6_m3clv")
+region_enabled = true
+region_rect = Rect2(1.8662338, 2.382759, 39.712746, 49.159702)
+
+[node name="Frame" type="NinePatchRect" parent="GuiCanvasLayer/LifeBar" unique_id=1276576715]
+offset_left = 84.0
+offset_top = 803.0
+offset_right = 497.0
+offset_bottom = 870.0
+texture = ExtResource("6_m3clv")
+region_rect = Rect2(202.7323, 0, 64.2677, 65)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="InteriorLife" type="NinePatchRect" parent="GuiCanvasLayer/LifeBar" unique_id=1148331627]
+offset_left = 92.0
+offset_top = 811.0
+offset_right = 490.0
+offset_bottom = 871.0
+texture = ExtResource("6_m3clv")
+region_rect = Rect2(50.993538, 0, 150.83182, 65)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
