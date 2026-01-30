@@ -61,6 +61,7 @@ patch_margin_right = 12
 patch_margin_bottom = 12
 
 [node name="InteriorLife" type="NinePatchRect" parent="GuiCanvasLayer/LifeBar" unique_id=1148331627]
+unique_name_in_owner = true
 offset_left = 92.0
 offset_top = 811.0
 offset_right = 490.0
