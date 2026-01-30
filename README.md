@@ -1,0 +1,3 @@
+Gra tworzona w styczniu 2026 podczas HackJam - sajtu Global Game Jam 2026 w Gdańsku.
+
+COMING SOON...
