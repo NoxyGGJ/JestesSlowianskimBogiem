@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b87ksred84obf"]
+
+[ext_resource type="Script" uid="uid://er8bdytox17q" path="res://Scripts/ProjectileSpawner.gd" id="1_mc4jp"]
+
+[node name="ProjectilesSpawner" type="Node3D" unique_id=1437518191]
+script = ExtResource("1_mc4jp")
+
+[node name="FireRateTimer" type="Timer" parent="." unique_id=2116268538]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
