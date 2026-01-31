@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
 [ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
-[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
-[ext_resource type="PackedScene" uid="uid://gc53vq28gn48" path="res://Resources/3D/Sculpture.glb" id="17_pmxqn"]
+[ext_resource type="PackedScene" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
 [ext_resource type="PackedScene" uid="uid://d1ca103icjjk" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
@@ -152,12 +151,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.087772, 14.6420765, 34.391
 
 [node name="Spawner" parent="." unique_id=920540338 instance=ExtResource("16_44tr1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.78888, 17.704985, 257.08734)
-
-[node name="Sculpture" parent="." unique_id=1863055038 instance=ExtResource("17_pmxqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.699801, 24.557652, 67.43123)
-
-[node name="Sculpture2" parent="." unique_id=1197058261 instance=ExtResource("17_pmxqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.82846, 19.303139, 110.15631)
 
 [node name="Rocks" type="Node3D" parent="." unique_id=1246110376]
 
