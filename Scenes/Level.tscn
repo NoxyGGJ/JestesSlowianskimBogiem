@@ -15,8 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
 [ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
-[ext_resource type="PackedScene" uid="uid://d1ca103icjjk" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
+[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
+[ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
+[ext_resource type="PackedScene" uid="uid://bsdd4kgwmh6pt" path="res://Scenes/Generator/LevelGenerator.tscn" id="18_q24aw"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("5_q24aw")
@@ -208,3 +209,7 @@ currentPoint = 3
 [node name="Campfire4" parent="." unique_id=659462133 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 404.2271, 18.449732, 258.8517)
 currentPoint = 4
+
+[node name="LevelGenerator" parent="." unique_id=1376003488 instance=ExtResource("18_q24aw")]
+transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 256, 75.00796, 256)
+prefab_tree = ExtResource("10_17mqb")

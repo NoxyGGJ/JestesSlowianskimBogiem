@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bsdd4kgwmh6pt"]
+
+[ext_resource type="Script" uid="uid://mvbqko35cqqa" path="res://Scripts/LevelGenerator/LevelGenerator.gd" id="1_y6lf8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t8nrn"]
+
+[node name="LevelGenerator" type="Node3D" unique_id=1376003488]
+script = ExtResource("1_y6lf8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=743979464]
+visible = false
+mesh = SubResource("BoxMesh_t8nrn")
