@@ -4,20 +4,20 @@ render_mode blend_premul_alpha;
 void vertex() { }
 
 float hash(vec2 p) {
-    p = fract(p * vec2(123.34, 456.21));
-    p += dot(p, p + 78.233);
-    return fract(p.x * p.y);
+    vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
 }
 
 float value_noise(vec2 uv) {
-    vec2 i = floor(uv);
+    ivec2 i = ivec2(floor(uv));
     vec2 f = fract(uv);
 
     // Four corners
-    float a = hash(i);
-    float b = hash(i + vec2(1.0, 0.0));
-    float c = hash(i + vec2(0.0, 1.0));
-    float d = hash(i + vec2(1.0, 1.0));
+    float a = hash(vec2(i));
+    float b = hash(vec2(i + ivec2(1, 0)));
+    float c = hash(vec2(i + ivec2(0, 1)));
+    float d = hash(vec2(i + ivec2(1, 1)));
 
     // Smooth interpolation (Perlin-style fade)
     vec2 u = f * f * (3.0 - 2.0 * f);
