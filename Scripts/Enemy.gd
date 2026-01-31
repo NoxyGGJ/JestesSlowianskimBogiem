@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Enemy
 
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	if dead:
 		animationSprite.animation = "Death"
-		pass
+		return
 		
 	if life <= 0:
 		life = 0
