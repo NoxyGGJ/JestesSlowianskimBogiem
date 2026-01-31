@@ -41,8 +41,9 @@ func _on_body_entered(body: Node3D) -> void:
 
 	if mesh.is_queued_for_deletion():
 		mesh.queue_free()
-		
-	particles.emitting = false
+	
+	if particles != null:
+		particles.emitting = false
 
 func _on_timer_timeout() -> void:
 	queue_free()
