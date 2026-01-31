@@ -21,3 +21,4 @@ func set_mask(MaskIndex: int) -> void:
 	GlobalObject.CurrentMask = MaskIndex
 	%Gui.update_mask_overlay(MaskIndex)
 	$WorldEnvironment.environment.fog_enabled = MaskIndex == 3
+	$WorldEnvironment.environment.adjustment_enabled = MaskIndex == 3

@@ -11,6 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
 [ext_resource type="PackedScene" uid="uid://di3wpygtnfl7h" path="res://Resources/3D/Tree.glb" id="10_3ywx5"]
 
+[sub_resource type="Gradient" id="Gradient_3ywx5"]
+offsets = PackedFloat32Array(0, 0.32837528, 0.72196794, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.14018375, 0.14800867, 0.18007824, 1, 0.52733856, 0.57962537, 0.81932974, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofirr"]
+gradient = SubResource("Gradient_3ywx5")
+fill_from = Vector2(0, 0.04083571)
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ywx5"]
 panorama = ExtResource("2_86ljf")
 
@@ -26,6 +34,8 @@ tonemap_mode = 2
 glow_enabled = true
 fog_light_color = Color(0.49295717, 0.55629414, 0.63943374, 1)
 fog_density = 0.025
+adjustment_saturation = 0.25
+adjustment_color_correction = SubResource("GradientTexture2D_ofirr")
 
 [sub_resource type="Compositor" id="Compositor_86ljf"]
 
