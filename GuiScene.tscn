@@ -23,6 +23,7 @@ visible = false
 material = SubResource("ShaderMaterial_x58cy")
 offset_right = 1600.0
 offset_bottom = 900.0
+mouse_filter = 2
 
 [node name="LifeBar" type="Node2D" parent="GuiCanvasLayer" unique_id=1743064398]
 
