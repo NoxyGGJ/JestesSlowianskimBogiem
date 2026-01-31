@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ch2ly8pi411hw" path="res://Scripts/Player.gd" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://er8bdytox17q" path="res://Scripts/ProjectileSpawner.gd" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://c547gy43q1iab" path="res://Scripts/ShakeableCamera.gd" id="2_nn08x"]
 [ext_resource type="PackedScene" uid="uid://cu0awoyok3hbn" path="res://Projectiles/Fireball.tscn" id="3_kne1u"]
 [ext_resource type="PackedScene" uid="uid://bm4tcs6300bfc" path="res://Projectiles/IceMissiles.tscn" id="4_e80uo"]
 [ext_resource type="PackedScene" uid="uid://dnme4danrsnbd" path="res://Projectiles/Arrow.tscn" id="5_5ixxa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nn08x"]
 
 [node name="Player" type="CharacterBody3D" unique_id=290452896]
 script = ExtResource("1_xhfnw")
@@ -15,26 +18,33 @@ script = ExtResource("1_xhfnw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_kpjcp")
 
-[node name="head" type="Node3D" parent="." unique_id=1472965385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5797417, 0)
+[node name="ShakeAnchor" type="Node3D" parent="." unique_id=221798568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58, 0)
+script = ExtResource("2_nn08x")
+max_x = 20.0
+max_y = 20.0
+noise = SubResource("FastNoiseLite_nn08x")
 
-[node name="Camera3D" type="Camera3D" parent="head" unique_id=1880932805]
+[node name="head" type="Node3D" parent="ShakeAnchor" unique_id=1472965385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00025832653, 0)
 
-[node name="FireballSpawner" type="Node3D" parent="head/Camera3D" unique_id=1880270117]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -0.7491816, -0.5903617, -2.064659)
+[node name="Camera3D" type="Camera3D" parent="ShakeAnchor/head" unique_id=1880932805]
+
+[node name="FireballSpawner" type="Node3D" parent="ShakeAnchor/head/Camera3D" unique_id=1880270117]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, -0.5903617, -2.064659)
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("3_kne1u")
 useChargedAttak = true
 supportedMaskIndex = 0
 
-[node name="IceMissilesSpawner" type="Node3D" parent="head/Camera3D" unique_id=2112302121]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.4117227, -0.5903617, -2.064659)
+[node name="IceMissilesSpawner" type="Node3D" parent="ShakeAnchor/head/Camera3D" unique_id=2112302121]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, -0.5903617, -2.064659)
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("4_e80uo")
 supportedMaskIndex = 1
 
-[node name="ShotSpawner" type="Node3D" parent="head/Camera3D" unique_id=976841939]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.4117227, -0.5903617, -2.064659)
+[node name="ArrowSpawner" type="Node3D" parent="ShakeAnchor/head/Camera3D" unique_id=976841939]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, -0.5903617, -2.064659)
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("5_5ixxa")
 supportedMaskIndex = 2
