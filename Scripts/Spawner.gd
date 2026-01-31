@@ -10,7 +10,8 @@ extends Node3D
 
 @export var objects = [
 	preload("res://Scenes/Enemy.tscn"),
-	preload("res://Scenes/EnemySnow.tscn")
+	preload("res://Scenes/EnemySnow.tscn"),
+	preload("res://Scenes/EnemyMarzana.tscn")
 ]
 
 @onready var spawn_timer: Timer = $SpawnTimer
