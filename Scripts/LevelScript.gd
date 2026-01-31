@@ -6,16 +6,22 @@ class_name Level extends Node3D
 	preload("res://Environments/NightEnv.tres"),
 	preload("res://Environments/AstralEnv.tres")
 ]
+
+@onready var bossObject = preload("res://Scenes/Boss.tscn")
+
 const udp_enabled := true
 var udp: PacketPeerUDP
 
 var spawned_trees = []
+var boss_spawned = false
+var terrain: Node3D
 
 func _ready() -> void:
 	if udp_enabled:
 		udp = PacketPeerUDP.new()
 		udp.bind(9571, "0.0.0.0") # listen on all interfaces
 	set_mask(0)
+	terrain = find_child("HTerrain")
 
 func _process_udp_packets() -> void:
 	while udp.get_available_packet_count() > 0:
@@ -41,6 +47,22 @@ func _process(delta: float) -> void:
 		return
 	if udp_enabled:
 		_process_udp_packets()
+		
+	if GlobalObject.firstTotemFinished and\
+	GlobalObject.secondTotemFinished and\
+	GlobalObject.thirdTotemFinished and\
+	GlobalObject.foruthTotemFinished and !boss_spawned:
+		spawnBoss()
+		
+func spawnBoss() -> void:
+	boss_spawned = true
+	
+	var instance = bossObject.instantiate()
+	add_child(instance)
+	
+	var player = $Player
+	var y = terrain.get_data().get_height_at(player.position.x,player.position.z) + 1.0
+	instance.position = Vector3(player.position.x + 1, y, player.position.z + 1)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("PrevMask"):
@@ -58,7 +80,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.pressed and not event.echo and event.ctrl_pressed and event.keycode == KEY_I:
 		GlobalObject.invincible_cheat = !GlobalObject.invincible_cheat
 		print("Invincible cheat = %d" % int(GlobalObject.invincible_cheat))
-	
+	elif event is InputEventKey and event.pressed and not event.echo and event.ctrl_pressed and event.keycode == KEY_B:
+		spawnBoss()
+		
 func set_mask(MaskIndex: int) -> void:
 	if GlobalObject.CurrentMask == MaskIndex:
 		return
