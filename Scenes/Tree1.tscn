@@ -1,16 +1,34 @@
 [gd_scene format=3 uid="uid://dqqn72korsn2y"]
 
 [ext_resource type="PackedScene" uid="uid://di3wpygtnfl7h" path="res://Resources/3D/Tree.glb" id="1_4nb5c"]
+[ext_resource type="Script" uid="uid://ioct4gnhjtc8" path="res://Scripts/TreeScript.gd" id="1_mr0cg"]
+[ext_resource type="PackedScene" uid="uid://dqareyh34kc33" path="res://Resources/3D/TreeWinter.glb" id="3_qumah"]
+[ext_resource type="PackedScene" uid="uid://qdral1c31iqf" path="res://Resources/3D/TreeNight.glb" id="4_gidxo"]
+[ext_resource type="PackedScene" uid="uid://71ibxnus1ens" path="res://Resources/3D/TreePsy.glb" id="5_qumah"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mqent"]
 height = 8.688
 radius = 0.7
 
 [node name="Tree1" type="Node3D" unique_id=730201274]
+script = ExtResource("1_mr0cg")
 
-[node name="Mesh" parent="." unique_id=899795093 instance=ExtResource("1_4nb5c")]
+[node name="Meshes" type="Node3D" parent="." unique_id=1702647330]
+unique_name_in_owner = true
+
+[node name="MeshSummer" parent="Meshes" unique_id=899795093 instance=ExtResource("1_4nb5c")]
+
+[node name="MeshWinter" parent="Meshes" unique_id=492319355 instance=ExtResource("3_qumah")]
+visible = false
+
+[node name="MeshNight" parent="Meshes" unique_id=2071590511 instance=ExtResource("4_gidxo")]
+visible = false
+
+[node name="TreePsy" parent="Meshes" unique_id=90418321 instance=ExtResource("5_qumah")]
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=45342657]
+unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=183587971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.895, 0)

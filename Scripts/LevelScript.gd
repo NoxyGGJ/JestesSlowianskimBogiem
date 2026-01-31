@@ -10,10 +10,10 @@ const udp_enabled := true
 var udp: PacketPeerUDP
 
 func _ready() -> void:
-	%Gui.update_mask_overlay(GlobalObject.CurrentMask)
 	if udp_enabled:
 		udp = PacketPeerUDP.new()
 		udp.bind(9571, "0.0.0.0") # listen on all interfaces
+	set_mask(0)
 
 func _process_udp_packets() -> void:
 	while udp.get_available_packet_count() > 0:
@@ -58,3 +58,9 @@ func set_mask(MaskIndex: int) -> void:
 	GlobalObject.CurrentMask = MaskIndex
 	%Gui.update_mask_overlay(MaskIndex)
 	$WorldEnvironment.environment = Environments[MaskIndex] if (MaskIndex >= 0 and MaskIndex < 4) else null
+	_update_trees()
+
+func _update_trees() -> void:
+	var trees := find_children("*", "TreeAsset")
+	for tree in trees:
+		tree.update_mask()
