@@ -54,8 +54,8 @@ func _physics_process(delta: float) -> void:
 		animationSprite.animation = "Death"
 		return
 		
-	if type != EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
-		var skeletons = get_parent().find_children("Enemy")
+	if type != EnemyType.SKELETON and type != EnemyType.BOSS and GlobalObject.CurrentMask == 2:
+		var skeletons = get_parent().find_children("*", "Enemy", false, false)
 		if !skeletons.is_empty():
 			var random_index = rng.randi() % skeletons.size()
 			var randomSkeleton = skeletons[random_index]
