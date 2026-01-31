@@ -16,7 +16,7 @@ func charged_attack() -> void:
 		add_child(projectile)
 		projectile.position = Vector3.ZERO
 		projectile.start_scaling();
-	if Input.is_action_just_released("fire"):
+	if Input.is_action_just_released("fire") and projectile:
 		projectile.reparent(get_tree().root)
 		projectile.rotation = global_rotation
 		projectile.release();
