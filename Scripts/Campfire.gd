@@ -1,12 +1,23 @@
 extends Node3D
 class_name Campfire
 
+enum CapturePoint 
+{
+	NONE,
+	FIRST,
+	SECOND,
+	THIRD,
+	FOURTH
+}
+
 @onready var fieldMesh: MeshInstance3D = $Area3D/MeshInstance3D
 @onready var loading_indicator: Control = $SubViewport/LoadingIndicator
 
 var capture_progress:float = 0.0
 var capturing: bool = false
 var captured: bool = false
+
+@export var currentPoint:CapturePoint = CapturePoint.NONE
 
 func _ready() -> void:
 	pass 

@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://6grywi7s2bbv" path="res://Resources/3D/campfire.glb" id="1_8ysen"]
 [ext_resource type="Script" uid="uid://c6tkbfcysr7mj" path="res://Scripts/Campfire.gd" id="1_hkl62"]
-[ext_resource type="Texture2D" uid="uid://c08vq4pq6eltk" path="res://Resources/totem.png" id="2_wyony"]
+[ext_resource type="PackedScene" uid="uid://gc53vq28gn48" path="res://Resources/3D/Sculpture.glb" id="2_8rb6s"]
 [ext_resource type="PackedScene" uid="uid://c2vdrg3pgyixh" path="res://Scenes/LoadingIndicator.tscn" id="4_r3b3c"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hkl62"]
+height = 7.300049
+radius = 0.90185547
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wyony"]
 height = 0.71362305
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hkl62"]
-height = 11.854004
-radius = 1.2226563
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wyony"]
 radius = 4.882787
@@ -31,6 +31,16 @@ viewport_path = NodePath("SubViewport")
 [node name="Campfire" type="Node3D" unique_id=1658491565]
 script = ExtResource("1_hkl62")
 
+[node name="Sculpture" parent="." unique_id=55540525 instance=ExtResource("2_8rb6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04620087, -1.9345714)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sculpture" unique_id=2123529361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.372818, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sculpture/StaticBody3D" unique_id=1446806426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024631023, -2.69936, 0.069123745)
+shape = SubResource("CylinderShape3D_hkl62")
+
 [node name="Mesh" parent="." unique_id=289914508 instance=ExtResource("1_8ysen")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02848214, 0)
 
@@ -40,17 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02848214, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D" unique_id=2139320176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3458252, 0)
 shape = SubResource("CylinderShape3D_wyony")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=337955046]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.1126175, -1.1787517)
-billboard = 2
-texture = ExtResource("2_wyony")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D" unique_id=2123529361]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/StaticBody3D" unique_id=1446806426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024631023, -0.39217758, 0.069123745)
-shape = SubResource("CylinderShape3D_hkl62")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=890042312]
 
