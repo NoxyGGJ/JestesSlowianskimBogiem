@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="3_pmxqn"]
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="4_gs5q7"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_q24aw"]
-[ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="6_32npc"]
+[ext_resource type="Texture2D" uid="uid://nb7qoyavd675" path="res://Resources/Textures/GrassSummer.png" id="6_pmxqn"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://Scenes/GuiScene.tscn" id="7_yyp3s"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Scenes/Player.tscn" id="8_g4pvc"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Scenes/Enemy.tscn" id="9_ifohm"]
@@ -21,7 +21,7 @@
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("5_q24aw")
 mode = 0
-textures = [[ExtResource("6_32npc")], [null]]
+textures = [[ExtResource("6_pmxqn")], [null]]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4eo0i"]
 size = Vector3(1, 50, 530)
@@ -50,7 +50,7 @@ custom_globalmap_shader = null
 texture_set = SubResource("Resource_4eo0i")
 render_layers = 1
 cast_shadow = 1
-shader_params/u_ground_uv_scale_per_texture = null
+shader_params/u_ground_uv_scale_per_texture = Vector4(5, 8, 8, 8)
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
