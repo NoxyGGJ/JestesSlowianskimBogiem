@@ -11,6 +11,7 @@ enum EnemyType
 }
 
 @export var type: EnemyType = EnemyType.NONE
+@export var bossBullet = preload("res://Projectiles/BossProjectile.tscn")
 
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
@@ -19,6 +20,7 @@ const deadDestroyTimeout := 20.0
 
 var currentPlayer : CharacterBody3D
 var healthBar: Sprite3D
+var spawner: Node3D
 
 var speed: float = 2.0
 var distance: float = 0.0
@@ -28,6 +30,7 @@ const START_LIFE := 5
 var life: int = START_LIFE
 var restartHit:bool = false
 var cooldown: float = 0.0
+var attackCooldown: float = 1.0
 
 var rng = RandomNumberGenerator.new()
 
@@ -39,6 +42,7 @@ func _ready() -> void:
 	if type == EnemyType.BOSS:
 		life = 50
 		updateLife()
+		spawner = $AnimatedSprite3D/Spawner
 	
 func _physics_process(delta: float) -> void:
 	if currentPlayer:
@@ -81,6 +85,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 			
+	if type == EnemyType.BOSS:
+		attackCooldown -= delta * 0.5
+		
+	if attackCooldown < 0:
+		attackCooldown = 1.0
+		bossAttack()
+			
 	if distance < 1.5:
 		animationSprite.animation = "Attack"
 		attacking = true
@@ -104,7 +115,17 @@ func _physics_process(delta: float) -> void:
 	elif animationSprite.animation_looped.is_connected(_on_finished):
 		animationSprite.animation_looped.disconnect(_on_finished)
 		restartHit = false
-	
+
+func bossAttack() -> void:	
+	var bullet = bossBullet.instantiate()
+	if spawner and currentPlayer:
+		spawner.add_child(bullet)
+		bullet.position = spawner.position
+		bullet.transform.basis = Basis.looking_at(global_position - currentPlayer.global_position, Vector3.UP)
+		bullet.scale = Vector3(4.0, 4.0, 4.0)
+		bullet.reparent(get_tree().root)
+		
+
 func _on_hit() -> void:
 	if attacking:
 		currentPlayer.hit()
