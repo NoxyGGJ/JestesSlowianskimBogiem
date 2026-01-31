@@ -1,6 +1,7 @@
 
 #include "alleg.h"
 #include "detector.h"
+#include "sendkey.h"
 
 
 
@@ -22,8 +23,10 @@ int FeatureDetector::BoxAverage(int x, int y, int size)
 }
 
 
-void FeatureDetector::Process(CameraPixels::Frame& frame)
+uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 {
+	uint32_t found_code = 0;
+
 	// Init settings
 	width = frame.width;
 	height = frame.height;
@@ -228,9 +231,14 @@ void FeatureDetector::Process(CameraPixels::Frame& frame)
 
 				const int code_ref = 0x025836A;		// 00010 01011 00000 11011 01010  ->  0 0010 0101 1000 0011 0110 1010
 				if( code == code_ref )
+				{
 					printf("================ DETECTED! ================\n");
+					SendKeyToWindow(L"Notatnik");
+				}
 			}
 		}
+
+	return found_code;
 }
 
 

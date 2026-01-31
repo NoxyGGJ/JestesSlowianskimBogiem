@@ -21,6 +21,9 @@
     <ClInclude Include="src\detector.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="src\sendkey.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cam_pixels.cpp">
@@ -34,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="src\detector.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sendkey.cpp">
+      <Filter>Libs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
