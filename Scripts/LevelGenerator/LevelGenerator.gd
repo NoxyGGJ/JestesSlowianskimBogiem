@@ -70,6 +70,13 @@ func _process(delta: float) -> void:
 	if not spawn_done:
 		spawn_done = true
 
+		# Block mountain generation
+		var nobjects = %ManualDesign.get_child_count()
+		for i in nobjects:
+			var obj = %ManualDesign.get_child(i)
+			#print("Block %f %f" % [obj.position.x, obj.position.z])
+			reserve_location_r(obj.position.x, obj.position.z, 16)
+
 		# generate up to 100 mountains (bad try counts as 1/10th of a mountain)
 		var mtries = 20 * 10
 		while mtries > 0:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_nrlyp"]
 [ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_44tr1"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="3_pmxqn"]
-[ext_resource type="Resource" path="res://Resources/data.hterrain" id="4_gs5q7"]
+[ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="4_gs5q7"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_q24aw"]
 [ext_resource type="Texture2D" uid="uid://nb7qoyavd675" path="res://Resources/Textures/GrassSummer.png" id="6_pmxqn"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://Scenes/GuiScene.tscn" id="7_yyp3s"]
@@ -66,23 +66,35 @@ metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 [node name="Gui" parent="." unique_id=351606991 instance=ExtResource("7_yyp3s")]
 unique_name_in_owner = true
 
-[node name="TestPrefabs" type="Node3D" parent="." unique_id=1784911204]
+[node name="ManualDesign" type="Node3D" parent="." unique_id=1832900410]
+unique_name_in_owner = true
 
-[node name="Campfire" parent="TestPrefabs" unique_id=1658491565 instance=ExtResource("15_p0nbg")]
+[node name="Campfire" parent="ManualDesign" unique_id=1658491565 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.479695, 19.247133, 27.745129)
 currentPoint = 1
 
-[node name="Campfire2" parent="TestPrefabs" unique_id=1398046224 instance=ExtResource("15_p0nbg")]
+[node name="Campfire2" parent="ManualDesign" unique_id=1398046224 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.60599, 23.915884, 120.16632)
 currentPoint = 2
 
-[node name="Campfire3" parent="TestPrefabs" unique_id=973669741 instance=ExtResource("15_p0nbg")]
+[node name="Campfire3" parent="ManualDesign" unique_id=973669741 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.2694, 20.432772, 360.90482)
 currentPoint = 3
 
-[node name="Campfire4" parent="TestPrefabs" unique_id=659462133 instance=ExtResource("15_p0nbg")]
+[node name="Campfire4" parent="ManualDesign" unique_id=659462133 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 404.2271, 18.449732, 258.8517)
 currentPoint = 4
+
+[node name="Gate" parent="ManualDesign" unique_id=17602523 instance=ExtResource("12_4bpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.551315, 25.029331, 71.001)
+
+[node name="Gate2" parent="ManualDesign" unique_id=1875224414 instance=ExtResource("12_4bpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.17758, 22.143894, 32.47706)
+
+[node name="Gate3" parent="ManualDesign" unique_id=511115293 instance=ExtResource("12_4bpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.62537, 26.42987, 210.68997)
+
+[node name="TestPrefabs" type="Node3D" parent="." unique_id=1784911204]
 
 [node name="Stones" parent="TestPrefabs" unique_id=599537079 instance=ExtResource("14_i8dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1972313, 19.665983, 41.56672)
@@ -95,15 +107,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 116.
 
 [node name="Tents3" parent="TestPrefabs" unique_id=1903445635 instance=ExtResource("13_n64rs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 311.1686, 18.65988, 105.22108)
-
-[node name="Gate" parent="TestPrefabs" unique_id=17602523 instance=ExtResource("12_4bpm7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.551315, 25.029331, 71.001)
-
-[node name="Gate2" parent="TestPrefabs" unique_id=1875224414 instance=ExtResource("12_4bpm7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.17758, 22.143894, 32.47706)
-
-[node name="Gate3" parent="TestPrefabs" unique_id=511115293 instance=ExtResource("12_4bpm7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.62537, 26.42987, 210.68997)
 
 [node name="Player" parent="." unique_id=290452896 instance=ExtResource("8_g4pvc")]
 unique_name_in_owner = true
