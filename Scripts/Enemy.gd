@@ -20,12 +20,13 @@ const deadDestroyTimeout := 20.0
 var currentPlayer : CharacterBody3D
 var healthBar: Sprite3D
 
-var speed: float = 2.0
+@export var speed: float = 2.0
+@export var wrap_to_player: float = 30.0
 var distance: float = 0.0
 var attacking: bool = false
 var dead:bool = false
 const START_LIFE := 5
-var life: int = START_LIFE
+@export var life: int = START_LIFE
 var restartHit:bool = false
 var cooldown: float = 0.0
 
@@ -39,15 +40,22 @@ func _ready() -> void:
 	if type == EnemyType.BOSS:
 		life = 50
 		updateLife()
-	
+
+func _fix_y():
+	position.y = get_parent().find_child("HTerrain").get_data().get_height_at(position.x, position.z) + 1.0
+
 func _physics_process(delta: float) -> void:
+	var current_speed = speed
+	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
+		current_speed *= 0.1
+	
 	if currentPlayer:
 		var currPos:Vector2 = Vector2(global_position.x, global_position.z)
 		var playerPos:Vector2 = Vector2(currentPlayer.global_position.x,
 										currentPlayer.global_position.z)
 		
 		var direction = global_position.direction_to(currentPlayer.global_position)
-		velocity = direction * speed
+		velocity = direction * current_speed
 		distance = currPos.distance_to(playerPos)
 
 	if dead:
@@ -55,12 +63,29 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if type != EnemyType.SKELETON and type != EnemyType.BOSS and GlobalObject.CurrentMask == 2:
-		var skeletons = get_parent().find_children("*", "Enemy", false, false)
+		var skeletons = get_parent().enemy_cache	#find_children("*", "Enemy", false, false)
 		if !skeletons.is_empty():
 			var random_index = rng.randi() % skeletons.size()
 			var randomSkeleton = skeletons[random_index]
-			var dir = -global_position.direction_to(randomSkeleton.global_position)
-			velocity = dir * speed
+			if randomSkeleton.type == EnemyType.SKELETON:
+				var dir = -global_position.direction_to(randomSkeleton.global_position)
+				velocity = dir * current_speed
+				
+	var wrap = wrap_to_player
+	var dx = position.x - currentPlayer.position.x
+	var dz = position.z - currentPlayer.position.z
+	if dx < -wrap:
+		position.x += wrap*2
+		_fix_y()
+	if dx > wrap:
+		position.x -= wrap*2
+		_fix_y()
+	if dz < -wrap:
+		position.z += wrap*2
+		_fix_y()
+	if dz > wrap:
+		position.z -= wrap*2
+		_fix_y()
 		
 	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 3:
 		animationSprite.animation = "Dance"
@@ -71,8 +96,12 @@ func _physics_process(delta: float) -> void:
 	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 0 and cooldown <= 0.0:
 		Damage()
 		
-	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1 and cooldown <= 0.0:
-		Damage()
+	if type == EnemyType.MARZANA and cooldown <= 0.0:
+		if GlobalObject.CurrentMask == 1:
+			#Damage()
+			$AnimatedSprite3D.modulate = Color(0.2,0.6,5.0)
+		else:
+			$AnimatedSprite3D.modulate = Color.WHITE
 		
 	if life <= 0:
 		life = 0

@@ -1,5 +1,13 @@
 class_name Level extends Node3D
 
+
+@export var difficultyLevel0 = DifficultyLevel.new()
+@export var difficultyLevel1 = DifficultyLevel.new()
+@export var difficultyLevel2 = DifficultyLevel.new()
+@export var difficultyLevel3 = DifficultyLevel.new()
+@export var difficultyLevel4 = DifficultyLevel.new()
+
+
 @onready var Environments: Array[Environment] = [
 	preload("res://Environments/SummerEnv.tres"),
 	preload("res://Environments/WinterEnv.tres"),
@@ -15,6 +23,7 @@ var udp: PacketPeerUDP
 var spawned_trees = []
 var boss_spawned = false
 var terrain: Node3D
+var enemy_cache = []
 
 func _ready() -> void:
 	if udp_enabled:
@@ -47,6 +56,12 @@ func _process(delta: float) -> void:
 		return
 	if udp_enabled:
 		_process_udp_packets()
+		
+	var enemy_list = find_children("*", "Enemy", false, false)
+	enemy_cache = []
+	for enemy in enemy_list:
+		if not enemy.dead:
+			enemy_cache.append(enemy)
 		
 	if GlobalObject.firstTotemFinished and\
 	GlobalObject.secondTotemFinished and\

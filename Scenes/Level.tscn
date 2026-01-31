@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://big68lx40uvdb"]
 
 [ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_nrlyp"]
+[ext_resource type="Script" uid="uid://1rbpjvx56fnu" path="res://Scripts/DifficultyLevel.gd" id="2_32npc"]
 [ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_44tr1"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="3_pmxqn"]
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="4_gs5q7"]
@@ -20,6 +21,26 @@
 [ext_resource type="PackedScene" uid="uid://bsdd4kgwmh6pt" path="res://Scenes/Generator/LevelGenerator.tscn" id="18_q24aw"]
 [ext_resource type="PackedScene" uid="uid://br8ta8wqul4k0" path="res://Resources/3D/BorderRock.glb" id="19_q24aw"]
 
+[sub_resource type="Resource" id="Resource_yyp3s"]
+script = ExtResource("2_32npc")
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
+
+[sub_resource type="Resource" id="Resource_32npc"]
+script = ExtResource("2_32npc")
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
+
+[sub_resource type="Resource" id="Resource_g4pvc"]
+script = ExtResource("2_32npc")
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
+
+[sub_resource type="Resource" id="Resource_ifohm"]
+script = ExtResource("2_32npc")
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
+
+[sub_resource type="Resource" id="Resource_17mqb"]
+script = ExtResource("2_32npc")
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
+
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("5_q24aw")
 _textures = [[ExtResource("6_pmxqn")], [null]]
@@ -31,6 +52,11 @@ size = Vector3(1, 50, 530)
 
 [node name="Level" type="Node3D" unique_id=435008576]
 script = ExtResource("1_nrlyp")
+difficultyLevel0 = SubResource("Resource_yyp3s")
+difficultyLevel1 = SubResource("Resource_32npc")
+difficultyLevel2 = SubResource("Resource_g4pvc")
+difficultyLevel3 = SubResource("Resource_ifohm")
+difficultyLevel4 = SubResource("Resource_17mqb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
 environment = ExtResource("2_44tr1")
