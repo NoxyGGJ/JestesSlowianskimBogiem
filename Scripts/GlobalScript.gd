@@ -16,3 +16,11 @@ func _process(delta: float) -> void:
 
 func get_totems_status() -> Array[bool]:
 	return [firstTotemFinished, secondTotemFinished, thirdTotemFinished, foruthTotemFinished]
+
+func get_finished_totem_count() -> int:
+	var res := 0
+	res += 1 if firstTotemFinished else 0
+	res += 1 if secondTotemFinished else 0
+	res += 1 if thirdTotemFinished else 0
+	res += 1 if foruthTotemFinished else 0
+	return res
