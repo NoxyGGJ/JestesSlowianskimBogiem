@@ -1,8 +1,8 @@
 [gd_resource type="Environment" format=3 uid="uid://dfkvb1475vrys"]
 
 [sub_resource type="Gradient" id="Gradient_3ywx5"]
-offsets = PackedFloat32Array(0, 0.3764302, 0.6556064, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.14018375, 0.14800867, 0.18007824, 1, 0.52733856, 0.57962537, 0.81932974, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.43842888, 0.76326966, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.31747472, 0.31747472, 0.31747472, 1, 0.74840766, 0.74840766, 0.74840766, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ofirr"]
 gradient = SubResource("Gradient_3ywx5")
@@ -21,8 +21,8 @@ sky = SubResource("Sky_86ljf")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.11707162, 0.14336035, 0.17779404, 1)
-fog_density = 0.03
+fog_light_color = Color(0.15061802, 0.228432, 0.3396554, 1)
+fog_density = 0.02
 adjustment_enabled = true
 adjustment_saturation = 0.25
 adjustment_color_correction = SubResource("GradientTexture2D_ofirr")

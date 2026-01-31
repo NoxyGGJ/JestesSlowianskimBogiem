@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c6tkbfcysr7mj" path="res://Scripts/Campfire.gd" id="1_hkl62"]
 [ext_resource type="PackedScene" uid="uid://gc53vq28gn48" path="res://Resources/3D/Sculpture.glb" id="2_8rb6s"]
 [ext_resource type="PackedScene" uid="uid://c2vdrg3pgyixh" path="res://Scenes/LoadingIndicator.tscn" id="4_r3b3c"]
+[ext_resource type="Material" uid="uid://ch64by7v5k6hc" path="res://Materials/SwiatelkoDoNieba.tres" id="5_glem2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hkl62"]
 height = 7.300049
@@ -27,6 +28,15 @@ height = 10.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_r3b3c"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3u7do"]
+material = ExtResource("5_glem2")
+top_radius = 0.08
+bottom_radius = 0.08
+height = 256.0
+radial_segments = 8
+cap_top = false
+cap_bottom = false
 
 [node name="Campfire" type="Node3D" unique_id=1658491565]
 script = ExtResource("1_hkl62")
@@ -70,6 +80,10 @@ size = Vector2i(64, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2571585, 0)
 billboard = 2
 texture = SubResource("ViewportTexture_r3b3c")
+
+[node name="Swiatelko do nieba!" type="MeshInstance3D" parent="." unique_id=1738010499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, 132.345, -1.519)
+mesh = SubResource("CylinderMesh_3u7do")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
