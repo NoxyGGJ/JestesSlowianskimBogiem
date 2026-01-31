@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d3itrlkmqaa1w"]
+
+[ext_resource type="Texture2D" uid="uid://v3wnh684yync" path="res://Resources/GameOverScreen.jpg" id="1_6a6fq"]
+
+[node name="GameOverScreen" type="Node2D" unique_id=1976456880]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1963494414]
+scale = Vector2(5.021875, 3.7916667)
+texture = ExtResource("1_6a6fq")
+centered = false

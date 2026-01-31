@@ -9,7 +9,8 @@ var speed: float = 2.0
 var distance: float = 0.0
 var attacking: bool = false
 var dead:bool = false
-var life: int = 5
+const START_LIFE := 5
+var life: int = START_LIFE
 var restartHit:bool = false
 
 func _ready() -> void:
@@ -73,6 +74,7 @@ func Die() -> void:
 	
 func Damage() -> void:
 	life -= 1
+	$LifeSprite.scale.x = max(float(life) / START_LIFE, 0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

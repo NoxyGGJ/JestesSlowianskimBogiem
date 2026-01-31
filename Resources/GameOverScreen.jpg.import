@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by0dkm6gbbikd"
-path.s3tc="res://.godot/imported/LifeBar.png-9e8a901ba20ab05364760bf4c022ed1d.s3tc.ctex"
+uid="uid://v3wnh684yync"
+path="res://.godot/imported/GameOverScreen.jpg-beb2dd051d5bf1ed6857639dbcfb14ae.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/GUI/LifeBar.png"
-dest_files=["res://.godot/imported/LifeBar.png-9e8a901ba20ab05364760bf4c022ed1d.s3tc.ctex"]
+source_file="res://Resources/GameOverScreen.jpg"
+dest_files=["res://.godot/imported/GameOverScreen.jpg-beb2dd051d5bf1ed6857639dbcfb14ae.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

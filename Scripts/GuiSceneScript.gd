@@ -21,4 +21,3 @@ func update_mask_overlay(index: int) -> void:
 	var sprites_node = %MaskOverlaySprites
 	for i in 4:
 		sprites_node.get_child(i).visible = (i == index)
-	%AstralEffect.visible = index == 3

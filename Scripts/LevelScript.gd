@@ -5,7 +5,11 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	pass
+	var player = $Player
+	if player and player.playerHealth <= 0.0:
+		await get_tree().create_timer(0.75).timeout
+		get_tree().change_scene_to_file("res://GameOverScreen.tscn")
+		return
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("PrevMask"):
