@@ -254,12 +254,29 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 					}
 				}
 
-				const int code_ref = 0x025836A;		// 00010 01011 00000 11011 01010  ->  0 0010 0101 1000 0011 0110 1010
-				if( code == code_ref )
+				const int code_mask_0 = 0x025836A;		// 00010 01011 00000 11011 01010  ->  0 0010 0101 1000 0011 0110 1010
+				const int code_mask_1 = 0x0AD836A;		// 01010 11011 00000 11011 01010  ->  0 1010 1101 1000 0011 0110 1010
+				const int code_mask_2 = 0x027A36A;		// 00010 01111 01000 11011 01010  ->  0 0010 0111 1010 0011 0110 1010
+				const int code_mask_3 = 0x0258FEE;		// 00010 01011 00011 11111 01110  ->  0 0010 0101 1000 1111 1110 1110
+				if( code == code_mask_0 )
 				{
-					printf("================ DETECTED! ================\n");
-					//SendKeyToWindow(L"JestesSlowianskimBogiem", 'U');
+					printf("================ MASK 0 DETECTED! ================\n");
 					SendUDP(0);
+				}
+				else if( code == code_mask_1 )
+				{
+					printf("================ MASK 1 DETECTED! ================\n");
+					SendUDP(1);
+				}
+				else if( code == code_mask_2 )
+				{
+					printf("================ MASK 2 DETECTED! ================\n");
+					SendUDP(2);
+				}
+				else if( code == code_mask_3 )
+				{
+					printf("================ MASK 3 DETECTED! ================\n");
+					SendUDP(3);
 				}
 			}
 		}
