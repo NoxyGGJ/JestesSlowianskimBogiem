@@ -28,6 +28,10 @@ window/size/viewport_height=900
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [importer_defaults]
 
 texture={
