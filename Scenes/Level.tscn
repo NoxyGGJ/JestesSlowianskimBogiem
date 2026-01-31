@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
 [ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
-[ext_resource type="PackedScene" uid="uid://d1ca103icjjk" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
+[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
+[ext_resource type="PackedScene" uid="uid://bk34xm32gh81e" path="res://Scenes/Gate.tscn" id="17_q24aw"]
+[ext_resource type="PackedScene" uid="uid://kk3jy8nl2q3a" path="res://Scenes/Generator/Mountain.tscn" id="18_32npc"]
+[ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
 [ext_resource type="PackedScene" uid="uid://bsdd4kgwmh6pt" path="res://Scenes/Generator/LevelGenerator.tscn" id="18_q24aw"]
 [ext_resource type="PackedScene" uid="uid://br8ta8wqul4k0" path="res://Resources/3D/BorderRock.glb" id="19_q24aw"]
 
@@ -131,6 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.78888, 17.704985, 257.087
 transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 256, 75.00796, 256)
 prefab_tree = ExtResource("10_17mqb")
 prefab_rock = ExtResource("18_gs5q7")
+prefab_gate = ExtResource("17_q24aw")
+prefab_mountain = ExtResource("18_32npc")
 
 [node name="BorderRocks" type="Node3D" parent="." unique_id=1899120536]
 
@@ -277,3 +281,6 @@ transform = Transform3D(2.999999, 0, 0, 0, 2.860693, -0.90356505, 0, 0.9035652, 
 
 [node name="BorderRock2" parent="BorderRocks" unique_id=854928256 instance=ExtResource("19_q24aw")]
 transform = Transform3D(3, 0, 0, 0, 2.914858, 0.7096496, 0, -0.7096496, 2.914858, -3.3108015, 23.39852, 60.037937)
+
+[node name="Mountain" parent="." unique_id=2004023920 instance=ExtResource("18_32npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.33182, 24.131502, 236.02472)
