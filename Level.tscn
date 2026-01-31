@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
-[ext_resource type="PackedScene" path="res://Tree1.tscn" id="10_3ywx5"]
+[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
-[ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Campfire.tscn" id="12_d6u53"]
+[ext_resource type="PackedScene" path="res://Campfire.tscn" id="12_d6u53"]
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="12_sypgb"]
 [ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="13_dn5x0"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_dn5x0"]
@@ -100,10 +100,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.491486, 16.662462, 67.5181
 [node name="Tree1" parent="." unique_id=730201274 instance=ExtResource("10_3ywx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.397556, 15.071342, 8.844614)
 
-[node name="Tree2" parent="." unique_id=994755563 instance=ExtResource("10_3ywx5")]
+[node name="Tree2" parent="." unique_id=1599889865 instance=ExtResource("10_3ywx5")]
 transform = Transform3D(0.55366987, 0, 0.7347447, 0, 0.92, 0, -0.7347447, 0, 0.55366987, 27.874, 15.324, 14.246)
 
-[node name="Tree3" parent="." unique_id=1150413043 instance=ExtResource("10_3ywx5")]
+[node name="Tree3" parent="." unique_id=813563904 instance=ExtResource("10_3ywx5")]
 transform = Transform3D(0.9257578, 0, -0.45152226, 0, 1.03, 0, 0.45152226, 0, 0.9257578, 27.671, 18.097, 25.647)
 
 [node name="Enemy6" parent="." unique_id=1471197246 instance=ExtResource("11_ofirr")]
