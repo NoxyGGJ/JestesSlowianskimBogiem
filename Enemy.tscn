@@ -318,7 +318,7 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_73x2u")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.5346699
+frame_progress = 0.87120056
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
 shape = SubResource("CylinderShape3D_tt7e2")
