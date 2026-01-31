@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
 
-[sub_resource type="Compositor" id="Compositor_86ljf"]
-
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
 mode = 0
@@ -27,7 +25,6 @@ script = ExtResource("1_q4iis")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
 environment = ExtResource("2_ofirr")
-compositor = SubResource("Compositor_86ljf")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
 transform = Transform3D(0.0108034015, 0.8659749, -0.4999708, 2.7805946e-08, 0.5, 0.86602545, 0.99994165, -0.009356052, 0.0054016933, 0, 22.07484, 0)
