@@ -2,6 +2,7 @@
 #include "alleg.h"
 #include "detector.h"
 #include "sendkey.h"
+#include "udp_sender.h"
 
 
 
@@ -233,7 +234,7 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 				if( code == code_ref )
 				{
 					printf("================ DETECTED! ================\n");
-					SendKeyToWindow(L"Notatnik");
+					SendKeyToWindow(L"JestesSlowianskimBogiem", 'U');
 				}
 			}
 		}

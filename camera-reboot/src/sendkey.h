@@ -3,4 +3,4 @@
 
 
 
-void SendKeyToWindow(const std::wstring& needle);
+void SendKeyToWindow(const std::wstring& needle, WORD vk);

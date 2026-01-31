@@ -98,7 +98,14 @@ static BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 	if( len <= 0 ) return TRUE;
 
 	std::wstring t(title, title + len);
+	if( t.find(L"Engine") != std::wstring::npos )
+		return TRUE;
+
+	if( t.find(L"camera") != std::wstring::npos )
+		return TRUE;
+
 	if( t.find(data->needle) != std::wstring::npos ) {
+		printf("Found: %ls\n", title);
 		data->found = hwnd;
 		return FALSE; // stop enumeration
 	}
@@ -112,11 +119,11 @@ HWND FindTopLevelWindowByTitleContains(const std::wstring& needle)
 	return data.found;
 }
 
-void SendKeyToWindow(const std::wstring& needle)
+void SendKeyToWindow(const std::wstring& needle, WORD vk)
 {
 	HWND hWnd = FindTopLevelWindowByTitleContains(needle);
 
 	printf("Window = %p\n", hWnd);
 	if( hWnd && FocusWindow(hWnd) )
-		SendVk_SendInput(VK_F5);
+		SendUnicodeText_SendInput(L"u");
 }
