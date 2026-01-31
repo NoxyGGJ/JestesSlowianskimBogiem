@@ -6,7 +6,8 @@ enum EnemyType
 	NONE,
 	SKELETON,
 	SNOWMAN,
-	MARZANA
+	MARZANA,
+	BOSS
 }
 
 @export var type: EnemyType = EnemyType.NONE
@@ -32,6 +33,10 @@ func _ready() -> void:
 	rng.randomize()
 	currentPlayer = get_parent().find_child("Player")
 	healthBar = find_child("LifeSprite")
+	
+	if type == EnemyType.BOSS:
+		life = 50
+		updateLife()
 	
 func _physics_process(delta: float) -> void:
 	if currentPlayer:
@@ -118,6 +123,9 @@ func Die() -> void:
 func Damage() -> void:
 	life -= 1
 	cooldown = 1.0
+	updateLife()
+	
+func updateLife() -> void:
 	$LifeSprite.scale.x = max(float(life) / START_LIFE, 0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
