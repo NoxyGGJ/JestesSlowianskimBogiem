@@ -23,7 +23,7 @@ func _ready() -> void:
 	mesh = $base
 	particles = $particles
 	timer = $Timer
-	collision = $Collision
+	collision = $CollisionShape3D
 
 func _physics_process(delta: float) -> void:
 	if is_scaling:
@@ -51,7 +51,6 @@ func _on_body_entered(body: Node3D) -> void:
 	collision.disabled = true
 
 func explode() -> void:
-	print("dupa")
 	$explosionParticles.emitting = true
 	var bodies = $explosionArea.get_overlapping_bodies()
 	for body in bodies:
