@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
-[ext_resource type="PackedScene" path="res://Player.tscn" id="7_mxnmf"]
+[ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ywx5"]
@@ -24,6 +24,8 @@ sky = SubResource("Sky_86ljf")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Compositor" id="Compositor_86ljf"]
+
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
 mode = 0
@@ -37,9 +39,11 @@ script = ExtResource("1_q4iis")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
 environment = SubResource("Environment_3ywx5")
+compositor = SubResource("Compositor_86ljf")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
-transform = Transform3D(0.5438612, 0.57029283, -0.61561453, -0.04948085, 0.7541114, 0.65488, 0.83771515, -0.3257026, 0.43835056, 0, 22.07484, 0)
+transform = Transform3D(-0.15022558, 0.8561976, -0.49432588, 2.780595e-08, 0.5, 0.86602557, 0.9886519, 0.13009927, -0.075112835, 0, 22.07484, 0)
+light_energy = 2.0
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="." unique_id=1004625275]
