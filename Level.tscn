@@ -110,3 +110,15 @@ shape = SubResource("BoxShape3D_4eo0i")
 
 [node name="Tree" parent="." unique_id=899795093 instance=ExtResource("10_3ywx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.420424, 15.069545, 8.071295)
+
+[node name="Enemy2" parent="." unique_id=1318673917 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.748366, 20.96063, 33.698452)
+
+[node name="Enemy3" parent="." unique_id=104912804 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.323048, 15.140658, 42.6464)
+
+[node name="Enemy4" parent="." unique_id=1512334344 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50408, 17.334816, 58.804153)
+
+[node name="Enemy5" parent="." unique_id=419834535 instance=ExtResource("8_4eo0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.491486, 16.662462, 67.518135)
