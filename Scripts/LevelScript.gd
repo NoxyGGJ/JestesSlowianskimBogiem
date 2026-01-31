@@ -6,6 +6,7 @@ class_name Level extends Node3D
 @export var difficultyLevel2 = DifficultyLevel.new()
 @export var difficultyLevel3 = DifficultyLevel.new()
 @export var difficultyLevel4 = DifficultyLevel.new()
+var difficultyLevels
 
 
 @onready var Environments: Array[Environment] = [
@@ -31,6 +32,13 @@ func _ready() -> void:
 		udp.bind(9571, "0.0.0.0") # listen on all interfaces
 	set_mask(0)
 	terrain = find_child("HTerrain")
+	difficultyLevels = [
+		difficultyLevel0,
+		difficultyLevel1,
+		difficultyLevel2,
+		difficultyLevel3,
+		difficultyLevel4
+	]
 
 func _process_udp_packets() -> void:
 	while udp.get_available_packet_count() > 0:
@@ -123,3 +131,8 @@ func _update_trees() -> void:
 		tree.update_mask()
 	for tree in spawned_trees:
 		tree.update_mask()
+
+
+func getDifficulty() -> DifficultyLevel:
+	var ntotems = GlobalObject.get_finished_totem_count()
+	return difficultyLevels[ntotems]

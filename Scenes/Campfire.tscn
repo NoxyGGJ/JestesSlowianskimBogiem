@@ -42,7 +42,7 @@ cap_bottom = false
 script = ExtResource("1_hkl62")
 
 [node name="Sculpture" parent="." unique_id=55540525 instance=ExtResource("2_8rb6s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04620087, -1.9345714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15778935, -1.9345714)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sculpture" unique_id=2123529361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.372818, 0)

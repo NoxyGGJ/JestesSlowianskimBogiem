@@ -49,7 +49,8 @@ func _fix_y():
 	position.y = get_parent().find_child("HTerrain").get_data().get_height_at(position.x, position.z) + 1.0
 
 func _physics_process(delta: float) -> void:
-	var current_speed = speed
+	var difficulty: DifficultyLevel = get_parent().getDifficulty()
+	var current_speed = speed * difficulty.SpeedMultiplier
 	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
 		current_speed *= 0.1
 	

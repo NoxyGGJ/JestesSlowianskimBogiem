@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
 @onready var head := $ShakeAnchor/head
 @onready var camera := $ShakeAnchor/head/Camera3D
 @onready var shake := $ShakeAnchor

@@ -1,7 +1,5 @@
 extends Node3D
 
-@export var minSpawnTime = 0.2 
-@export var maxSpawnTime = 2.0
 @export var minX = 0 
 @export var maxX = 500 
 @export var minZ = 0
@@ -16,22 +14,23 @@ extends Node3D
 
 @onready var spawn_timer: Timer = $SpawnTimer
 
-var root = Node3D
+var root: Level
 var rng = RandomNumberGenerator.new()
 var terrain: Node3D
 var player: CharacterBody3D
 
 func _ready() -> void:
 	rng.randomize()
-	spawn_timer.wait_time = rng.randf_range(minSpawnTime, maxSpawnTime)
+	spawn_timer.wait_time = 5.0
 	spawn_timer.start()
 	root = get_parent()
 	terrain = root.find_child("HTerrain")	
 	player = root.find_child("Player")
 		
 func _on_spawn_timer_timeout() -> void:
+	var difficulty = root.getDifficulty()
 
-	if get_parent().enemy_cache.size() < 10:
+	if get_parent().enemy_cache.size() < difficulty.MaxEnemies:
 		var random_value = rng.randf()
 		
 		var x = rng.randf_range(minX, maxX)
@@ -63,5 +62,5 @@ func _on_spawn_timer_timeout() -> void:
 			root.add_child(instance2)
 			instance2.position = Vector3(x, y, z)
 
-	spawn_timer.wait_time = rng.randf_range(minSpawnTime, maxSpawnTime)
+	spawn_timer.wait_time = rng.randf_range(difficulty.MinSpawnTime, difficulty.MaxSpawnTime)
 	spawn_timer.start()

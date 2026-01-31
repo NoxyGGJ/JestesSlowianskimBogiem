@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bmd32mvlakd4b" path="res://Resources/3D/spear.glb" id="2_883ib"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_w7toh"]
+radius = 0.8
 
 [node name="Projectile" type="Area3D" unique_id=395601081]
 script = ExtResource("1_883ib")
 speed = 23.0
 max_scale = Vector3(1.5, 1.5, 1.5)
 speed_scaling = 0.5
+piercing = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -19,38 +19,8 @@ shape = SubResource("SphereShape3D_xh6v2")
 
 [node name="base" type="Node3D" parent="." unique_id=1714816486]
 
-[node name="IceSpike" type="MeshInstance3D" parent="base" unique_id=1027629661]
-transform = Transform3D(0.060732044, -0.028841179, 0, 0.03480832, 0.050320834, 0, 0, 0, 0.417, -0.03380072, -0.1420773, 0.06167239)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
-[node name="IceSpike2" type="MeshInstance3D" parent="base" unique_id=388059101]
-transform = Transform3D(0.049340863, 0.041141547, 0, -0.049653593, 0.040882427, 0, 0, 0, 0.417, 0.13832754, -0.07601757, -0.041472077)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
-[node name="IceSpike3" type="MeshInstance3D" parent="base" unique_id=193087488]
-transform = Transform3D(0.034999996, -0.050229475, 0, 0.060621783, 0.028999997, 0, 0, 0, 0.417, 0.032236204, -0.021409534, 0)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
-[node name="IceSpike4" type="MeshInstance3D" parent="base" unique_id=1607821948]
-transform = Transform3D(-0.061859015, 0.027147096, 0, -0.032763734, -0.05125461, 0, 0, 0, 0.417, -0.12671615, -0.018344538, -0.056076348)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
-[node name="IceSpike5" type="MeshInstance3D" parent="base" unique_id=2114707152]
-transform = Transform3D(0.060507223, -0.029163782, 0, 0.035197668, 0.050134555, 0, 0, 0, 0.417, 0.15139388, 0.10799204, -0.008257091)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
-[node name="IceSpike6" type="MeshInstance3D" parent="base" unique_id=1837761940]
-transform = Transform3D(-0.0018372757, -0.057980016, 0, 0.06997588, -0.001522314, 0, 0, 0, 0.417, -0.06476739, 0.12108886, 0.020056129)
-visible = false
-mesh = SubResource("PrismMesh_w7toh")
-
 [node name="spear" parent="base" unique_id=1684871893 instance=ExtResource("2_883ib")]
-transform = Transform3D(0.28559133, 1.0501877, 0.060940783, 1.1121145, -0.283103, 0.14227393, 0.33234572, 0.044887803, -0.5284529, 0, 0, 0.039821126)
+transform = Transform3D(0.5256296, 1.9342467, 0.1122195, 2.0468416, -0.5214218, 0.26199058, 0.6116806, 0.08267482, -0.9731207, 0, 0, 0.039821126)
 
 [node name="Timer" type="Timer" parent="." unique_id=1793413249]
 one_shot = true

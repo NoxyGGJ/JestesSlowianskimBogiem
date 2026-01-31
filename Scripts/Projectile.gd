@@ -5,6 +5,7 @@ class_name Projectile
 @export var max_scale : Vector3
 @export var speed_scaling : float
 @export var do_explode : bool
+@export var piercing : bool = false
 var currentPlayer : CharacterBody3D
 var mesh
 var particles
@@ -37,16 +38,19 @@ func _on_body_entered(body: Node3D) -> void:
 	if is_scaling:
 		return
 
+	if do_explode:
+		explode()
+	else:
+		if deal_damage(body):
+			if piercing:
+				return
+
 	if not mesh.is_queued_for_deletion():
 		mesh.queue_free()
 	
 	if particles != null:
 		particles.emitting = false
 	
-	if do_explode:
-		explode()
-	else:
-		deal_damage(body)
 		
 	timer.start()	
 	collision.disabled = true
@@ -63,10 +67,12 @@ func explode() -> void:
 		if enemy:
 			body.Damage()
 	
-func deal_damage(body: Node3D) -> void:
+func deal_damage(body: Node3D) -> bool:
 	var enemy = body is Enemy
 	if enemy:
 		body.Damage()
+		return true
+	return false
 
 func _on_timer_timeout() -> void:
 	if not is_queued_for_deletion():
