@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cnlgpyvfntimr"]
+
+[ext_resource type="Script" uid="uid://dpm4f54tyag2d" path="res://Scripts/GameOverScreen.gd" id="1_d8xbi"]
+[ext_resource type="Texture2D" uid="uid://vu10b6bhrhtl" path="res://Resources/WinScreen.jpg" id="2_d8xbi"]
+
+[node name="GameOverScreen" type="Node2D" unique_id=1976456880]
+script = ExtResource("1_d8xbi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1963494414]
+scale = Vector2(5.021875, 3.7916667)
+texture = ExtResource("2_d8xbi")
+centered = false
+
+[node name="InputEnableTimer" type="Timer" parent="." unique_id=2077168175]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="InputEnableTimer" to="." method="_on_input_enable_timer_timeout"]
