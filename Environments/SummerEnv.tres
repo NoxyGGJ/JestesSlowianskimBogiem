@@ -18,6 +18,7 @@ resource_local_to_scene = true
 background_mode = 2
 sky = SubResource("Sky_acx7o")
 tonemap_mode = 2
+ssao_enabled = true
 glow_enabled = true
 fog_light_color = Color(0.11707162, 0.14336035, 0.17779404, 1)
 fog_density = 0.025
