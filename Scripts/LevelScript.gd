@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	var player = $Player
 	if player and player.playerHealth <= 0.0:
 		await get_tree().create_timer(0.75).timeout
-		get_tree().change_scene_to_file("res://GameOverScreen.tscn")
+		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 		return
 	if udp_enabled:
 		_process_udp_packets()
