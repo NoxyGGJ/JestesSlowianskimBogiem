@@ -44,3 +44,4 @@ func _physics_process(delta: float) -> void:
 func hit() -> void:
 	playerHealth -= 0.05
 	%Gui.update_health(playerHealth)
+	%Gui.take_damage()

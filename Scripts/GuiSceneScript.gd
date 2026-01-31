@@ -1,6 +1,7 @@
 class_name GuiScene extends Node2D
 
 var health_bar_max_width: int = 0
+var damage_overlay_in_progress = false
 
 func _ready() -> void:
 	health_bar_max_width = %InteriorLife.size.x
@@ -22,3 +23,16 @@ func update_mask_overlay(index: int) -> void:
 	for i in 4:
 		sprites_node.get_child(i).visible = (i == index)
 	%AstralEffect.visible = index == 3
+
+func take_damage() -> void:
+	if damage_overlay_in_progress:
+		return
+	damage_overlay_in_progress = true
+	var damage_overlay_node = $%DamageOverlay
+	damage_overlay_node.visible = true
+	var tween := get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(damage_overlay_node, "self_modulate", Color(1, 1, 1, 0), 0.47)
+	await get_tree().create_timer(0.52).timeout
+	damage_overlay_node.visible = false
+	damage_overlay_node.self_modulate = Color.WHITE
+	damage_overlay_in_progress = false
