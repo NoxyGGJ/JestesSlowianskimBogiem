@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dd1wt8rsqljsx" path="res://Resources/Enemy/skeleton.png" id="1_tt7e2"]
 [ext_resource type="Script" uid="uid://b81migcbqit0e" path="res://Scripts/Enemy.gd" id="2_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_2hac7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qy3v"]
 atlas = ExtResource("1_tt7e2")
@@ -322,3 +323,10 @@ frame_progress = 0.87120056
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
 shape = SubResource("CylinderShape3D_tt7e2")
+
+[node name="LifeSprite" type="Sprite3D" parent="." unique_id=1722684524]
+transform = Transform3D(1, 0, 0, 0, 0.5356426, 0, 0, 0, 1, 0, 1.2315364, 0)
+billboard = 2
+texture = ExtResource("3_2hac7")
+region_enabled = true
+region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
