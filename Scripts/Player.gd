@@ -3,8 +3,10 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-@onready var head := $head
-@onready var camera := $head/Camera3D
+@onready var head := $ShakeAnchor/head
+@onready var camera := $ShakeAnchor/head/Camera3D
+@onready var shake := $ShakeAnchor
+@export var hit_trauma : float = 1.0
 var playerHealth: float = 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -46,6 +48,7 @@ func _physics_process(delta: float) -> void:
 
 func hit() -> void:
 	playerHealth -= 0.05
+	shake.add_trauma(hit_trauma)
 	%Gui.update_health(playerHealth)
 	%Gui.take_damage()
 	
