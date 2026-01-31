@@ -44,13 +44,20 @@ func _on_spawn_timer_timeout() -> void:
 		
 	var y = terrain.get_data().get_height_at(x,z) + 1.0
 	
-	var random_index = rng.randi() % objects.size()
-	var object_scene = objects[random_index]
-	var instance2 = object_scene.instantiate()
-
-	root.add_child(instance2)
-
-	instance2.position = Vector3(x, y, z)
+	#var random_index = rng.randi() % objects.size()
+	var random_index := -1
+	match GlobalObject.CurrentMask:
+		0:
+			random_index = 2 # Marzanna
+		1:
+			random_index = 1 # Balwan
+		2:
+			random_index = 0 # Szkielet
+	if random_index != -1:
+		var object_scene = objects[random_index]
+		var instance2 = object_scene.instantiate()
+		root.add_child(instance2)
+		instance2.position = Vector3(x, y, z)
 
 	spawn_timer.wait_time = rng.randf_range(minSpawnTime, maxSpawnTime)
 	spawn_timer.start()
