@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d1ca103icjjk"]
+
+[ext_resource type="Script" uid="uid://ioct4gnhjtc8" path="res://Scripts/TreeScript.gd" id="1_kys2i"]
+[ext_resource type="PackedScene" uid="uid://c33sk8neds0ht" path="res://Resources/3D/Rock.glb" id="2_kys2i"]
+[ext_resource type="PackedScene" uid="uid://bobprm4kd6y62" path="res://Resources/3D/RockWinter.glb" id="3_0bcn5"]
+[ext_resource type="PackedScene" uid="uid://dscv6fcc7uh86" path="res://Resources/3D/RockNight.glb" id="4_jdfup"]
+[ext_resource type="PackedScene" uid="uid://im1s45wu5fw2" path="res://Resources/3D/RockPsy.glb" id="5_285m5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mqent"]
+height = 3.058
+radius = 1.833
+
+[node name="Rock1" type="Node3D" unique_id=730201274]
+script = ExtResource("1_kys2i")
+
+[node name="Meshes" type="Node3D" parent="." unique_id=1702647330]
+unique_name_in_owner = true
+
+[node name="Rock" parent="Meshes" unique_id=935161491 instance=ExtResource("2_kys2i")]
+
+[node name="RockWinter" parent="Meshes" unique_id=1525378230 instance=ExtResource("3_0bcn5")]
+visible = false
+
+[node name="RockNight" parent="Meshes" unique_id=1593509590 instance=ExtResource("4_jdfup")]
+visible = false
+
+[node name="RockPsy" parent="Meshes" unique_id=1351428680 instance=ExtResource("5_285m5")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=45342657]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=183587971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2241921, 0)
+shape = SubResource("CylinderShape3D_mqent")
