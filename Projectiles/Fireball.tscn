@@ -1,19 +1,26 @@
 [gd_scene format=3 uid="uid://cu0awoyok3hbn"]
 
-[ext_resource type="Script" uid="uid://cnfgjtx61xgft" path="res://Scripts/Projectile.gd" id="1_t7eop"]
-[ext_resource type="Material" uid="uid://bhbqsiirj1fh5" path="res://fireball_base.tres" id="2_1cf02"]
-[ext_resource type="Material" uid="uid://x5a5gbvlh36a" path="res://fireball.tres" id="2_e7peq"]
+[ext_resource type="Script" uid="uid://cnfgjtx61xgft" path="res://Scripts/Projectile.gd" id="1_llehy"]
+[ext_resource type="Material" uid="uid://bhbqsiirj1fh5" path="res://Projectiles/fireball_base.tres" id="2_mqswd"]
+[ext_resource type="Material" uid="uid://x5a5gbvlh36a" path="res://Projectiles/fireball.tres" id="3_ifppd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t7eop"]
-material = ExtResource("2_1cf02")
+material = ExtResource("2_mqswd")
 
 [sub_resource type="Gradient" id="Gradient_e7peq"]
 colors = PackedColorArray(0.83137256, 0, 0, 1, 1, 0.8117647, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1cf02"]
 gradient = SubResource("Gradient_e7peq")
+
+[sub_resource type="Gradient" id="Gradient_1cf02"]
+offsets = PackedFloat32Array(0, 0.41638795, 1)
+colors = PackedColorArray(1, 0.66489196, 0, 1, 1, 0.3931172, 0, 1, 1, 0.17254902, 0, 0.49411765)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3rnyv"]
+gradient = SubResource("Gradient_1cf02")
 
 [sub_resource type="Curve" id="Curve_3rnyv"]
 _limits = [0.0, 4.035377, 0.0, 1.0]
@@ -40,15 +47,19 @@ gravity = Vector3(0, -2, 0)
 scale_min = 0.049999997
 scale_max = 0.14999999
 scale_curve = SubResource("CurveTexture_7rt88")
+color_ramp = SubResource("GradientTexture1D_3rnyv")
 color_initial_ramp = SubResource("GradientTexture1D_1cf02")
 emission_curve = SubResource("CurveTexture_dbogy")
 
 [sub_resource type="QuadMesh" id="QuadMesh_3rnyv"]
-material = ExtResource("2_e7peq")
+material = ExtResource("3_ifppd")
 
 [node name="Projectile" type="Area3D" unique_id=395601081]
-script = ExtResource("1_t7eop")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_llehy")
 speed = 30.0
+max_scale = Vector3(1.5, 1.5, 1.5)
+speed_scaling = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -66,8 +77,8 @@ process_material = SubResource("ParticleProcessMaterial_1cf02")
 draw_pass_1 = SubResource("QuadMesh_3rnyv")
 
 [node name="Timer" type="Timer" parent="." unique_id=1793413249]
-wait_time = 0.5
 one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

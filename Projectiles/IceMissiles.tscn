@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bm4tcs6300bfc"]
+
+[ext_resource type="Script" uid="uid://cnfgjtx61xgft" path="res://Scripts/Projectile.gd" id="1_ev2d6"]
+[ext_resource type="Material" uid="uid://x5a5gbvlh36a" path="res://Projectiles/fireball.tres" id="3_iflra"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_w7toh"]
+
+[sub_resource type="Gradient" id="Gradient_w7toh"]
+offsets = PackedFloat32Array(0, 0.2625418, 0.48662207, 1)
+colors = PackedColorArray(1, 1, 1, 0.7294118, 1, 1, 1, 0.8156863, 1, 1, 1, 0.84705883, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qbe8g"]
+gradient = SubResource("Gradient_w7toh")
+
+[sub_resource type="Curve" id="Curve_js38r"]
+_data = [Vector2(0, 0.18768668), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y1fdn"]
+curve = SubResource("Curve_js38r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ioy3"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector3(0, -0.2, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_y1fdn")
+color_ramp = SubResource("GradientTexture1D_qbe8g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3rnyv"]
+material = ExtResource("3_iflra")
+
+[node name="Projectile" type="Area3D" unique_id=395601081]
+script = ExtResource("1_ev2d6")
+speed = 30.0
+max_scale = Vector3(1.5, 1.5, 1.5)
+speed_scaling = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_xh6v2")
+
+[node name="base" type="Node3D" parent="." unique_id=1714816486]
+
+[node name="IceSpike" type="MeshInstance3D" parent="base" unique_id=1027629661]
+transform = Transform3D(0.060732044, -0.028841179, 0, 0.03480832, 0.050320834, 0, 0, 0, 0.417, -0.03380072, -0.1420773, 0.06167239)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="IceSpike2" type="MeshInstance3D" parent="base" unique_id=388059101]
+transform = Transform3D(0.049340863, 0.041141547, 0, -0.049653593, 0.040882427, 0, 0, 0, 0.417, 0.13832754, -0.07601757, -0.041472077)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="IceSpike3" type="MeshInstance3D" parent="base" unique_id=193087488]
+transform = Transform3D(0.034999996, -0.050229475, 0, 0.060621783, 0.028999997, 0, 0, 0, 0.417, 0.032236204, -0.021409534, 0)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="IceSpike4" type="MeshInstance3D" parent="base" unique_id=1607821948]
+transform = Transform3D(-0.061859015, 0.027147096, 0, -0.032763734, -0.05125461, 0, 0, 0, 0.417, -0.12671615, -0.018344538, -0.056076348)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="IceSpike5" type="MeshInstance3D" parent="base" unique_id=2114707152]
+transform = Transform3D(0.060507223, -0.029163782, 0, 0.035197668, 0.050134555, 0, 0, 0, 0.417, 0.15139388, 0.10799204, -0.008257091)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="IceSpike6" type="MeshInstance3D" parent="base" unique_id=1837761940]
+transform = Transform3D(-0.0018372757, -0.057980016, 0, 0.06997588, -0.001522314, 0, 0, 0, 0.417, -0.06476739, 0.12108886, 0.020056129)
+mesh = SubResource("PrismMesh_w7toh")
+
+[node name="particles" type="GPUParticles3D" parent="." unique_id=161527410]
+amount = 36
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_5ioy3")
+draw_pass_1 = SubResource("QuadMesh_3rnyv")
+
+[node name="Timer" type="Timer" parent="." unique_id=1793413249]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
