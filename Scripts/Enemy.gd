@@ -129,6 +129,9 @@ func Damage() -> void:
 	life -= 1
 	cooldown = 1.0
 	updateLife()
+	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	t.tween_property($AnimatedSprite3D, "modulate", Color(1.0, 0.5, 0.5, 1.0), 0.1)
+	t.tween_property($AnimatedSprite3D, "modulate", Color.WHITE, 0.1)
 	
 func updateLife() -> void:
 	$LifeSprite.scale.x = max(float(life) / START_LIFE, 0)
