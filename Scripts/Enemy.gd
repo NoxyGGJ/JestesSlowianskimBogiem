@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Enemy
 
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
+@onready var collisionShape: CollisionShape3D = $CollisionShape3D
 
 var currentPlayer : CharacterBody3D
 var speed: float = 2.0
@@ -54,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		_on_hit()
 	elif animationSprite.animation_looped.is_connected(_on_finished):
 		animationSprite.animation_looped.disconnect(_on_finished)
+		restartHit = false
 	
 func _on_hit() -> void:
 	if attacking:
@@ -67,6 +69,7 @@ func isAttacking() -> bool:
 	
 func Die() -> void:
 	dead = true
+	collisionShape.disabled = true
 	
 func Damage() -> void:
 	life -= 1
