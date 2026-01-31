@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://sm41xy54ilfk"]
+
+[ext_resource type="Script" uid="uid://b81migcbqit0e" path="res://Scripts/Enemy.gd" id="1_bxj2i"]
+[ext_resource type="Texture2D" uid="uid://8ycp2unj5idw" path="res://Resources/Enemy/bawan_full.png" id="2_bxj2i"]
+[ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_ughsc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aj2q"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(1830, 0, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ughsc"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(2440, 0, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmo2v"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(0, 668, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c88r8"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(610, 668, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qmf"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(1220, 668, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsoki"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(0, 0, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wdaw"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(610, 0, 610, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttq2e"]
+atlas = ExtResource("2_bxj2i")
+region = Rect2(1220, 0, 610, 668)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73x2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aj2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ughsc")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmo2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c88r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qmf")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsoki")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wdaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttq2e")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt7e2"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1318673917]
+script = ExtResource("1_bxj2i")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=528754842]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.2758546, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_73x2u")
+animation = &"Attack"
+autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
+shape = SubResource("CylinderShape3D_tt7e2")
+
+[node name="LifeSprite" type="Sprite3D" parent="." unique_id=1722684524]
+transform = Transform3D(1, 0, 0, 0, 0.5356426, 0, 0, 0, 1, 0, 0.8004978, 0)
+billboard = 2
+texture = ExtResource("3_ughsc")
+region_enabled = true
+region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)

@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
-[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
+[ext_resource type="PackedScene" path="res://Tree1.tscn" id="10_3ywx5"]
+[ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
 
 [sub_resource type="Gradient" id="Gradient_3ywx5"]
 offsets = PackedFloat32Array(0, 0.3764302, 0.6556064, 1)
@@ -128,3 +129,15 @@ transform = Transform3D(0.55366987, 0, 0.7347447, 0, 0.92, 0, -0.7347447, 0, 0.5
 
 [node name="Tree3" parent="." unique_id=1150413043 instance=ExtResource("10_3ywx5")]
 transform = Transform3D(0.9257578, 0, -0.45152226, 0, 1.03, 0, 0.45152226, 0, 0.9257578, 27.671, 18.097, 25.647)
+
+[node name="Enemy6" parent="." unique_id=1471197246 instance=ExtResource("11_ofirr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.573695, 20.030304, 24.654264)
+
+[node name="Enemy7" parent="." unique_id=231511788 instance=ExtResource("11_ofirr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.66663, 16.954168, 19.921864)
+
+[node name="Enemy8" parent="." unique_id=794008513 instance=ExtResource("11_ofirr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.417107, 16.80935, 23.18011)
+
+[node name="Enemy9" parent="." unique_id=2074059388 instance=ExtResource("11_ofirr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.15487, 17.78433, 25.720396)
