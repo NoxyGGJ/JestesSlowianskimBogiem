@@ -14,4 +14,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-		
+func get_totems_status() -> Array[bool]:
+	return [firstTotemFinished, secondTotemFinished, thirdTotemFinished, foruthTotemFinished]
