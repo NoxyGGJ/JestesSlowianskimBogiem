@@ -68,6 +68,10 @@ func deal_damage(body: Node3D) -> void:
 	if enemy:
 		body.Damage()
 
-
 func _on_timer_timeout() -> void:
-	queue_free()
+	if not is_queued_for_deletion():
+		queue_free()
+
+func _on_max_life_time_timer_timeout() -> void:
+	if not is_queued_for_deletion():
+		queue_free()
