@@ -27,7 +27,7 @@ script = ExtResource("1_q4iis")
 environment = ExtResource("2_ofirr")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
-transform = Transform3D(0.0108034015, 0.8659749, -0.4999708, 2.7805946e-08, 0.5, 0.86602545, 0.99994165, -0.009356052, 0.0054016933, 0, 22.07484, 0)
+transform = Transform3D(0.010731676, 0.91774595, -0.39702275, -0.0012428056, 0.39705753, 0.9177928, 0.99994165, -0.009356033, 0.005401676, 0, 22.07484, 0)
 light_energy = 2.0
 shadow_enabled = true
 
@@ -85,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.748366, 20.96063, 33.69845
 
 [node name="Enemy3" parent="." unique_id=104912804 instance=ExtResource("8_4eo0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.323048, 15.140658, 42.6464)
+visible = false
 
 [node name="Enemy4" parent="." unique_id=1512334344 instance=ExtResource("8_4eo0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50408, 17.334816, 58.804153)
