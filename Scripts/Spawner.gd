@@ -1,0 +1,55 @@
+extends Node3D
+
+@export var minSpawnTime = 0.2 
+@export var maxSpawnTime = 2.0
+@export var minX = 0 
+@export var maxX = 500 
+@export var minZ = 0
+@export var maxZ = 500
+@export var playerRandom = 15
+
+@export var objects = [
+	preload("res://Scenes/Enemy.tscn"),
+	preload("res://Scenes/EnemySnow.tscn")
+]
+
+@onready var spawn_timer: Timer = $SpawnTimer
+
+var root = Node3D
+var rng = RandomNumberGenerator.new()
+var terrain: Node3D
+var player: CharacterBody3D
+
+func _ready() -> void:
+	rng.randomize()
+	spawn_timer.wait_time = rng.randf_range(minSpawnTime, maxSpawnTime)
+	spawn_timer.start()
+	root = get_parent()
+	terrain = root.find_child("HTerrain")	
+	player = root.find_child("Player")
+		
+func _on_spawn_timer_timeout() -> void:
+	var random_value = rng.randf()
+	
+	var x = rng.randf_range(minX, maxX)
+	var z = rng.randf_range(minZ, maxZ)
+	
+	if player and rng.randi() % 2:
+		x = player.position.x + rng.randf_range(-playerRandom, playerRandom)
+		z = player.position.z + rng.randf_range(-playerRandom, playerRandom)
+	else:
+		x = rng.randf_range(minX, maxX)
+		z = rng.randf_range(minZ, maxZ)
+		
+	var y = terrain.get_data().get_height_at(x,z) + 1.0
+	
+	var random_index = rng.randi() % objects.size()
+	var object_scene = objects[random_index]
+	var instance2 = object_scene.instantiate()
+
+	root.add_child(instance2)
+
+	instance2.position = Vector3(x, y, z)
+
+	spawn_timer.wait_time = rng.randf_range(minSpawnTime, maxSpawnTime)
+	spawn_timer.start()
