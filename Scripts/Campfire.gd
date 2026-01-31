@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 
 	if capture_progress >= 100:
 		captured = true
+		$"Swiatelko do nieba!".visible = false
 		capturing = false
 		loading_indicator.set_value(0.0)
 		fieldMesh.visible = false
