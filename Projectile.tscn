@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cu0awoyok3hbn"]
+
+[ext_resource type="Script" uid="uid://cnfgjtx61xgft" path="res://Scripts/Projectile.gd" id="1_t7eop"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_t7eop"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xh6v2"]
+
+[node name="Projectile" type="Area3D" unique_id=395601081]
+script = ExtResource("1_t7eop")
+speed = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_xh6v2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1027629661]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_t7eop")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=813089216]
+transform = Transform3D(0.11978814, 0, 0, 0, 0.17628595, 0, 0, 0, 0.5, 0, 0, 0.263206)
+mesh = SubResource("BoxMesh_xh6v2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://dexq1r11bvb42"]
 
 [ext_resource type="Script" uid="uid://ch2ly8pi411hw" path="res://Scripts/Player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://er8bdytox17q" path="res://Scripts/ProjectileSpawner.gd" id="2_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://cu0awoyok3hbn" path="res://Projectile.tscn" id="3_kne1u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kpjcp"]
 
 [node name="Player" type="CharacterBody3D" unique_id=290452896]
 script = ExtResource("1_xhfnw")
@@ -15,16 +13,12 @@ script = ExtResource("1_xhfnw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_kpjcp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1673162400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_xhfnw")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=722950932]
-transform = Transform3D(0.75497127, 0, 0, 0, 0.3814982, 0, 0, 0, 0.46979934, 0, 1.6138628, -0.22630191)
-mesh = SubResource("BoxMesh_kpjcp")
-
 [node name="head" type="Node3D" parent="." unique_id=1472965385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5797417, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=1880932805]
-transform = Transform3D(1, 0, 0, 0, 1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0)
+
+[node name="ProjectileSpawner" type="Node3D" parent="head/Camera3D" unique_id=1880270117]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, -0.010185359, -1.2656223)
+script = ExtResource("2_kpjcp")
+projectile_scene = ExtResource("3_kne1u")

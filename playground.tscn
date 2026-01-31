@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjxk7wqrawbae"]
 
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="1_rupst"]
+[ext_resource type="PackedScene" path="res://Enemy.tscn" id="2_wt17y"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wt17y"]
 
@@ -22,3 +23,6 @@ mesh = SubResource("PlaneMesh_rupst")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=933751452]
 transform = Transform3D(-0.5511218, 0.5317141, -0.64307463, 0, 0.7706802, 0.6372223, 0.834425, 0.35118708, -0.42473862, 0, 3.8765116, 0)
+
+[node name="Enemy" parent="." unique_id=1318673917 instance=ExtResource("2_wt17y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -7)
