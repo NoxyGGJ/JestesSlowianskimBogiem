@@ -4,6 +4,30 @@
 #include "sendkey.h"
 #include "udp_sender.h"
 
+#include <iostream>
+
+
+
+void SendUDP(uint8_t index)
+{
+	static UdpSender udp(9571); // localhost:9571
+
+	uint8_t payload[5] ={ 'M','A','S','K', index + '0' };
+	int n = udp.sendBytes(payload, sizeof(payload));
+
+	if( n < 0 )
+	{
+		std::cout << "UDP send failed: " << udp.lastError()
+			<< " " << udp.lastErrorMessage() << "\n";
+		return;
+	}
+
+	std::cout << "Sent " << n << " bytes\n";
+}
+
+
+
+
 
 
 int FeatureDetector::BoxAverage(int x, int y, int size)
@@ -234,7 +258,8 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 				if( code == code_ref )
 				{
 					printf("================ DETECTED! ================\n");
-					SendKeyToWindow(L"JestesSlowianskimBogiem", 'U');
+					//SendKeyToWindow(L"JestesSlowianskimBogiem", 'U');
+					SendUDP(0);
 				}
 			}
 		}

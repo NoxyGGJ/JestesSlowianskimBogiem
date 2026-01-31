@@ -26,7 +26,7 @@ func _process_udp_packets() -> void:
 			return
 		if not packet_string.begins_with("MASK"):
 			return
-		var digit := packet_string[4].to_int() - 48  # ASCII '0' = 48
+		var digit := packet_string[4].to_int()
 		if digit < 0 or digit > 3:
 			return
 		set_mask(digit)
