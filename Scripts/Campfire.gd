@@ -36,6 +36,16 @@ func _process(delta: float) -> void:
 		capturing = false
 		loading_indicator.set_value(0.0)
 		fieldMesh.visible = false
+		
+		match currentPoint:
+			CapturePoint.FIRST:
+				GlobalObject.firstTotemFinished = true
+			CapturePoint.SECOND:
+				GlobalObject.secondTotemFinished = true
+			CapturePoint.THIRD:
+				GlobalObject.thirdTotemFinished = true
+			CapturePoint.FOURTH:
+				GlobalObject.foruthTotemFinished = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if captured:
