@@ -52,6 +52,8 @@ func _on_body_entered(body: Node3D) -> void:
 
 func explode() -> void:
 	$explosionParticles.emitting = true
+	$explosionAdditionalParticles.emitting = true
+	$smokeParticles.emitting = true
 	var bodies = $explosionArea.get_overlapping_bodies()
 	for body in bodies:
 		var enemy = body is Enemy

@@ -65,14 +65,32 @@ point_count = 2
 curve = SubResource("Curve_neo6w")
 
 [sub_resource type="Curve" id="Curve_rk44w"]
-_data = [Vector2(0, 0.021611929), 0.0, 0.0, 0, 0, Vector2(0.26644737, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8059211, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_60r1h"]
 curve = SubResource("Curve_rk44w")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldoja"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_60r1h")
+color = Color(1, 0.7423608, 0, 1)
+color_ramp = SubResource("GradientTexture1D_ecb1i")
+emission_curve = SubResource("CurveTexture_a0gp5")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_28m7f"]
+material = ExtResource("3_ifppd")
+top_radius = 0.1
+bottom_radius = 0.0
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bb55b"]
-emission_shape_scale = Vector3(0.7, 0.7, 0.7)
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, -1, 0)
@@ -81,11 +99,39 @@ initial_velocity_min = 2.0
 initial_velocity_max = 4.0
 gravity = Vector3(0, 5, 0)
 scale_min = 0.25
-scale_max = 0.75
+scale_max = 0.5
 scale_curve = SubResource("CurveTexture_60r1h")
 color = Color(1, 0.7423608, 0, 1)
 color_ramp = SubResource("GradientTexture1D_ecb1i")
 emission_curve = SubResource("CurveTexture_a0gp5")
+
+[sub_resource type="Curve" id="Curve_ldoja"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.34868422, 0.64963126), 0.0, 0.0, 0, 0, Vector2(0.67105263, 0.5041952), -0.4368828, -0.4368828, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_28m7f"]
+curve = SubResource("Curve_ldoja")
+
+[sub_resource type="Curve" id="Curve_ecb1i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8059211, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_neo6w"]
+curve = SubResource("Curve_ecb1i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a0gp5"]
+emission_shape_scale = Vector3(0.7, 0.7, 0.7)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.25
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_neo6w")
+color = Color(0.06974216, 0.06974216, 0.06974216, 1)
+alpha_curve = SubResource("CurveTexture_28m7f")
 
 [node name="Projectile" type="Area3D" unique_id=395601081]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -116,14 +162,34 @@ draw_pass_1 = SubResource("SphereMesh_ldoja")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_xh6v2")
 
-[node name="explosionParticles" type="GPUParticles3D" parent="." unique_id=2027786479]
+[node name="explosionAdditionalParticles" type="GPUParticles3D" parent="." unique_id=1848489891]
 emitting = false
-amount = 72
+amount = 24
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
-transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_ldoja")
+draw_pass_1 = SubResource("CylinderMesh_28m7f")
+
+[node name="explosionParticles" type="GPUParticles3D" parent="." unique_id=209584296]
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_bb55b")
+draw_pass_1 = SubResource("SphereMesh_ldoja")
+
+[node name="smokeParticles" type="GPUParticles3D" parent="." unique_id=2027786479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52372885, 0)
+emitting = false
+amount = 24
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_a0gp5")
 draw_pass_1 = SubResource("SphereMesh_ldoja")
 
 [node name="Timer" type="Timer" parent="." unique_id=1793413249]
