@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		animationSprite.animation = "Attack"
 		attacking = true
 		
-	elif distance < 20:	
+	elif distance < 40:	
 		move_and_slide()	
 		animationSprite.animation = "Walk"
 		attacking = false
