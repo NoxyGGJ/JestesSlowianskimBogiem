@@ -9,6 +9,8 @@ class_name Level extends Node3D
 const udp_enabled := true
 var udp: PacketPeerUDP
 
+var spawned_trees = []
+
 func _ready() -> void:
 	if udp_enabled:
 		udp = PacketPeerUDP.new()
@@ -79,4 +81,6 @@ func set_mask(MaskIndex: int) -> void:
 func _update_trees() -> void:
 	var trees := find_children("*", "TreeAsset")
 	for tree in trees:
+		tree.update_mask()
+	for tree in spawned_trees:
 		tree.update_mask()
