@@ -1,5 +1,5 @@
 @tool
-extends Resource
+class_name TerrainTextureSet extends Resource
 
 const MODE_TEXTURES = 0
 const MODE_TEXTURE_ARRAYS = 1
@@ -38,7 +38,7 @@ const _src_default_color_codes = [
 # It exists for now for backward compatibility, but it makes the API a bit confusing
 var _mode := MODE_TEXTURES
 # [type][slot] -> StreamTexture or TextureArray
-var _textures := [[], []]
+@export var _textures := [[], []]
 
 
 static func get_texture_type_name(tt: int) -> String:

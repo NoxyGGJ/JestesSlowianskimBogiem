@@ -15,11 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
 [ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
+[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
 [ext_resource type="PackedScene" uid="uid://gc53vq28gn48" path="res://Resources/3D/Sculpture.glb" id="17_pmxqn"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("5_q24aw")
+_textures = [[ExtResource("6_pmxqn")], [null]]
 mode = 0
 textures = [[ExtResource("6_pmxqn")], [null]]
 
@@ -38,6 +39,7 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="." unique_id=1004625275]
+unique_name_in_owner = true
 script = ExtResource("3_pmxqn")
 _terrain_data = ExtResource("4_gs5q7")
 chunk_size = 32

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TerrainTextureSet" format=3 uid="uid://ccwhxep60e68y"]
+
+[ext_resource type="Texture2D" uid="uid://dvlo785v8of5n" path="res://Resources/Textures/GrassNight.png" id="1_jxupu"]
+[ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_6beuh"]
+
+[resource]
+script = ExtResource("2_6beuh")
+_textures = [[ExtResource("1_jxupu")], [null]]
+mode = 0
+textures = [[ExtResource("1_jxupu")], [null]]
+metadata/_custom_type_script = "uid://cj1cfn4y2jd0w"
