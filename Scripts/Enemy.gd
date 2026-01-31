@@ -1,10 +1,22 @@
 extends CharacterBody3D
 class_name Enemy
 
+enum EnemyType 
+{
+	NONE,
+	SKELETON,
+	SNOWMAN,
+	MARZANA
+}
+
+@export var type: EnemyType = EnemyType.NONE
+
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
 
 var currentPlayer : CharacterBody3D
+var healthBar: Sprite3D
+
 var speed: float = 2.0
 var distance: float = 0.0
 var attacking: bool = false
@@ -13,8 +25,12 @@ const START_LIFE := 5
 var life: int = START_LIFE
 var restartHit:bool = false
 
+var rng = RandomNumberGenerator.new()
+
 func _ready() -> void:
+	rng.randomize()
 	currentPlayer = get_parent().find_child("Player")
+	healthBar = find_child("LifeSprite")
 	
 func _physics_process(delta: float) -> void:
 	if currentPlayer:
@@ -29,6 +45,24 @@ func _physics_process(delta: float) -> void:
 	if dead:
 		animationSprite.animation = "Death"
 		return
+		
+	if type != EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
+		var skeletons = get_parent().find_children("Enemy")
+		if !skeletons.is_empty():
+			var random_index = rng.randi() % skeletons.size()
+			var randomSkeleton = skeletons[random_index]
+			var dir = -global_position.direction_to(randomSkeleton.global_position)
+			velocity = dir * speed
+		
+	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 3:
+		animationSprite.animation = "Dance"
+		return
+		
+	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 0:
+		Die()
+		
+	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
+		Die()
 		
 	if life <= 0:
 		life = 0
@@ -71,6 +105,9 @@ func isAttacking() -> bool:
 func Die() -> void:
 	dead = true
 	collisionShape.disabled = true
+	
+	if healthBar:
+		healthBar.hide()
 	
 func Damage() -> void:
 	life -= 1

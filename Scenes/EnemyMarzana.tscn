@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bis3y37f02d36"]
+
+[ext_resource type="Script" uid="uid://b81migcbqit0e" path="res://Scripts/Enemy.gd" id="1_f3dsl"]
+[ext_resource type="Texture2D" uid="uid://dri05lvmwrwne" path="res://Resources/Enemy/marzanna 700x7200.png" id="2_f3dsl"]
+[ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_kavs2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2rv6"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 2700, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kavs2"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 3600, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp7iv"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 4500, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxw6l"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 5400, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvbtc"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 6300, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0dg6"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 0, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x41mq"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 900, 700, 900)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrhwm"]
+atlas = ExtResource("2_f3dsl")
+region = Rect2(0, 1800, 700, 900)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73x2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2rv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kavs2")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp7iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxw6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvbtc")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0dg6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x41mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrhwm")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt7e2"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1318673917]
+script = ExtResource("1_f3dsl")
+type = 3
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=528754842]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.11307442, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_73x2u")
+animation = &"Attack"
+autoplay = "Idle"
+frame_progress = 0.64732534
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
+shape = SubResource("CylinderShape3D_tt7e2")
+
+[node name="LifeSprite" type="Sprite3D" parent="." unique_id=1722684524]
+transform = Transform3D(1, 0, 0, 0, 0.5356426, 0, 0, 0, 1, 0, 1.3752441, 0)
+billboard = 2
+texture = ExtResource("3_kavs2")
+region_enabled = true
+region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
