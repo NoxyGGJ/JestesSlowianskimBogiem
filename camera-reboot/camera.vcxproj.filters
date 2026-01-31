@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{949658d2-6017-4713-9c4a-e98dcf2d66e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs">
+      <UniqueIdentifier>{79464469-64ba-459b-9671-4689d694c00f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\alleg.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cam_pixels.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\capture.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\detector.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\cam_pixels.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\capture.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\detector.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
