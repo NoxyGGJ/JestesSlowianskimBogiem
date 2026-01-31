@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TerrainTextureSet" format=3 uid="uid://x5xyqm8gptp"]
+
+[ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="1_2sjhr"]
+[ext_resource type="Texture2D" uid="uid://f1wx7g0kxvom" path="res://Resources/Textures/GrassWinter.png" id="1_wbg5o"]
+
+[resource]
+script = ExtResource("1_2sjhr")
+_textures = [[ExtResource("1_wbg5o")], [null]]
+mode = 0
+textures = [[ExtResource("1_wbg5o")], [null]]
+metadata/_custom_type_script = "uid://cj1cfn4y2jd0w"

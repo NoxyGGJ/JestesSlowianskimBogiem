@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TerrainTextureSet" format=3 uid="uid://p7aek5uyguhq"]
+
+[ext_resource type="Texture2D" uid="uid://nb7qoyavd675" path="res://Resources/Textures/GrassSummer.png" id="1_nlf5b"]
+[ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_cqrnf"]
+
+[resource]
+script = ExtResource("2_cqrnf")
+_textures = [[ExtResource("1_nlf5b")], [null]]
+mode = 0
+textures = [[ExtResource("1_nlf5b")], [null]]
+metadata/_custom_type_script = "uid://cj1cfn4y2jd0w"

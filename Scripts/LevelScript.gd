@@ -55,10 +55,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_mask(3)
 	
 func set_mask(MaskIndex: int) -> void:
+	if GlobalObject.CurrentMask == MaskIndex:
+		return
 	GlobalObject.CurrentMask = MaskIndex
 	%Gui.update_mask_overlay(MaskIndex)
 	$WorldEnvironment.environment = Environments[MaskIndex] if (MaskIndex >= 0 and MaskIndex < 4) else null
 	_update_trees()
+
+	if GlobalObject.CurrentMask == 0:
+		%HTerrain._texture_set = load("res://Resources/Textures/TSSummer.tres")
+	elif GlobalObject.CurrentMask == 1:
+		%HTerrain._texture_set = load("res://Resources/Textures/TSWinter.tres")
+	elif GlobalObject.CurrentMask == 2:
+		%HTerrain._texture_set = load("res://Resources/Textures/TSNight.tres")
+	else:
+		%HTerrain._texture_set = load("res://Resources/Textures/TSPsy.tres")
+	
+	%HTerrain._on_texture_set_changed()
 
 func _update_trees() -> void:
 	var trees := find_children("*", "TreeAsset")
