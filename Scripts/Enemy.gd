@@ -15,6 +15,8 @@ enum EnemyType
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
 
+const deadDestroyTimeout := 20.0
+
 var currentPlayer : CharacterBody3D
 var healthBar: Sprite3D
 
@@ -119,6 +121,9 @@ func Die() -> void:
 	
 	if healthBar:
 		healthBar.hide()
+	
+	await get_tree().create_timer(deadDestroyTimeout).timeout
+	queue_free()
 	
 func Damage() -> void:
 	life -= 1
