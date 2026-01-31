@@ -41,3 +41,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "Player":
 		fieldMesh.visible = false
 		capturing = false
+		capture_progress = 0.0
+		loading_indicator.set_value(capture_progress)
+		
