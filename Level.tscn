@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
+[ext_resource type="PackedScene" uid="uid://di3wpygtnfl7h" path="res://Resources/3D/Tree.glb" id="10_3ywx5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ywx5"]
 panorama = ExtResource("2_86ljf")
@@ -23,6 +24,8 @@ background_mode = 2
 sky = SubResource("Sky_86ljf")
 tonemap_mode = 2
 glow_enabled = true
+fog_light_color = Color(0.49295717, 0.55629414, 0.63943374, 1)
+fog_density = 0.025
 
 [sub_resource type="Compositor" id="Compositor_86ljf"]
 
@@ -94,3 +97,6 @@ shape = SubResource("BoxShape3D_4eo0i")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1736933347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.4598, 17.002651, 255.25195)
 shape = SubResource("BoxShape3D_4eo0i")
+
+[node name="Tree" parent="." unique_id=899795093 instance=ExtResource("10_3ywx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.420424, 15.069545, 8.071295)
