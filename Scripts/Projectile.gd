@@ -4,9 +4,11 @@ class_name Projectile
 @export var speed : float = 2
 @export var max_scale : Vector3
 @export var speed_scaling : float
+@export var do_explode : bool
 var mesh
 var particles
 var timer
+var collision
 var is_scaling : bool = true;
 var time : float
 
@@ -21,29 +23,47 @@ func _ready() -> void:
 	mesh = $base
 	particles = $particles
 	timer = $Timer
+	collision = $Collision
 
 func _physics_process(delta: float) -> void:
 	if is_scaling:
 		time += delta * speed_scaling
 		scale = scale.lerp(max_scale, time)
-		
 	else:
 		position += delta * speed * transform.basis[2]
 
 func _on_body_entered(body: Node3D) -> void:
 	if is_scaling:
 		return
-	
-	var enemy = body is Enemy
-	if enemy:
-		body.Damage()
-	timer.start()	
 
-	if mesh.is_queued_for_deletion():
+	if not mesh.is_queued_for_deletion():
 		mesh.queue_free()
 	
 	if particles != null:
 		particles.emitting = false
+	
+	if do_explode:
+		explode()
+	else:
+		deal_damage(body)
+		
+	timer.start()	
+	collision.disabled = true
+
+func explode() -> void:
+	print("dupa")
+	$explosionParticles.emitting = true
+	var bodies = $explosionArea.get_overlapping_bodies()
+	for body in bodies:
+		var enemy = body is Enemy
+		if enemy:
+			body.Damage()
+	
+func deal_damage(body: Node3D) -> void:
+	var enemy = body is Enemy
+	if enemy:
+		body.Damage()
+
 
 func _on_timer_timeout() -> void:
 	queue_free()
