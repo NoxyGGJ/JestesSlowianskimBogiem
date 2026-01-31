@@ -32,10 +32,8 @@ background_mode = 2
 sky = SubResource("Sky_86ljf")
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.11707162, 0.14336035, 0.17779404, 1)
 fog_density = 0.025
-adjustment_enabled = true
 adjustment_saturation = 0.25
 adjustment_color_correction = SubResource("GradientTexture2D_ofirr")
 
