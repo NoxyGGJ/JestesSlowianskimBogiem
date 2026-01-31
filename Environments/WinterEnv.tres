@@ -1,0 +1,33 @@
+[gd_resource type="Environment" format=3 uid="uid://ct2kr8jbjqtrv"]
+
+[sub_resource type="Gradient" id="Gradient_3ywx5"]
+offsets = PackedFloat32Array(0, 0.3764302, 0.6556064, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.14018375, 0.14800867, 0.18007824, 1, 0.52733856, 0.57962537, 0.81932974, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofirr"]
+gradient = SubResource("Gradient_3ywx5")
+fill_from = Vector2(0, 0.04083571)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iwqh7"]
+sky_top_color = Color(0.2941122, 0.3983425, 0.5358948, 1)
+sky_horizon_color = Color(0.58627635, 0.6041268, 0.65203446, 1)
+ground_bottom_color = Color(0.16616195, 0.1734887, 0.19990629, 1)
+
+[sub_resource type="Sky" id="Sky_acx7o"]
+sky_material = SubResource("ProceduralSkyMaterial_iwqh7")
+
+[resource]
+resource_local_to_scene = true
+resource_name = "MainEnvironment"
+background_mode = 2
+sky = SubResource("Sky_acx7o")
+ambient_light_source = 2
+ambient_light_color = Color(0.08320001, 0.08320001, 0.52, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.19276065, 0.23929533, 0.32474056, 1)
+fog_density = 0.02
+adjustment_saturation = 0.25
+adjustment_color_correction = SubResource("GradientTexture2D_ofirr")

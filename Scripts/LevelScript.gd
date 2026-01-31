@@ -1,5 +1,12 @@
 class_name Level extends Node3D
 
+@onready var Environments: Array[Environment] = [
+	preload("res://Environments/SummerEnv.tres"),
+	preload("res://Environments/WinterEnv.tres"),
+	preload("res://Environments/NightEnv.tres"),
+	preload("res://Environments/AstralEnv.tres")
+]
+
 func _ready() -> void:
 	%Gui.update_mask_overlay(GlobalObject.CurrentMask)
 	pass
@@ -20,5 +27,4 @@ func _unhandled_input(event: InputEvent) -> void:
 func set_mask(MaskIndex: int) -> void:
 	GlobalObject.CurrentMask = MaskIndex
 	%Gui.update_mask_overlay(MaskIndex)
-	$WorldEnvironment.environment.fog_enabled = MaskIndex == 2
-	$WorldEnvironment.environment.adjustment_enabled = MaskIndex == 2
+	$WorldEnvironment.environment = Environments[MaskIndex] if (MaskIndex >= 0 and MaskIndex < 4) else null

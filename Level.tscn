@@ -2,41 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_q4iis"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="1_wkftn"]
-[ext_resource type="Texture2D" uid="uid://dfrrpc5bjgrrt" path="res://Resources/Background/meadow_2_4k.exr" id="2_86ljf"]
+[ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_ofirr"]
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
-[ext_resource type="PackedScene" path="res://Tree1.tscn" id="10_3ywx5"]
+[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
-
-[sub_resource type="Gradient" id="Gradient_3ywx5"]
-offsets = PackedFloat32Array(0, 0.3764302, 0.6556064, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.14018375, 0.14800867, 0.18007824, 1, 0.52733856, 0.57962537, 0.81932974, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofirr"]
-gradient = SubResource("Gradient_3ywx5")
-fill_from = Vector2(0, 0.04083571)
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ywx5"]
-panorama = ExtResource("2_86ljf")
-
-[sub_resource type="Sky" id="Sky_86ljf"]
-sky_material = SubResource("PanoramaSkyMaterial_3ywx5")
-
-[sub_resource type="Environment" id="Environment_3ywx5"]
-resource_local_to_scene = true
-resource_name = "MainEnvironment"
-background_mode = 2
-sky = SubResource("Sky_86ljf")
-tonemap_mode = 2
-glow_enabled = true
-fog_light_color = Color(0.11707162, 0.14336035, 0.17779404, 1)
-fog_density = 0.025
-adjustment_saturation = 0.25
-adjustment_color_correction = SubResource("GradientTexture2D_ofirr")
 
 [sub_resource type="Compositor" id="Compositor_86ljf"]
 
@@ -52,11 +26,11 @@ size = Vector3(1, 50, 530)
 script = ExtResource("1_q4iis")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
-environment = SubResource("Environment_3ywx5")
+environment = ExtResource("2_ofirr")
 compositor = SubResource("Compositor_86ljf")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
-transform = Transform3D(-0.15022558, 0.8561976, -0.49432588, 2.780595e-08, 0.5, 0.86602557, 0.9886519, 0.13009927, -0.075112835, 0, 22.07484, 0)
+transform = Transform3D(0.0108034015, 0.8659749, -0.4999708, 2.7805946e-08, 0.5, 0.86602545, 0.99994165, -0.009356052, 0.0054016933, 0, 22.07484, 0)
 light_energy = 2.0
 shadow_enabled = true
 
