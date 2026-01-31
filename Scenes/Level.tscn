@@ -67,7 +67,7 @@ metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=290452896 instance=ExtResource("8_g4pvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61231, 18.151953, 6.694071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 24.818142, 256)
 
 [node name="Enemy" parent="." unique_id=1012680412 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.824657, 18.068104, 17.921127)
@@ -102,15 +102,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50408, 17.334816, 58.80415
 
 [node name="Enemy5" parent="." unique_id=419834535 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.491486, 16.662462, 67.518135)
-
-[node name="Tree1" parent="." unique_id=730201274 instance=ExtResource("10_17mqb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.397556, 15.071342, 8.844614)
-
-[node name="Tree2" parent="." unique_id=1599889865 instance=ExtResource("10_17mqb")]
-transform = Transform3D(0.55366987, 0, 0.7347447, 0, 0.92, 0, -0.7347447, 0, 0.55366987, 27.874, 15.324, 14.246)
-
-[node name="Tree3" parent="." unique_id=813563904 instance=ExtResource("10_17mqb")]
-transform = Transform3D(0.9257578, 0, -0.45152226, 0, 1.03, 0, 0.45152226, 0, 0.9257578, 27.671, 18.097, 25.647)
 
 [node name="Enemy6" parent="." unique_id=1471197246 instance=ExtResource("11_nwvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.573695, 20.030304, 24.654264)
@@ -214,6 +205,7 @@ currentPoint = 4
 [node name="LevelGenerator" parent="." unique_id=1376003488 instance=ExtResource("18_q24aw")]
 transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 256, 75.00796, 256)
 prefab_tree = ExtResource("10_17mqb")
+prefab_rock = ExtResource("18_gs5q7")
 
 [node name="BorderRocks" type="Node3D" parent="." unique_id=1899120536]
 
