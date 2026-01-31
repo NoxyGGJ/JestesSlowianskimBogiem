@@ -15,6 +15,8 @@ enum EnemyType
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
 
+const deadDestroyTimeout := 20.0
+
 var currentPlayer : CharacterBody3D
 var healthBar: Sprite3D
 
@@ -52,8 +54,8 @@ func _physics_process(delta: float) -> void:
 		animationSprite.animation = "Death"
 		return
 		
-	if type != EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
-		var skeletons = get_parent().find_children("Enemy")
+	if type != EnemyType.SKELETON and type != EnemyType.BOSS and GlobalObject.CurrentMask == 2:
+		var skeletons = get_parent().find_children("*", "Enemy", false, false)
 		if !skeletons.is_empty():
 			var random_index = rng.randi() % skeletons.size()
 			var randomSkeleton = skeletons[random_index]
@@ -120,10 +122,16 @@ func Die() -> void:
 	if healthBar:
 		healthBar.hide()
 	
+	await get_tree().create_timer(deadDestroyTimeout).timeout
+	queue_free()
+	
 func Damage() -> void:
 	life -= 1
 	cooldown = 1.0
 	updateLife()
+	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	t.tween_property($AnimatedSprite3D, "modulate", Color(1.0, 0.5, 0.5, 1.0), 0.1)
+	t.tween_property($AnimatedSprite3D, "modulate", Color.WHITE, 0.1)
 	
 func updateLife() -> void:
 	$LifeSprite.scale.x = max(float(life) / START_LIFE, 0)
