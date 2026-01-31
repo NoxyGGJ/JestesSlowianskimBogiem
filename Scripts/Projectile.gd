@@ -55,7 +55,7 @@ func explode() -> void:
 	$explosionParticles.emitting = true
 	$explosionAdditionalParticles.emitting = true
 	$smokeParticles.emitting = true
-	currentPlayer.startExploadShake();
+	#currentPlayer.startExploadShake();
 	
 	var bodies = $explosionArea.get_overlapping_bodies()
 	for body in bodies:
