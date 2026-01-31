@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="12_sypgb"]
 [ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="13_dn5x0"]
+[ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_dn5x0"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
@@ -116,8 +117,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.417107, 16.80935, 23.18011
 [node name="Enemy9" parent="." unique_id=2074059388 instance=ExtResource("11_ofirr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.15487, 17.78433, 25.720396)
 
-[node name="Tents" parent="." unique_id=1637109585 instance=ExtResource("12_sypgb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.35886, 19.532059, 93.49024)
-
 [node name="Gate" parent="." unique_id=513800837 instance=ExtResource("13_dn5x0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.94052, 28.618658, 125.048035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.551315, 25.029331, 71.001)
+
+[node name="Tents" parent="." unique_id=640764079 instance=ExtResource("12_sypgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5986004, 19.583334, 40.552353)
+
+[node name="Stones" parent="." unique_id=1882418130 instance=ExtResource("14_dn5x0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84224, 21.370369, 42.4328)
