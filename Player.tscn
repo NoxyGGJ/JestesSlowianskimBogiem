@@ -22,3 +22,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5797417, 0)
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -6.9854025e-08, -0.010185359, -2.064659)
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("3_kne1u")
+useChargedAttak = true
