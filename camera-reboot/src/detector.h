@@ -43,7 +43,7 @@ public:
 
 
 	// Main entry
-	void Process(CameraPixels::Frame& frame);
+	uint32_t Process(CameraPixels::Frame& frame);
 
 	void ShowResult(BITMAP* buff, vector<int>& data, int shift);
 };

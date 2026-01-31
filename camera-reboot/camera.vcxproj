@@ -15,12 +15,14 @@
     <ClInclude Include="src\cam_pixels.h" />
     <ClInclude Include="src\capture.h" />
     <ClInclude Include="src\detector.h" />
+    <ClInclude Include="src\sendkey.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cam_pixels.cpp" />
     <ClCompile Include="src\capture.cpp" />
     <ClCompile Include="src\detector.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\sendkey.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{813F9F99-C47F-45B3-BA08-D841E9BA21D2}</ProjectGuid>
