@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
 [ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
-[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
-[ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
+[ext_resource type="PackedScene" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
+[ext_resource type="PackedScene" uid="uid://d1ca103icjjk" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
 [ext_resource type="PackedScene" uid="uid://bsdd4kgwmh6pt" path="res://Scenes/Generator/LevelGenerator.tscn" id="18_q24aw"]
 [ext_resource type="PackedScene" uid="uid://br8ta8wqul4k0" path="res://Resources/3D/BorderRock.glb" id="19_q24aw"]
 
@@ -75,19 +75,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.824657, 18.068104, 17.9211
 [node name="LevelBoundaries" type="StaticBody3D" parent="." unique_id=480795649]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelBoundaries" unique_id=721874496]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 17.002651, 255.25195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.419201, 17.002651, 255.25195)
 shape = SubResource("BoxShape3D_4eo0i")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1577475537]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, -0.49164003)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, 1.6692257)
 shape = SubResource("BoxShape3D_4eo0i")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1121530514]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, 512.4363)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 256.0152, 17.002651, 510.71252)
 shape = SubResource("BoxShape3D_4eo0i")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="LevelBoundaries" unique_id=1736933347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.4598, 17.002651, 255.25195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 509.90082, 17.002651, 255.25195)
 shape = SubResource("BoxShape3D_4eo0i")
 
 [node name="Enemy2" parent="." unique_id=1318673917 instance=ExtResource("9_ifohm")]
