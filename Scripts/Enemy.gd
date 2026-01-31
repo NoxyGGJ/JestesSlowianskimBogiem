@@ -24,6 +24,7 @@ var dead:bool = false
 const START_LIFE := 5
 var life: int = START_LIFE
 var restartHit:bool = false
+var cooldown: float = 0.0
 
 var rng = RandomNumberGenerator.new()
 
@@ -58,16 +59,21 @@ func _physics_process(delta: float) -> void:
 		animationSprite.animation = "Dance"
 		return
 		
-	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 0:
-		Die()
+	cooldown -= delta * 3.0
 		
-	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
-		Die()
+	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 0 and cooldown <= 0.0:
+		Damage()
+		
+	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1 and cooldown <= 0.0:
+		Damage()
 		
 	if life <= 0:
 		life = 0
 		Die()
-		
+	
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+			
 	if distance < 1.5:
 		animationSprite.animation = "Attack"
 		attacking = true
@@ -111,6 +117,7 @@ func Die() -> void:
 	
 func Damage() -> void:
 	life -= 1
+	cooldown = 1.0
 	$LifeSprite.scale.x = max(float(life) / START_LIFE, 0)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
