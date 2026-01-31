@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6grywi7s2bbv" path="res://Resources/3D/campfire.glb" id="1_8ysen"]
 [ext_resource type="Script" uid="uid://c6tkbfcysr7mj" path="res://Scripts/Campfire.gd" id="1_hkl62"]
 [ext_resource type="Texture2D" uid="uid://c08vq4pq6eltk" path="res://Resources/totem.png" id="2_wyony"]
-[ext_resource type="PackedScene" uid="uid://c2vdrg3pgyixh" path="res://LoadingIndicator.tscn" id="4_r3b3c"]
+[ext_resource type="PackedScene" uid="uid://c2vdrg3pgyixh" path="res://Scenes/LoadingIndicator.tscn" id="4_r3b3c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wyony"]
 height = 0.71362305

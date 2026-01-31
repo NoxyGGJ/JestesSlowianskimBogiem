@@ -23,12 +23,12 @@ func _process_udp_packets() -> void:
 		var packet_string := packet.get_string_from_utf8()
 		print("Received packet %s:%d -> %s" % [sender_ip, sender_port, packet_string])
 		if packet_string.length() != 5:
-			return
+			continue
 		if not packet_string.begins_with("MASK"):
-			return
+			continue
 		var digit := packet_string[4].to_int()
 		if digit < 0 or digit > 3:
-			return
+			continue
 		set_mask(digit)
 
 func _process(delta: float) -> void:

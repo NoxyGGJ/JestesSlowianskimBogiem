@@ -1,34 +1,35 @@
 [gd_scene format=3 uid="uid://big68lx40uvdb"]
 
-[ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_q4iis"]
-[ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="1_wkftn"]
-[ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_ofirr"]
-[ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
-[ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
-[ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
-[ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
-[ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
-[ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
-[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
-[ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
-[ext_resource type="PackedScene" path="res://Campfire.tscn" id="12_d6u53"]
-[ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="12_sypgb"]
-[ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="13_dn5x0"]
-[ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_dn5x0"]
+[ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_nrlyp"]
+[ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_44tr1"]
+[ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="3_pmxqn"]
+[ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="4_gs5q7"]
+[ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_q24aw"]
+[ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="6_32npc"]
+[ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://Scenes/GuiScene.tscn" id="7_yyp3s"]
+[ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Scenes/Player.tscn" id="8_g4pvc"]
+[ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Scenes/Enemy.tscn" id="9_ifohm"]
+[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Scenes/Tree1.tscn" id="10_17mqb"]
+[ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://Scenes/EnemySnow.tscn" id="11_nwvxw"]
+[ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="12_4bpm7"]
+[ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
+[ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_i8dsc"]
+[ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Scenes/Campfire.tscn" id="15_p0nbg"]
+[ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
-script = ExtResource("3_m3clv")
+script = ExtResource("5_q24aw")
 mode = 0
-textures = [[ExtResource("4_mxnmf")], [null]]
+textures = [[ExtResource("6_32npc")], [null]]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4eo0i"]
 size = Vector3(1, 50, 530)
 
 [node name="Level" type="Node3D" unique_id=435008576]
-script = ExtResource("1_q4iis")
+script = ExtResource("1_nrlyp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
-environment = ExtResource("2_ofirr")
+environment = ExtResource("2_44tr1")
 
 [node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
 transform = Transform3D(0.010731676, 0.91774595, -0.39702275, -0.0012428056, 0.39705753, 0.9177928, 0.99994165, -0.009356033, 0.005401676, 0, 22.07484, 0)
@@ -36,8 +37,8 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="." unique_id=1004625275]
-script = ExtResource("1_wkftn")
-_terrain_data = ExtResource("2_q4iis")
+script = ExtResource("3_pmxqn")
+_terrain_data = ExtResource("4_gs5q7")
 chunk_size = 32
 collision_enabled = true
 collision_layer = 1
@@ -57,13 +58,13 @@ shader_params/u_globalmap_blend_distance = null
 shader_params/u_colormap_opacity_per_texture = null
 metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 
-[node name="Gui" parent="." unique_id=351606991 instance=ExtResource("6_m3clv")]
+[node name="Gui" parent="." unique_id=351606991 instance=ExtResource("7_yyp3s")]
 unique_name_in_owner = true
 
-[node name="Player" parent="." unique_id=290452896 instance=ExtResource("7_mxnmf")]
+[node name="Player" parent="." unique_id=290452896 instance=ExtResource("8_g4pvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61231, 18.151953, 6.694071)
 
-[node name="Enemy" parent="." unique_id=1012680412 instance=ExtResource("8_4eo0i")]
+[node name="Enemy" parent="." unique_id=1012680412 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.824657, 18.068104, 17.921127)
 
 [node name="LevelBoundaries" type="StaticBody3D" parent="." unique_id=480795649]
@@ -84,51 +85,54 @@ shape = SubResource("BoxShape3D_4eo0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.4598, 17.002651, 255.25195)
 shape = SubResource("BoxShape3D_4eo0i")
 
-[node name="Enemy2" parent="." unique_id=1318673917 instance=ExtResource("8_4eo0i")]
+[node name="Enemy2" parent="." unique_id=1318673917 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.748366, 20.96063, 33.698452)
 
-[node name="Enemy3" parent="." unique_id=104912804 instance=ExtResource("8_4eo0i")]
+[node name="Enemy3" parent="." unique_id=104912804 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.323048, 15.140658, 42.6464)
 visible = false
 
-[node name="Enemy4" parent="." unique_id=1512334344 instance=ExtResource("8_4eo0i")]
+[node name="Enemy4" parent="." unique_id=1512334344 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.50408, 17.334816, 58.804153)
 
-[node name="Enemy5" parent="." unique_id=419834535 instance=ExtResource("8_4eo0i")]
+[node name="Enemy5" parent="." unique_id=419834535 instance=ExtResource("9_ifohm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.491486, 16.662462, 67.518135)
 
-[node name="Tree1" parent="." unique_id=730201274 instance=ExtResource("10_3ywx5")]
+[node name="Tree1" parent="." unique_id=730201274 instance=ExtResource("10_17mqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.397556, 15.071342, 8.844614)
 
-[node name="Tree2" parent="." unique_id=1599889865 instance=ExtResource("10_3ywx5")]
+[node name="Tree2" parent="." unique_id=1599889865 instance=ExtResource("10_17mqb")]
 transform = Transform3D(0.55366987, 0, 0.7347447, 0, 0.92, 0, -0.7347447, 0, 0.55366987, 27.874, 15.324, 14.246)
 
-[node name="Tree3" parent="." unique_id=813563904 instance=ExtResource("10_3ywx5")]
+[node name="Tree3" parent="." unique_id=813563904 instance=ExtResource("10_17mqb")]
 transform = Transform3D(0.9257578, 0, -0.45152226, 0, 1.03, 0, 0.45152226, 0, 0.9257578, 27.671, 18.097, 25.647)
 
-[node name="Enemy6" parent="." unique_id=1471197246 instance=ExtResource("11_ofirr")]
+[node name="Enemy6" parent="." unique_id=1471197246 instance=ExtResource("11_nwvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.573695, 20.030304, 24.654264)
 
-[node name="Enemy7" parent="." unique_id=231511788 instance=ExtResource("11_ofirr")]
+[node name="Enemy7" parent="." unique_id=231511788 instance=ExtResource("11_nwvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.66663, 16.954168, 19.921864)
 
-[node name="Enemy8" parent="." unique_id=794008513 instance=ExtResource("11_ofirr")]
+[node name="Enemy8" parent="." unique_id=794008513 instance=ExtResource("11_nwvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.417107, 16.80935, 23.18011)
 
-[node name="Enemy9" parent="." unique_id=2074059388 instance=ExtResource("11_ofirr")]
+[node name="Enemy9" parent="." unique_id=2074059388 instance=ExtResource("11_nwvxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.15487, 17.78433, 25.720396)
 
-[node name="Gate" parent="." unique_id=513800837 instance=ExtResource("13_dn5x0")]
+[node name="Gate" parent="." unique_id=513800837 instance=ExtResource("12_4bpm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.551315, 25.029331, 71.001)
 
-[node name="Tents" parent="." unique_id=640764079 instance=ExtResource("12_sypgb")]
+[node name="Tents" parent="." unique_id=640764079 instance=ExtResource("13_n64rs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5986004, 19.583334, 40.552353)
 
-[node name="Stones" parent="." unique_id=1882418130 instance=ExtResource("14_dn5x0")]
+[node name="Stones" parent="." unique_id=1882418130 instance=ExtResource("14_i8dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84224, 21.370369, 42.4328)
 
-[node name="Campfire" parent="." unique_id=1658491565 instance=ExtResource("12_d6u53")]
+[node name="Campfire" parent="." unique_id=1658491565 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.479695, 19.247133, 27.745129)
 
-[node name="Campfire2" parent="." unique_id=1398046224 instance=ExtResource("12_d6u53")]
+[node name="Campfire2" parent="." unique_id=1398046224 instance=ExtResource("15_p0nbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.087772, 14.6420765, 34.391254)
+
+[node name="Spawner" parent="." unique_id=920540338 instance=ExtResource("16_44tr1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.78888, 17.704985, 257.08734)

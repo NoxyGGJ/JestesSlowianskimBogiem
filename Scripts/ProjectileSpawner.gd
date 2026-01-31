@@ -2,13 +2,15 @@ extends Node3D
 
 @export var projectile_scene : PackedScene
 @export var useChargedAttak : bool
+@export var supportedMaskIndex: int = -1
 var projectile
 
 func _process(delta: float) -> void:
-	if useChargedAttak:
-		charged_attack()
-	else:
-		normal_attack()
+	if GlobalObject.CurrentMask == supportedMaskIndex:
+		if useChargedAttak:
+			charged_attack()
+		else:
+			normal_attack()
 
 func charged_attack() -> void:
 	if Input.is_action_just_pressed("fire"):

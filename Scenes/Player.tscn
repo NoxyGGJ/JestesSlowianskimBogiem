@@ -24,8 +24,10 @@ transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0,
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("3_kne1u")
 useChargedAttak = true
+supportedMaskIndex = 0
 
 [node name="IceMissilesSpawner" type="Node3D" parent="head/Camera3D" unique_id=2112302121]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.4117227, -0.5903617, -2.064659)
 script = ExtResource("2_kpjcp")
 projectile_scene = ExtResource("4_e80uo")
+supportedMaskIndex = 1
