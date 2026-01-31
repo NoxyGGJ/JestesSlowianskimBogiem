@@ -5,6 +5,7 @@ class_name Projectile
 @export var max_scale : Vector3
 @export var speed_scaling : float
 @export var do_explode : bool
+var currentPlayer : CharacterBody3D
 var mesh
 var particles
 var timer
@@ -54,6 +55,8 @@ func explode() -> void:
 	$explosionParticles.emitting = true
 	$explosionAdditionalParticles.emitting = true
 	$smokeParticles.emitting = true
+	currentPlayer.startExploadShake();
+	
 	var bodies = $explosionArea.get_overlapping_bodies()
 	for body in bodies:
 		var enemy = body is Enemy

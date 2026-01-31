@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_nrlyp"]
 [ext_resource type="Environment" uid="uid://8ha3t8ygyeu7" path="res://Environments/SummerEnv.tres" id="2_44tr1"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="3_pmxqn"]
-[ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="4_gs5q7"]
+[ext_resource type="Resource" path="res://Resources/data.hterrain" id="4_gs5q7"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="5_q24aw"]
 [ext_resource type="Texture2D" uid="uid://nb7qoyavd675" path="res://Resources/Textures/GrassSummer.png" id="6_pmxqn"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://Scenes/GuiScene.tscn" id="7_yyp3s"]
@@ -104,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.17758, 22.143894, 32.4770
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.62537, 26.42987, 210.68997)
 
 [node name="Player" parent="." unique_id=290452896 instance=ExtResource("8_g4pvc")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 24.818142, 256)
 
 [node name="LevelBoundaries" type="StaticBody3D" parent="." unique_id=480795649]

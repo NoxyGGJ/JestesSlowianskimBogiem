@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func charged_attack() -> void:
 	if Input.is_action_just_pressed("fire"):
 		projectile = projectile_scene.instantiate()
+		projectile.currentPlayer = $"../../../.."
 		add_child(projectile)
 		projectile.position = Vector3.ZERO
 		projectile.start_scaling();
@@ -26,6 +27,7 @@ func charged_attack() -> void:
 func normal_attack() -> void:
 	if Input.is_action_just_pressed("fire"):
 		projectile = projectile_scene.instantiate()
+		projectile.currentPlayer = $"../../../.."
 		get_tree().root.add_child(projectile)
 		projectile.position = global_transform.origin
 		projectile.rotation = global_rotation

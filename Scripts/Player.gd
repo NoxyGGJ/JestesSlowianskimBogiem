@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 @onready var camera := $ShakeAnchor/head/Camera3D
 @onready var shake := $ShakeAnchor
 @export var hit_trauma : float = 1.0
+@export var expload_trauma : float = 0.5
 var playerHealth: float = 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -59,3 +60,6 @@ func heal(delta: float) -> void:
 		playerHealth += delta * 0.01
 	
 	%Gui.update_health(playerHealth)
+	
+func startExploadShake() -> void:
+	shake.add_trauma(expload_trauma)
