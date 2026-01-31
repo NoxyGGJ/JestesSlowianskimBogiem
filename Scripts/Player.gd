@@ -47,6 +47,8 @@ func _physics_process(delta: float) -> void:
 		heal(delta)
 
 func hit() -> void:
+	if GlobalObject.invincible_cheat:
+		return
 	playerHealth -= 0.05
 	shake.add_trauma(hit_trauma)
 	%Gui.update_health(playerHealth)

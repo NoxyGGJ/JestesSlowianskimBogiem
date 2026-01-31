@@ -18,7 +18,7 @@ unique_name_in_owner = true
 
 [node name="Rock" parent="Meshes" unique_id=935161491 instance=ExtResource("2_kys2i")]
 
-[node name="RockWinter" parent="Meshes" unique_id=1525378230 instance=ExtResource("3_0bcn5")]
+[node name="RockWinter" parent="Meshes" unique_id=24515586 instance=ExtResource("3_0bcn5")]
 visible = false
 
 [node name="RockNight" parent="Meshes" unique_id=1593509590 instance=ExtResource("4_jdfup")]

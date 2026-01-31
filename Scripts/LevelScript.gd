@@ -53,6 +53,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_mask(2)
 	elif event.is_action_pressed("Mask3"):
 		set_mask(3)
+	elif event is InputEventKey and event.pressed and not event.echo and event.ctrl_pressed and event.keycode == KEY_I:
+		GlobalObject.invincible_cheat = !GlobalObject.invincible_cheat
+		print("Invincible cheat = %d" % int(GlobalObject.invincible_cheat))
 	
 func set_mask(MaskIndex: int) -> void:
 	if GlobalObject.CurrentMask == MaskIndex:
