@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c2vdrg3pgyixh"]
+
+[ext_resource type="Texture2D" uid="uid://c7ke2crvqklfs" path="res://Resources/circle.png" id="1_pos3a"]
+[ext_resource type="Script" uid="uid://c581xw4kf7vqu" path="res://Scripts/Indicator.gd" id="1_yjf0b"]
+
+[node name="LoadingIndicator" type="Control" unique_id=1722818792]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjf0b")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1974302571]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+value = 33.0
+fill_mode = 4
+texture_under = ExtResource("1_pos3a")
+texture_progress = ExtResource("1_pos3a")
+tint_under = Color(0, 0, 0, 0.2627451)
+tint_progress = Color(0.49002194, 0.80876815, 0.25801608, 1)

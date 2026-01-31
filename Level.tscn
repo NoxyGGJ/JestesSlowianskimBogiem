@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
-[ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Tree1.tscn" id="10_3ywx5"]
+[ext_resource type="PackedScene" path="res://Tree1.tscn" id="10_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://sm41xy54ilfk" path="res://EnemySnow.tscn" id="11_ofirr"]
+[ext_resource type="PackedScene" uid="uid://skv8lyehbpdh" path="res://Campfire.tscn" id="12_d6u53"]
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="12_sypgb"]
 [ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="13_dn5x0"]
 [ext_resource type="PackedScene" uid="uid://bgdivdqy18rkm" path="res://Resources/3D/Stones.glb" id="14_dn5x0"]
@@ -125,3 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5986004, 19.583334, 40.5523
 
 [node name="Stones" parent="." unique_id=1882418130 instance=ExtResource("14_dn5x0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84224, 21.370369, 42.4328)
+
+[node name="Campfire" parent="." unique_id=1658491565 instance=ExtResource("12_d6u53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.479695, 19.247133, 27.745129)
+
+[node name="Campfire2" parent="." unique_id=1398046224 instance=ExtResource("12_d6u53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.087772, 14.6420765, 34.391254)
