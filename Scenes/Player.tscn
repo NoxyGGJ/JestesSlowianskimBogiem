@@ -33,20 +33,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00025832653, 0)
 [node name="Camera3D" type="Camera3D" parent="ShakeAnchor/head" unique_id=1880932805]
 
 [node name="FireballSpawner2" parent="ShakeAnchor/head/Camera3D" unique_id=1437518191 instance=ExtResource("7_52ee3")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.3088371e-08, -0.3745165, -1.0970404)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("3_kne1u")
 useChargedAttak = true
 supportedMaskIndex = 0
 FireRate = 0.5
 
 [node name="IceMissilesSpawner" parent="ShakeAnchor/head/Camera3D" unique_id=665696452 instance=ExtResource("7_52ee3")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.3088371e-08, -0.3745165, -1.0970404)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("4_e80uo")
 supportedMaskIndex = 1
 FireRate = 0.2
 
 [node name="ArrowSpawner" parent="ShakeAnchor/head/Camera3D" unique_id=1365312235 instance=ExtResource("7_52ee3")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.3088371e-08, -0.3745165, -1.0970404)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("5_5ixxa")
 supportedMaskIndex = 2
 FireRate = 0.2

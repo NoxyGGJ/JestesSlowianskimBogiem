@@ -61,6 +61,7 @@ func explode() -> void:
 	$smokeParticles.emitting = true
 	#currentPlayer.startExploadShake();
 	
+	await get_tree().process_frame
 	var bodies = $explosionArea.get_overlapping_bodies()
 	for body in bodies:
 		var enemy = body is Enemy
