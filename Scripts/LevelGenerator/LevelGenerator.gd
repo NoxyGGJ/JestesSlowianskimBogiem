@@ -29,7 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not spawn_done:
 		spawn_done = true
-		for i in 1000:
+		for i in 2000:
 			_spawn()
 
 

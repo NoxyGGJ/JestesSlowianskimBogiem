@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cj45att023ysp" path="res://Scenes/Spawner.tscn" id="16_44tr1"]
 [ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="18_gs5q7"]
 [ext_resource type="PackedScene" uid="uid://bsdd4kgwmh6pt" path="res://Scenes/Generator/LevelGenerator.tscn" id="18_q24aw"]
+[ext_resource type="PackedScene" uid="uid://br8ta8wqul4k0" path="res://Resources/3D/BorderRock.glb" id="19_q24aw"]
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("5_q24aw")
@@ -213,3 +214,149 @@ currentPoint = 4
 [node name="LevelGenerator" parent="." unique_id=1376003488 instance=ExtResource("18_q24aw")]
 transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 256, 75.00796, 256)
 prefab_tree = ExtResource("10_17mqb")
+
+[node name="BorderRocks" type="Node3D" parent="." unique_id=1899120536]
+
+[node name="BorderRock" parent="BorderRocks" unique_id=235113802 instance=ExtResource("19_q24aw")]
+transform = Transform3D(3, 0, 0, 0, 2.9593909, 0.49194074, 0, -0.49194074, 2.9593909, -3.3108015, 17.006649, 13.193293)
+
+[node name="BorderRock3" parent="BorderRocks" unique_id=467929047 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.303907e-07, 0.172483, -2.9950373, -1.3943951e-08, 2.9950376, 0.17248297, 2.9999998, 2.141761e-08, -1.2937328e-07, 19.468674, 16.962057, -3.376585)
+
+[node name="BorderRock4" parent="BorderRocks" unique_id=1057776515 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.256138e-07, -0.3803628, -2.9757888, -3.7647705e-08, 2.975789, -0.38036284, 2.9999993, 2.141761e-08, -1.2937328e-07, 65.80138, 20.859097, -3.376585)
+
+[node name="BorderRock5" parent="BorderRocks" unique_id=76568392 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3074332e-07, 0.26016316, -2.988697, -1.0117528e-08, 2.9886973, 0.26016307, 2.999999, 2.1417607e-08, -1.2937328e-07, 111.7059, 21.198727, -3.376585)
+
+[node name="BorderRock6" parent="BorderRocks" unique_id=1338627668 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2833766e-07, -0.12845182, -2.997248, -2.693739e-08, 2.9972482, -0.12845188, 2.9999993, 2.1417613e-08, -1.293733e-07, 156.39502, 21.198727, -3.376585)
+
+[node name="BorderRock7" parent="BorderRocks" unique_id=1587132595 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2291932e-07, -0.57181, -2.9450004, -4.568397e-08, 2.9450011, -0.57181025, 2.999999, 2.1417613e-08, -1.2937328e-07, 202.70796, 26.17992, -3.376585)
+
+[node name="BorderRock8" parent="BorderRocks" unique_id=1172057480 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2868414e-07, -0.08863214, -2.9986894, -2.5230484e-08, 2.99869, -0.088632524, 2.9999993, 2.1417614e-08, -1.2937329e-07, 247.86699, 27.698536, -3.376585)
+
+[node name="BorderRock9" parent="BorderRocks" unique_id=1712912792 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2868414e-07, -0.08863214, -2.9986894, -2.5230484e-08, 2.99869, -0.088632524, 2.9999993, 2.1417614e-08, -1.2937329e-07, 290.96265, 27.698536, -3.376585)
+
+[node name="BorderRock10" parent="BorderRocks" unique_id=1092379121 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2989881e-07, 0.08004895, -2.998931, -1.7957925e-08, 2.9989314, 0.08004853, 2.999999, 2.1417614e-08, -1.2937328e-07, 335.16415, 29.383152, -3.376585)
+
+[node name="BorderRock11" parent="BorderRocks" unique_id=1454400450 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3099985e-07, 0.355524, -2.9788585, -5.934906e-09, 2.9788587, 0.35552353, 2.999999, 2.1417614e-08, -1.2937329e-07, 378.19208, 24.714241, -3.376585)
+
+[node name="BorderRock12" parent="BorderRocks" unique_id=676236855 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2907101e-07, -0.040682107, -2.9997232, -2.3170045e-08, 2.9997237, -0.040682644, 2.999999, 2.1417613e-08, -1.2937328e-07, 419.6609, 24.714241, -3.376585)
+
+[node name="BorderRock13" parent="BorderRocks" unique_id=688618263 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2907101e-07, -0.040682107, -2.9997232, -2.3170045e-08, 2.9997237, -0.040682644, 2.999999, 2.1417613e-08, -1.2937328e-07, 462.43558, 20.480843, -3.376585)
+
+[node name="BorderRock14" parent="BorderRocks" unique_id=2010490341 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.232774e-07, -0.5484566, -2.9494388, -4.4708557e-08, 2.9494395, -0.548457, 2.999999, 2.1417613e-08, -1.2937328e-07, 504.9402, 23.831661, -3.376585)
+
+[node name="BorderRock15" parent="BorderRocks" unique_id=197342624 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794597e-08, -2.5787654e-07, 0, 2.9497643, -0.5467064, 2.6226826e-07, -0.5467065, -2.9497638, 515.15454, 23.831661, 14.672916)
+
+[node name="BorderRock16" parent="BorderRocks" unique_id=1585051611 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794593e-08, -2.578765e-07, -4.4523258e-08, 2.9997585, -0.038012207, 2.584614e-07, -0.038012207, -2.9997578, 515.15454, 29.400188, 58.762142)
+
+[node name="BorderRock17" parent="BorderRocks" unique_id=1039480693 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794593e-08, -2.578765e-07, -4.4523258e-08, 2.9997585, -0.038012207, 2.584614e-07, -0.038012207, -2.9997578, 515.15454, 29.400188, 103.674194)
+
+[node name="BorderRock18" parent="BorderRocks" unique_id=628954928 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.578765e-07, -7.02425e-08, 2.988423, 0.2632927, 2.5268676e-07, 0.2632928, -2.9884224, 515.15454, 24.097473, 149.94202)
+
+[node name="BorderRock19" parent="BorderRocks" unique_id=1014421048 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.5787648e-07, -4.2491962e-08, 2.9993672, -0.061570823, 2.5880306e-07, -0.061570793, -2.9993663, 515.15454, 24.097473, 196.79433)
+
+[node name="BorderRock20" parent="BorderRocks" unique_id=569909793 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.5787648e-07, -4.2491962e-08, 2.9993672, -0.061570823, 2.5880306e-07, -0.061570793, -2.9993663, 515.15454, 24.097473, 244.7178)
+
+[node name="BorderRock21" parent="BorderRocks" unique_id=961264246 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.5787648e-07, -4.2491962e-08, 2.9993672, -0.061570823, 2.5880306e-07, -0.061570793, -2.9993663, 515.15454, 24.097473, 290.81168)
+
+[node name="BorderRock22" parent="BorderRocks" unique_id=1260332346 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.5787648e-07, -4.2491962e-08, 2.9993672, -0.061570823, 2.5880306e-07, -0.061570793, -2.9993663, 515.15454, 24.097473, 336.52252)
+
+[node name="BorderRock23" parent="BorderRocks" unique_id=1868534161 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.7794586e-08, -2.5787648e-07, -4.2491962e-08, 2.9993672, -0.061570823, 2.5880306e-07, -0.061570793, -2.9993663, 515.15454, 24.097473, 381.7488)
+
+[node name="BorderRock24" parent="BorderRocks" unique_id=392470627 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.9999993, -4.7794593e-08, -2.5787654e-07, -1.2665446e-08, 2.9727242, -0.40361866, 2.6196219e-07, -0.40361875, -2.9727232, 515.15454, 27.551922, 428.3357)
+
+[node name="BorderRock25" parent="BorderRocks" unique_id=1265206310 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.77946e-08, -2.5787654e-07, -5.1305165e-08, 2.9997206, 0.040891796, 2.5720107e-07, 0.040891886, -2.9997199, 515.15454, 30.278545, 475.0174)
+
+[node name="BorderRock26" parent="BorderRocks" unique_id=616695753 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-2.999999, -4.77946e-08, -2.5787654e-07, -5.1305165e-08, 2.9997206, 0.040891796, 2.5720107e-07, 0.040891886, -2.9997199, 515.15454, 30.278545, 520.0568)
+
+[node name="BorderRock27" parent="BorderRocks" unique_id=24627808 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3113413e-07, 0, 2.9999986, 0, 2.999999, 0, -2.999999, 0, -1.311341e-07, 493.03888, 28.189861, 515.9618)
+
+[node name="BorderRock28" parent="BorderRocks" unique_id=1227765455 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3113413e-07, 0, 2.9999986, 0, 2.999999, 0, -2.999999, 0, -1.311341e-07, 445.16705, 28.189861, 515.9618)
+
+[node name="BorderRock29" parent="BorderRocks" unique_id=1731214663 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2803415e-07, -0.6484496, 2.9290793, -2.8344637e-08, 2.92908, 0.64844954, -2.9999993, 0, -1.3113412e-07, 402.20398, 24.517998, 515.9618)
+
+[node name="BorderRock30" parent="BorderRocks" unique_id=1606443457 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3043218e-07, -0.30999205, 2.98394, -1.35501885e-08, 2.9839406, 0.30999205, -2.999999, 0, -1.311341e-07, 358.50598, 17.2677, 515.9618)
+
+[node name="BorderRock31" parent="BorderRocks" unique_id=309283982 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.304253e-07, 0.3115023, 2.9837825, 1.36161935e-08, 2.9837832, -0.3115022, -2.999999, -2.2382274e-16, -1.3113412e-07, 312.60828, 17.2677, 515.9618)
+
+[node name="BorderRock32" parent="BorderRocks" unique_id=875633493 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.304253e-07, 0.3115023, 2.9837825, 1.36161935e-08, 2.9837832, -0.3115022, -2.999999, -2.2382274e-16, -1.3113412e-07, 269.6843, 25.366594, 515.9618)
+
+[node name="BorderRock33" parent="BorderRocks" unique_id=1470308851 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3113412e-07, -0.0013613403, 2.9999983, -5.951062e-11, 2.999999, 0.0013613701, -2.999999, -2.2382274e-16, -1.3113412e-07, 227.22357, 29.638191, 515.9618)
+
+[node name="BorderRock34" parent="BorderRocks" unique_id=1307408309 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.2308665e-07, -1.0347643, 2.8158937, -4.5230976e-08, 2.8158946, 1.0347638, -2.9999993, 1.1037128e-15, -1.3113413e-07, 188.23686, 21.486553, 515.9618)
+
+[node name="BorderRock35" parent="BorderRocks" unique_id=1976375752 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3088508e-07, 0.18481803, 2.9943008, 8.078645e-09, 2.9943016, -0.18481782, -2.9999993, 1.1094987e-15, -1.3113414e-07, 146.17769, 23.09492, 515.9618)
+
+[node name="BorderRock36" parent="BorderRocks" unique_id=591368839 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.3088508e-07, 0.18481803, 2.9943008, 8.078645e-09, 2.9943016, -0.18481782, -2.9999993, 1.1094987e-15, -1.3113414e-07, 98.93614, 24.43284, 515.9618)
+
+[node name="BorderRock37" parent="BorderRocks" unique_id=1817899988 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.309691e-07, -0.15047143, 2.9962232, -6.5773222e-09, 2.9962242, 0.15047157, -2.9999993, 3.0875782e-15, -1.3113413e-07, 55.938084, 25.576704, 515.9618)
+
+[node name="BorderRock38" parent="BorderRocks" unique_id=1674984938 instance=ExtResource("19_q24aw")]
+transform = Transform3D(-1.309691e-07, -0.15047143, 2.9962232, -6.5773222e-09, 2.9962242, 0.15047157, -2.9999993, 3.0875782e-15, -1.3113413e-07, 13.689362, 22.627779, 515.9618)
+
+[node name="BorderRock39" parent="BorderRocks" unique_id=2018488733 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.9999993, 0, 0, 0, 2.9961581, 0.15177879, 0, -0.15177882, 2.9961574, -2.2410355, 24.636307, 489.04016)
+
+[node name="BorderRock40" parent="BorderRocks" unique_id=1825278055 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.9999993, 0, 0, 0, 2.9961581, 0.15177879, 0, -0.15177882, 2.9961574, -2.2410355, 24.636307, 444.89536)
+
+[node name="BorderRock41" parent="BorderRocks" unique_id=2146248339 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9673407, 0.4414602, 0, -0.4414603, 2.9673402, -2.2410355, 19.123299, 403.47)
+
+[node name="BorderRock42" parent="BorderRocks" unique_id=1326586469 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9929237, -0.2059263, 0, 0.20592645, 2.9929237, -2.2410355, 23.526354, 363.3643)
+
+[node name="BorderRock43" parent="BorderRocks" unique_id=1453036518 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9929237, -0.2059263, 0, 0.20592645, 2.9929237, -2.2410355, 25.996387, 316.62918)
+
+[node name="BorderRock44" parent="BorderRocks" unique_id=1478386322 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9994771, 0.055969596, 0, -0.055969417, 2.9994771, -2.2410355, 26.167858, 268.19403)
+
+[node name="BorderRock45" parent="BorderRocks" unique_id=1337680177 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9994771, 0.055969596, 0, -0.055969417, 2.9994771, -2.2410355, 23.944689, 223.32314)
+
+[node name="BorderRock46" parent="BorderRocks" unique_id=439062125 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9994771, 0.055969596, 0, -0.055969417, 2.9994771, -2.2410355, 22.277983, 181.03078)
+
+[node name="BorderRock47" parent="BorderRocks" unique_id=973873078 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.9994771, 0.055969596, 0, -0.055969417, 2.9994771, -2.2410355, 21.639547, 135.7735)
+
+[node name="BorderRock48" parent="BorderRocks" unique_id=1968260671 instance=ExtResource("19_q24aw")]
+transform = Transform3D(2.999999, 0, 0, 0, 2.860693, -0.90356505, 0, 0.9035652, 2.860693, -2.2410355, 22.850302, 94.89533)
+
+[node name="BorderRock2" parent="BorderRocks" unique_id=854928256 instance=ExtResource("19_q24aw")]
+transform = Transform3D(3, 0, 0, 0, 2.914858, 0.7096496, 0, -0.7096496, 2.914858, -3.3108015, 23.39852, 60.037937)
