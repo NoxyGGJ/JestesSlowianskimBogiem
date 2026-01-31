@@ -2,12 +2,27 @@
 
 [ext_resource type="Script" uid="uid://b770i5rwo15sr" path="res://Scripts/LevelScript.gd" id="1_q4iis"]
 [ext_resource type="Script" uid="uid://cr81v46v6n1ys" path="res://addons/zylann.hterrain/hterrain.gd" id="1_wkftn"]
+[ext_resource type="Texture2D" uid="uid://dfrrpc5bjgrrt" path="res://Resources/Background/meadow_2_4k.exr" id="2_86ljf"]
 [ext_resource type="Resource" uid="uid://xckm8eltva01" path="res://Resources/data.hterrain" id="2_q4iis"]
 [ext_resource type="Script" uid="uid://cj1cfn4y2jd0w" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_m3clv"]
 [ext_resource type="Texture2D" uid="uid://dh1vs4wsghntg" path="res://Resources/O5NY920.jpg" id="4_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://GuiScene.tscn" id="6_m3clv"]
 [ext_resource type="PackedScene" path="res://Player.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" uid="uid://cyu2s083ddexu" path="res://Enemy.tscn" id="8_4eo0i"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ywx5"]
+panorama = ExtResource("2_86ljf")
+
+[sub_resource type="Sky" id="Sky_86ljf"]
+sky_material = SubResource("PanoramaSkyMaterial_3ywx5")
+
+[sub_resource type="Environment" id="Environment_3ywx5"]
+resource_local_to_scene = true
+resource_name = "MainEnvironment"
+background_mode = 2
+sky = SubResource("Sky_86ljf")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
 script = ExtResource("3_m3clv")
@@ -19,6 +34,13 @@ size = Vector3(1, 50, 530)
 
 [node name="Level" type="Node3D" unique_id=435008576]
 script = ExtResource("1_q4iis")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878574989]
+environment = SubResource("Environment_3ywx5")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=89202516]
+transform = Transform3D(0.5438612, 0.57029283, -0.61561453, -0.04948085, 0.7541114, 0.65488, 0.83771515, -0.3257026, 0.43835056, 0, 22.07484, 0)
+shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="." unique_id=1004625275]
 script = ExtResource("1_wkftn")
