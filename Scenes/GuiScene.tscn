@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bq4iufwc5uhx8" path="res://Resources/GUI/MaskOverlays/MaskOverlay2.png" id="3_aq4jo"]
 [ext_resource type="Texture2D" uid="uid://8c883gtsc7q6" path="res://Resources/GUI/MaskOverlays/MaskOverlay3.png" id="4_x58cy"]
 [ext_resource type="Texture2D" uid="uid://c42us86pndhes" path="res://Resources/GUI/MaskOverlays/MaskOverlay4.png" id="5_a0emc"]
+[ext_resource type="Texture2D" uid="uid://svv5uyfxskt0" path="res://Resources/GUI/Aim.png" id="9_t0qqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x58cy"]
 shader = ExtResource("2_aq4jo")
@@ -92,3 +93,9 @@ visible = false
 scale = Vector2(5, 3.7499998)
 texture = ExtResource("5_a0emc")
 centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="GuiCanvasLayer" unique_id=1956440920]
+self_modulate = Color(1, 1, 1, 0.5254902)
+position = Vector2(800, 450)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_t0qqd")
