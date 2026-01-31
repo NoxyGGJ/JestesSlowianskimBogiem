@@ -1,17 +1,28 @@
 [gd_scene format=3 uid="uid://c57icetv33aaj"]
 
 [ext_resource type="Script" uid="uid://cnt1v2ckbdof7" path="res://Scripts/GuiSceneScript.gd" id="1_y7y7g"]
+[ext_resource type="Shader" uid="uid://dmrnno5si1cxy" path="res://Shaders/AstralPlanePostprocessingShader.gdshader" id="2_aq4jo"]
 [ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="2_ip3d8"]
 [ext_resource type="Texture2D" uid="uid://d4h8al4lpk45s" path="res://Resources/GUI/MaskOverlays/MaskOverlay1.png" id="2_tn4uk"]
 [ext_resource type="Texture2D" uid="uid://bq4iufwc5uhx8" path="res://Resources/GUI/MaskOverlays/MaskOverlay2.png" id="3_aq4jo"]
 [ext_resource type="Texture2D" uid="uid://8c883gtsc7q6" path="res://Resources/GUI/MaskOverlays/MaskOverlay3.png" id="4_x58cy"]
 [ext_resource type="Texture2D" uid="uid://c42us86pndhes" path="res://Resources/GUI/MaskOverlays/MaskOverlay4.png" id="5_a0emc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x58cy"]
+shader = ExtResource("2_aq4jo")
+
 [node name="GuiScene" type="Node2D" unique_id=351606991]
 script = ExtResource("1_y7y7g")
 
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=1066602322]
 layer = 10
+
+[node name="AstralEffect" type="ColorRect" parent="GuiCanvasLayer" unique_id=435832362]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_x58cy")
+offset_right = 1600.0
+offset_bottom = 900.0
 
 [node name="LifeBar" type="Node2D" parent="GuiCanvasLayer" unique_id=1743064398]
 
