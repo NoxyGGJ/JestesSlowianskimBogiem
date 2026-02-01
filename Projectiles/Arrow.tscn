@@ -10,6 +10,8 @@ radius = 0.8
 script = ExtResource("1_883ib")
 speed = 23.0
 piercing = true
+min_damage = 2.0
+max_damage = 2.0
 push_force = 15.0
 push_stun = 0.1
 

@@ -23,32 +23,44 @@
 
 [sub_resource type="Resource" id="Resource_yyp3s"]
 script = ExtResource("2_32npc")
-MaxEnemies = 20
-MaxSpawnTime = 1.0
+MaxEnemies = 4
+MinSpawnTime = 1.0
+MaxSpawnTime = 3.0
 SpeedMultiplier = 0.7
+MarzannaSpeed = 2.0
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_32npc"]
 script = ExtResource("2_32npc")
-MaxEnemies = 4
-MinSpawnTime = 1.5
-MaxSpawnTime = 3.0
-EnemyMixFactor = 85
+MaxEnemies = 25
+MaxSpawnTime = 1.5
+EnemyMixFactor = 50
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_g4pvc"]
 script = ExtResource("2_32npc")
+MaxEnemies = 35
 EnemyMixFactor = 75
+MarzannaSpeed = 5.0
+SnowmanFrostDamageFraction = 0.5
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_ifohm"]
 script = ExtResource("2_32npc")
-EnemyMixFactor = 65
+MaxEnemies = 70
+MinSpawnTime = 0.1
+MaxSpawnTime = 0.3
+SpeedMultiplier = 1.2
+EnemyMixFactor = 60
+MarzannaSpeed = 5.0
+SnowmanFrostDamageFraction = 0.3
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_17mqb"]
 script = ExtResource("2_32npc")
-EnemyMixFactor = 50
+MaxEnemies = 15
+EnemyMixFactor = 85
+SnowmanFrostDamageFraction = 0.3
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_4eo0i"]
@@ -106,19 +118,19 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Campfire" parent="ManualDesign" unique_id=1658491565 instance=ExtResource("15_p0nbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.66234, 24.216917, 215.79419)
+transform = Transform3D(0.74075776, 0, -0.6717723, 0, 1, 0, 0.6717723, 0, 0.74075776, 245.66234, 23.243773, 223.69688)
 currentPoint = 1
 
 [node name="Campfire2" parent="ManualDesign" unique_id=1398046224 instance=ExtResource("15_p0nbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.60599, 23.938135, 120.16632)
+transform = Transform3D(0.7930876, 0, -0.60910755, 0, 1, 0, 0.60910755, 0, 0.7930876, 151.8238, 26.18854, 143.16544)
 currentPoint = 2
 
 [node name="Campfire3" parent="ManualDesign" unique_id=973669741 instance=ExtResource("15_p0nbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.2694, 20.399254, 360.90482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.92024, 26.870056, 330.44382)
 currentPoint = 3
 
 [node name="Campfire4" parent="ManualDesign" unique_id=659462133 instance=ExtResource("15_p0nbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 404.2271, 18.449732, 258.8517)
+transform = Transform3D(-0.39730802, 0, -0.91768533, 0, 1, 0, 0.91768533, 0, -0.39730802, 374.01617, 25.012348, 289.12012)
 currentPoint = 4
 
 [node name="Gate" parent="ManualDesign" unique_id=17602523 instance=ExtResource("12_4bpm7")]
@@ -147,7 +159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 311.1686, 18.65988, 105.22108
 [node name="Player" parent="." unique_id=290452896 instance=ExtResource("8_g4pvc")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 24.818142, 256)
-SPEED = 8.0
 
 [node name="LevelBoundaries" type="StaticBody3D" parent="." unique_id=480795649]
 

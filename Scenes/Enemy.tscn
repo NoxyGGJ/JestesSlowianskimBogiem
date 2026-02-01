@@ -387,6 +387,7 @@ animations = [{
 [node name="Enemy" type="CharacterBody3D" unique_id=1318673917]
 script = ExtResource("2_s7bn3")
 type = 1
+speed = 3.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=528754842]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.023639917, 0)

@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	
 		
 	if capturing:
-		capture_progress += delta * 8.0
+		capture_progress += delta * 15.0
 		loading_indicator.set_value(capture_progress)
 
 	if capture_progress >= 100:

@@ -52,8 +52,10 @@ func _fix_y():
 func _physics_process(delta: float) -> void:
 	var difficulty: DifficultyLevel = get_parent().getDifficulty()
 	var current_speed = speed * difficulty.SpeedMultiplier
-	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
-		current_speed *= 0.35
+	if type == EnemyType.MARZANA:
+		current_speed = difficulty.MarzannaSpeed
+		if GlobalObject.CurrentMask == 1:
+			current_speed *= 0.35
 	
 	if stunTime > 0:
 		stunTime -= delta
@@ -75,7 +77,8 @@ func _physics_process(delta: float) -> void:
 				var randomSkeleton = skeletons[random_index]
 				if randomSkeleton.type == EnemyType.SKELETON:
 					var dir = -global_position.direction_to(randomSkeleton.global_position)
-					velocity = dir * current_speed
+					velocity.x = (dir * current_speed).x
+					velocity.z = (dir * current_speed).z
 				
 	if dead:
 		animationSprite.animation = "Death"
@@ -103,6 +106,11 @@ func _physics_process(delta: float) -> void:
 		
 	cooldown -= delta * 3.0
 		
+	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 1 and difficulty.SnowmanFrostDamageFraction < 0.9:
+		$LifeSprite.modulate = Color.AQUA
+	else:
+		$LifeSprite.modulate = Color.RED
+
 	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 0 and cooldown <= 0.0:
 		Damage()
 		
@@ -182,6 +190,11 @@ func Die() -> void:
 	queue_free()
 	
 func Damage(amount = 1.0) -> void:
+
+	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 1:
+		var difficulty: DifficultyLevel = get_parent().getDifficulty()
+		amount *= difficulty.SnowmanFrostDamageFraction
+
 	life -= amount
 	cooldown = 1.0
 	updateLife()

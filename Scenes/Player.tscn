@@ -13,6 +13,7 @@
 
 [node name="Player" type="CharacterBody3D" unique_id=290452896]
 script = ExtResource("1_xhfnw")
+SPEED = 10.0
 hit_trauma = 5.0
 expload_trauma = 2.0
 
@@ -49,4 +50,4 @@ FireRate = 0.1
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("5_5ixxa")
 supportedMaskIndex = 2
-FireRate = 0.4
+FireRate = 0.3
