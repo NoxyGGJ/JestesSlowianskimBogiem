@@ -33,6 +33,7 @@ var restartHit:bool = false
 var cooldown: float = 0.0
 var attackCooldown: float = 1.0
 var stunTime: float = 0.0
+var attackAnimTime:float = 0.0
 
 var rng = RandomNumberGenerator.new()
 
@@ -135,11 +136,15 @@ func _physics_process(delta: float) -> void:
 	if attackCooldown < 0:
 		attackCooldown = 1.0
 		bossAttack()
-			
+		
+	if attackAnimTime > 0.0:
+		attackAnimTime -= delta	
+		animationSprite.animation = "Attack"
+		return
+		
 	if distance < 1.5:
 		animationSprite.animation = "Attack"
 		attacking = true
-		
 	elif distance < 40:	
 		move_and_slide()	
 		animationSprite.animation = "Walk"
@@ -168,6 +173,8 @@ func bossAttack() -> void:
 		bullet.transform.basis = Basis.looking_at(global_position - currentPlayer.global_position, Vector3.UP)
 		bullet.scale = Vector3(4.0, 4.0, 4.0)
 		bullet.reparent(get_tree().root)
+		
+	attackAnimTime = 0.5
 		
 
 func _on_hit() -> void:
