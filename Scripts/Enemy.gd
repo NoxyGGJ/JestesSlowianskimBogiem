@@ -15,6 +15,7 @@ enum EnemyType
 
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
+@onready var boss_shoot_audio_player = $BossShootAudioPlayer
 
 const deadDestroyTimeout := 20.0
 
@@ -173,6 +174,8 @@ func bossAttack() -> void:
 		bullet.transform.basis = Basis.looking_at(global_position - currentPlayer.global_position, Vector3.UP)
 		bullet.scale = Vector3(4.0, 4.0, 4.0)
 		bullet.reparent(get_tree().root)
+		if boss_shoot_audio_player:
+			boss_shoot_audio_player.play()
 		
 	attackAnimTime = 0.5
 		
