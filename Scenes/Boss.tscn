@@ -401,7 +401,7 @@ frame = 3
 frame_progress = 0.7192793
 
 [node name="Spawner" type="Node3D" parent="AnimatedSprite3D" unique_id=1546722204]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.021514311, 0.0052045584)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0194013, 0)
