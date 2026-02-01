@@ -31,6 +31,7 @@ func _ready() -> void:
 	if udp_enabled:
 		udp = PacketPeerUDP.new()
 		udp.bind(9571, "0.0.0.0") # listen on all interfaces
+	GlobalObject.reset()
 	set_mask(0)
 	terrain = find_child("HTerrain")
 	difficultyLevels = [
