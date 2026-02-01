@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JestesSlowianskimBogiem"
-run/main_scene="uid://big68lx40uvdb"
+run/main_scene="uid://dlyilpc3esat"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
