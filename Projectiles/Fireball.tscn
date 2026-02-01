@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnfgjtx61xgft" path="res://Scripts/Projectile.gd" id="1_llehy"]
 [ext_resource type="Material" uid="uid://bhbqsiirj1fh5" path="res://Projectiles/fireball_base.tres" id="2_mqswd"]
 [ext_resource type="Material" uid="uid://x5a5gbvlh36a" path="res://Projectiles/fireball.tres" id="3_ifppd"]
+[ext_resource type="AudioStream" uid="uid://co1w5jdqd1kup" path="res://Audio/SFX/massive-explosion-2-397983.wav" id="4_28m7f"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
 
@@ -221,7 +222,11 @@ visible = false
 mesh = SubResource("SphereMesh_t7eop")
 surface_material_override/0 = SubResource("StandardMaterial3D_ldoja")
 
+[node name="ExplosionAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1897337724]
+stream = ExtResource("4_28m7f")
+max_distance = 200.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_max_life_time_timer_timeout"]
 [connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_max_life_time_timer_timeout"]

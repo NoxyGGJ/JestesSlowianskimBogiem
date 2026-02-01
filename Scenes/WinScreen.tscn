@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpm4f54tyag2d" path="res://Scripts/GameOverScreen.gd" id="1_d8xbi"]
 [ext_resource type="Texture2D" uid="uid://vu10b6bhrhtl" path="res://Resources/WinScreen.jpg" id="2_d8xbi"]
+[ext_resource type="AudioStream" uid="uid://dtppcmgwqboev" path="res://Audio/SFX/group_yay_cheer-101509.wav" id="3_82r0j"]
 
 [node name="GameOverScreen" type="Node2D" unique_id=1976456880]
 script = ExtResource("1_d8xbi")
@@ -15,5 +16,10 @@ centered = false
 wait_time = 0.6
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=423763450]
+stream = ExtResource("3_82r0j")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="timeout" from="InputEnableTimer" to="." method="_on_input_enable_timer_timeout"]
