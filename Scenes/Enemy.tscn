@@ -138,3 +138,4 @@ region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
 
 [node name="DeathAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=792000010]
 stream = ExtResource("5_1exfc")
+volume_db = 4.0
