@@ -19,6 +19,7 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1867447581]
 stream = ExtResource("3_6hy6l")
+volume_db = 15.0
 autoplay = true
 bus = &"SFX"
 
