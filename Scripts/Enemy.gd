@@ -40,6 +40,7 @@ func _ready() -> void:
 	rng.randomize()
 	currentPlayer = get_parent().find_child("Player")
 	healthBar = find_child("LifeSprite")
+	animationSprite.flip_h = rng.randi() % 2 != 0
 	
 	if type == EnemyType.BOSS:
 		life = 50
