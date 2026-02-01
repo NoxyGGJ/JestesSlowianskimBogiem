@@ -26,7 +26,7 @@ var is_scaling : bool = true
 var scaling_fraction: float = 0.0
 var spherefx_scaling: bool = false
 var spherefx_time: float = 0.0
-
+@onready var explosion_audio_player = $ExplosionAudioPlayer
 
 func start_scaling() -> void:
 	is_scaling = true;
@@ -99,6 +99,9 @@ func explode() -> void:
 	$SphereFX.visible = true
 	spherefx_scaling = true
 	speed = 0
+	
+	if explosion_audio_player:
+		explosion_audio_player.play()
 	
 	var enemies = get_parent().enemy_cache
 	for enemy in enemies:

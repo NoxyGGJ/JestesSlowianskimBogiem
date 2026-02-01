@@ -33,6 +33,7 @@ var restartHit:bool = false
 var cooldown: float = 0.0
 var attackCooldown: float = 1.0
 var stunTime: float = 0.0
+var attackAnimTime:float = 0.0
 
 var rng = RandomNumberGenerator.new()
 
@@ -40,6 +41,7 @@ func _ready() -> void:
 	rng.randomize()
 	currentPlayer = get_parent().find_child("Player")
 	healthBar = find_child("LifeSprite")
+	animationSprite.flip_h = rng.randi() % 2 != 0
 	
 	if type == EnemyType.BOSS:
 		life = 50
@@ -134,11 +136,15 @@ func _physics_process(delta: float) -> void:
 	if attackCooldown < 0:
 		attackCooldown = 1.0
 		bossAttack()
-			
+		
+	if attackAnimTime > 0.0:
+		attackAnimTime -= delta	
+		animationSprite.animation = "Attack"
+		return
+		
 	if distance < 1.5:
 		animationSprite.animation = "Attack"
 		attacking = true
-		
 	elif distance < 40:	
 		move_and_slide()	
 		animationSprite.animation = "Walk"
@@ -168,6 +174,8 @@ func bossAttack() -> void:
 		bullet.scale = Vector3(4.0, 4.0, 4.0)
 		bullet.reparent(get_tree().root)
 		
+	attackAnimTime = 0.5
+		
 
 func _on_hit() -> void:
 	if attacking:
@@ -188,6 +196,9 @@ func Die() -> void:
 	
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
+	
+func isDead() -> bool:
+	return dead
 	
 func Damage(amount = 1.0) -> void:
 

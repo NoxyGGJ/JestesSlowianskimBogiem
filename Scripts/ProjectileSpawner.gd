@@ -7,6 +7,7 @@ extends Node3D
 var projectile
 var can_shoot : bool = true
 var is_release : bool
+@onready var shot_audio_player = $ShotAudioPlayer
 
 func _ready() -> void:
 	$FireRateTimer.wait_time = FireRate
@@ -35,6 +36,7 @@ func charged_attack() -> void:
 		projectile.reparent(get_parent().get_parent().get_parent().get_parent().get_parent())
 		projectile.rotation = global_rotation
 		projectile.release();
+		_play_shot_sound()
 		is_release = true
 		
 func normal_attack() -> void:
@@ -46,7 +48,12 @@ func normal_attack() -> void:
 		projectile.rotation = global_rotation
 		projectile.release();
 		can_shoot = false
+		_play_shot_sound()
 		$FireRateTimer.start()
 
 func _on_fire_rate_timer_timeout() -> void:
 	can_shoot = true
+
+func _play_shot_sound() -> void:
+	shot_audio_player.pitch_scale = randf_range(0.95, 1.05)
+	shot_audio_player.play()

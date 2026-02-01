@@ -13,6 +13,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	pass
+	
+func reset() -> void:
+	CurrentMask = 0
+	invincible_cheat = false
+	firstTotemFinished = false
+	secondTotemFinished = false
+	thirdTotemFinished = false
+	foruthTotemFinished = false
 
 func get_totems_status() -> Array[bool]:
 	return [firstTotemFinished, secondTotemFinished, thirdTotemFinished, foruthTotemFinished]

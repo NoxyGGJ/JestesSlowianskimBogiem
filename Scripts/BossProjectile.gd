@@ -19,6 +19,9 @@ func _physics_process(delta: float) -> void:
 		position += delta * speed * transform.basis[2]
 
 func _on_body_entered(body: Node3D) -> void:
+	var enemy = body is Enemy
+	if enemy:
+		return
 	
 	if not mesh.is_queued_for_deletion():
 		mesh.queue_free()
