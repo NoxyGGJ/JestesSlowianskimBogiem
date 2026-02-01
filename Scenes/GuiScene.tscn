@@ -71,6 +71,7 @@ patch_margin_bottom = 12
 
 [node name="MaskOverlaySprites" type="Node2D" parent="GuiCanvasLayer" unique_id=1823076876]
 unique_name_in_owner = true
+visible = false
 
 [node name="S1" type="Sprite2D" parent="GuiCanvasLayer/MaskOverlaySprites" unique_id=861649816]
 scale = Vector2(5, 3.7499998)
