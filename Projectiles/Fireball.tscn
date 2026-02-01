@@ -224,10 +224,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ldoja")
 
 [node name="ExplosionAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1897337724]
 stream = ExtResource("4_28m7f")
-volume_db = -6.0
+volume_db = -20.0
+max_db = -6.0
 max_distance = 200.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_max_life_time_timer_timeout"]
+[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_timer_timeout"]

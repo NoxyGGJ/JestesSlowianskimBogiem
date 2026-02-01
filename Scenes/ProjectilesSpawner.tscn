@@ -13,6 +13,7 @@ autostart = true
 
 [node name="ShotAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=536002841]
 stream = ExtResource("2_uw2wa")
+volume_db = -12.0
 unit_size = 1.0
 max_distance = 40.0
 bus = &"SFX"
