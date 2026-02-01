@@ -1,9 +1,50 @@
 [gd_scene format=3 uid="uid://coac38ftv7f7v"]
 
-[ext_resource type="Script" uid="uid://bup1tl7nb84xb" path="res://Scripts/BossProjectile.gd" id="1_qtnui"]
-[ext_resource type="PackedScene" uid="uid://bmd32mvlakd4b" path="res://Resources/3D/spear.glb" id="2_0dd64"]
+[ext_resource type="Script" path="res://Scripts/BossProjectile.gd" id="1_qtnui"]
+[ext_resource type="PackedScene" uid="uid://vveksjvaba33" path="res://Resources/3D/Piorun.glb" id="2_0dd64"]
+[ext_resource type="Material" uid="uid://x5a5gbvlh36a" path="res://Projectiles/fireball.tres" id="3_0dd64"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xh6v2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dd64"]
+size = Vector3(0.38098145, 0.27453613, 1.2866211)
+
+[sub_resource type="Gradient" id="Gradient_3dybh"]
+colors = PackedColorArray(1, 0.99011135, 0, 1, 1, 0.74139726, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2id3e"]
+gradient = SubResource("Gradient_3dybh")
+
+[sub_resource type="Curve" id="Curve_5lh1s"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.0744977), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7qkpm"]
+curve = SubResource("Curve_5lh1s")
+
+[sub_resource type="Curve" id="Curve_vba2a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8059211, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a0afh"]
+curve = SubResource("Curve_vba2a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xtc4m"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_a0afh")
+color = Color(3.483, 3.01, 0, 1)
+color_ramp = SubResource("GradientTexture1D_2id3e")
+emission_curve = SubResource("CurveTexture_7qkpm")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k3n1a"]
+material = ExtResource("3_0dd64")
+top_radius = 0.1
+bottom_radius = 0.0
 
 [node name="Projectile" type="Area3D" unique_id=395601081]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -12,13 +53,13 @@ speed = 8.0
 max_scale = Vector3(1, 1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("SphereShape3D_xh6v2")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.015106201, 0.008392334, -0.07165527)
+shape = SubResource("BoxShape3D_0dd64")
 
 [node name="base" type="Node3D" parent="." unique_id=1714816486]
 
-[node name="spear" parent="base" unique_id=1684871893 instance=ExtResource("2_0dd64")]
-transform = Transform3D(0.28559133, 1.0501877, 0.060940783, 1.1121145, -0.283103, 0.14227393, 0.33234572, 0.044887803, -0.5284529, 0, 0, 0.039821126)
+[node name="Piorun" parent="base" unique_id=1625895322 instance=ExtResource("2_0dd64")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=1793413249]
 one_shot = true
@@ -27,6 +68,13 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="sparksParticles" type="GPUParticles3D" parent="." unique_id=1078160989]
+amount = 24
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xtc4m")
+draw_pass_1 = SubResource("CylinderMesh_k3n1a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

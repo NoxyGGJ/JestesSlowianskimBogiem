@@ -26,7 +26,7 @@ var is_scaling : bool = true
 var scaling_fraction: float = 0.0
 var spherefx_scaling: bool = false
 var spherefx_time: float = 0.0
-@onready var explosion_audio_player = $ExplosionAudioPlayer
+var explosion_audio_player: AudioStreamPlayer3D
 
 func start_scaling() -> void:
 	is_scaling = true;
@@ -43,6 +43,7 @@ func _ready() -> void:
 	particles = $particles
 	timer = $Timer
 	collision = $CollisionShape3D
+	explosion_audio_player = find_child("ExplosionAudioPlayer") # Can be null.
 	if do_explode:
 		$explosionArea/explosionCollision.shape = $explosionArea/explosionCollision.shape.duplicate()
 

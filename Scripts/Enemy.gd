@@ -15,7 +15,7 @@ enum EnemyType
 
 @onready var animationSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D
-@onready var boss_shoot_audio_player = $BossShootAudioPlayer
+@onready var boss_shoot_audio_player: AudioStreamPlayer3D
 
 const deadDestroyTimeout := 20.0
 
@@ -40,6 +40,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
+	boss_shoot_audio_player = find_child("BossShootAudioPlayer") # Can be null.
 	currentPlayer = get_parent().find_child("Player")
 	healthBar = find_child("LifeSprite")
 	animationSprite.flip_h = rng.randi() % 2 != 0
@@ -192,13 +193,25 @@ func isAttacking() -> bool:
 	
 func Die() -> void:
 	dead = true
-	collisionShape.disabled = true
 	
+	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
+		await get_tree().create_timer(1.0).timeout
+		Respawn()
+		return
+	
+	collisionShape.disabled = true
+
 	if healthBar:
 		healthBar.hide()
 	
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
+	
+func Respawn() -> void:
+	dead = false
+	life = START_LIFE
+	updateLife()
+	animationSprite.play("Idle")
 	
 func isDead() -> bool:
 	return dead
