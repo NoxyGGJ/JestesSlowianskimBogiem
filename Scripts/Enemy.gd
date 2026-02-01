@@ -197,6 +197,9 @@ func Die() -> void:
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
 	
+func isDead() -> bool:
+	return dead
+	
 func Damage(amount = 1.0) -> void:
 
 	if type == EnemyType.SNOWMAN and GlobalObject.CurrentMask == 1:

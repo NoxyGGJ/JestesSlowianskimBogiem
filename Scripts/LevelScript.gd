@@ -25,6 +25,7 @@ var spawned_trees = []
 var boss_spawned = false
 var terrain: Node3D
 var enemy_cache = []
+var finalBoss: CharacterBody3D
 
 func _ready() -> void:
 	if udp_enabled:
@@ -77,11 +78,18 @@ func _process(delta: float) -> void:
 	GlobalObject.foruthTotemFinished and !boss_spawned:
 		spawnBoss()
 		
+	if boss_spawned and finalBoss.isDead():
+		await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://Scenes/WinScreen.tscn")
+		return
+		
 func spawnBoss() -> void:
 	boss_spawned = true
 	
 	var instance = bossObject.instantiate()
 	add_child(instance)
+	
+	finalBoss = instance
 	
 	var player = $Player
 	var y = terrain.get_data().get_height_at(player.position.x,player.position.z) + 1.0
