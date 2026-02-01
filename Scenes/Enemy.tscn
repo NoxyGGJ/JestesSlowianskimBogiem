@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b81migcbqit0e" path="res://Scripts/Enemy.gd" id="2_s7bn3"]
 [ext_resource type="Texture2D" uid="uid://rqu8p8pkspgm" path="res://Resources/Enemy/szkielet_dance.png" id="3_1exfc"]
 [ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_2hac7"]
+[ext_resource type="AudioStream" uid="uid://c5s7l5bhka4l5" path="res://Audio/SFXNew/EnemyDeathSkeleton.wav" id="5_1exfc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo1ky"]
 atlas = ExtResource("2_kpr8r")
@@ -134,3 +135,6 @@ billboard = 2
 texture = ExtResource("3_2hac7")
 region_enabled = true
 region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=792000010]
+stream = ExtResource("5_1exfc")

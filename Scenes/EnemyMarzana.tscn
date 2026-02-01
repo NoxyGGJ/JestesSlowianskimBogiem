@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b81migcbqit0e" path="res://Scripts/Enemy.gd" id="1_f3dsl"]
 [ext_resource type="Texture2D" uid="uid://dri05lvmwrwne" path="res://Resources/Enemy/marzanna 700x7200.png" id="2_f3dsl"]
 [ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_kavs2"]
+[ext_resource type="AudioStream" uid="uid://dukobsb72ksli" path="res://Audio/SFXNew/EnemyDeathMarzanna.wav" id="4_v2rv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2rv6"]
 atlas = ExtResource("2_f3dsl")
@@ -108,3 +109,6 @@ billboard = 2
 texture = ExtResource("3_kavs2")
 region_enabled = true
 region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
+
+[node name="DeathAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1457303334]
+stream = ExtResource("4_v2rv6")

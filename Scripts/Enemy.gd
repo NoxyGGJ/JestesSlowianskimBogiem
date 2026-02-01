@@ -35,6 +35,7 @@ var cooldown: float = 0.0
 var attackCooldown: float = 1.0
 var stunTime: float = 0.0
 var attackAnimTime:float = 0.0
+var death_audio_player: AudioStreamPlayer3D
 
 var rng = RandomNumberGenerator.new()
 
@@ -44,6 +45,7 @@ func _ready() -> void:
 	currentPlayer = get_parent().find_child("Player")
 	healthBar = find_child("LifeSprite")
 	animationSprite.flip_h = rng.randi() % 2 != 0
+	death_audio_player = find_child("DeathAudioPlayer")
 	
 	if type == EnemyType.BOSS:
 		life = 50
@@ -203,6 +205,9 @@ func Die() -> void:
 
 	if healthBar:
 		healthBar.hide()
+		
+	if death_audio_player:
+		death_audio_player.play()
 	
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
