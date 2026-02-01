@@ -81,8 +81,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2571585, 0)
 billboard = 2
 texture = SubResource("ViewportTexture_r3b3c")
 
-[node name="Swiatelko do nieba!" type="MeshInstance3D" parent="." unique_id=1738010499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, 132.345, -1.519)
+[node name="Swiatelko do nieba!" type="Node3D" parent="." unique_id=1946304769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.519)
+
+[node name="LightMesh" type="MeshInstance3D" parent="Swiatelko do nieba!" unique_id=1738010499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 132.345, 0)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_3u7do")
 

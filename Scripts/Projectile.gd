@@ -7,6 +7,8 @@ class_name Projectile
 @export var piercing : bool = false
 @export var min_damage: float = 1.0
 @export var max_damage: float = 1.0
+@export var push_force : float = 5.0
+@export var push_stun : float = 0.5
 
 @export var scaled_mesh: MeshInstance3D
 @export var mesh_min_scale: float = 1.0
@@ -98,18 +100,6 @@ func explode() -> void:
 	spherefx_scaling = true
 	speed = 0
 	
-	#currentPlayer.startExploadShake();
-	#if scaled_area:
-	#	scaled_area.shape.radius = 20	#local_scale * scaled_area_base
-	#$explosionArea/explosionCollision.shape.radius = 20	#local_scale * scaled_area_base
-	
-	#await get_tree().process_frame
-	#var bodies = $explosionArea.get_overlapping_bodies()
-	#for body in bodies:
-	#	var enemy = body is Enemy
-	#	if enemy:
-	#		body.Damage()
-	
 	var enemies = get_parent().enemy_cache
 	for enemy in enemies:
 		var delta = enemy.position - position
@@ -123,9 +113,14 @@ func explode() -> void:
 				enemy.stunTime = 1.0
 	
 func deal_damage(body: Node3D) -> bool:
-	var enemy = body is Enemy
-	if enemy:
+	if body is Enemy:
 		body.Damage(max_damage)
+
+		var delta = body.position - position
+		var dlen = delta.length()
+		if dlen > 0:
+			body.velocity += delta / dlen * push_force
+			body.stunTime = push_stun
 		return true
 	return false
 

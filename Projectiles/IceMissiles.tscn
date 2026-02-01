@@ -38,8 +38,7 @@ material = ExtResource("3_iflra")
 [node name="Projectile" type="Area3D" unique_id=395601081]
 script = ExtResource("1_ev2d6")
 speed = 30.0
-max_scale = Vector3(1.5, 1.5, 1.5)
-speed_scaling = 0.5
+push_force = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

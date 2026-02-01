@@ -61,7 +61,7 @@ func heal(delta: float) -> void:
 	heal_timer += delta
 	if heal_timer >= 1.0:
 		heal_timer -= 1.0
-		playerHealth += 0.04
+		playerHealth += 0.08
 		if playerHealth > 1.0:
 			playerHealth = 1.0
 		%Gui.update_health(playerHealth)

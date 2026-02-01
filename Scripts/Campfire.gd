@@ -16,6 +16,7 @@ enum CapturePoint
 var capture_progress:float = 0.0
 var capturing: bool = false
 var captured: bool = false
+var local_time: float = 0.0
 
 @export var currentPoint:CapturePoint = CapturePoint.NONE
 
@@ -26,6 +27,11 @@ func _process(delta: float) -> void:
 	
 	if captured:
 		return
+		
+	local_time += delta
+	var s = lerp(0.0, 1.0, sin(local_time * TAU)*0.5+0.5)
+	$"Swiatelko do nieba!".scale = Vector3(s, s, s)
+	
 		
 	if capturing:
 		capture_progress += delta * 8.0
