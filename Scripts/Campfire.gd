@@ -30,8 +30,8 @@ func _process(delta: float) -> void:
 		return
 		
 	local_time += delta
-	var s = lerp(0.5, 1.5, sin(local_time * TAU)*0.5+0.5)
-	$"Swiatelko do nieba!".scale = Vector3(s, s, s)
+	var s = lerp(0.5, 2.0, sin(local_time * TAU)*0.5+0.5)
+	$"Swiatelko do nieba!".scale = Vector3(s, 1, s)
 	
 		
 	if capturing:
