@@ -14,7 +14,7 @@ radius = 0.90185547
 height = 0.71362305
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wyony"]
-radius = 4.882787
+radius = 7.013315
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkl62"]
 cull_mode = 2
@@ -23,8 +23,8 @@ proximity_fade_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_r3b3c"]
 material = SubResource("StandardMaterial3D_hkl62")
-radius = 5.0
-height = 10.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_r3b3c"]
 viewport_path = NodePath("SubViewport")
