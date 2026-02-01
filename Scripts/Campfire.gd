@@ -12,6 +12,7 @@ enum CapturePoint
 
 @onready var fieldMesh: MeshInstance3D = $Area3D/MeshInstance3D
 @onready var loading_indicator: Control = $SubViewport/LoadingIndicator
+@onready var campfire : Node3D = $Campfire
 
 var capture_progress:float = 0.0
 var capturing: bool = false
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 		return
 		
 	local_time += delta
-	var s = lerp(0.0, 1.0, sin(local_time * TAU)*0.5+0.5)
+	var s = lerp(0.5, 1.5, sin(local_time * TAU)*0.5+0.5)
 	$"Swiatelko do nieba!".scale = Vector3(s, s, s)
 	
 		
@@ -43,6 +44,8 @@ func _process(delta: float) -> void:
 		capturing = false
 		loading_indicator.set_value(0.0)
 		fieldMesh.visible = false
+		$placedSmokeParticles.emitting = true
+		campfire.visible = true
 		
 		match currentPoint:
 			CapturePoint.FIRST:
