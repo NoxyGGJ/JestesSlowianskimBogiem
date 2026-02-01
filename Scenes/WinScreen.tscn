@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpm4f54tyag2d" path="res://Scripts/GameOverScreen.gd" id="1_d8xbi"]
 [ext_resource type="Texture2D" uid="uid://vu10b6bhrhtl" path="res://Resources/WinScreen.jpg" id="2_d8xbi"]
-[ext_resource type="AudioStream" uid="uid://dtppcmgwqboev" path="res://Audio/SFX/group_yay_cheer-101509.wav" id="3_82r0j"]
+[ext_resource type="AudioStream" uid="uid://u4o7kdc82af5" path="res://Audio/SFXNew/EndWin.wav" id="3_82r0j"]
 
 [node name="WinScreen" type="Node2D" unique_id=1976456880]
 script = ExtResource("1_d8xbi")
