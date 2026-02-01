@@ -22,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://br8ta8wqul4k0" path="res://Resources/3D/BorderRock.glb" id="19_q24aw"]
 [ext_resource type="AudioStream" uid="uid://cnuoqcf7fak48" path="res://Audio/Music/Slavic.mp3" id="21_yyp3s"]
 [ext_resource type="AudioStream" uid="uid://ebxrfmbjydyf" path="res://Audio/SFXNew/StartGame.wav" id="22_g4pvc"]
+[ext_resource type="AudioStream" uid="uid://bmw1857l4ahr6" path="res://Audio/SFXNew/MaskLato.wav" id="23_4bpm7"]
+[ext_resource type="AudioStream" uid="uid://rux78vl3twse" path="res://Audio/SFXNew/MaskZima.wav" id="24_n64rs"]
+[ext_resource type="AudioStream" uid="uid://rb11mlw3v151" path="res://Audio/SFXNew/MaskNoc.wav" id="25_i8dsc"]
+[ext_resource type="AudioStream" uid="uid://cucdim8s8dmnr" path="res://Audio/SFXNew/MaskPsy.wav" id="26_p0nbg"]
 
 [sub_resource type="Resource" id="Resource_yyp3s"]
 script = ExtResource("2_32npc")
@@ -347,3 +351,22 @@ bus = &"Music"
 stream = ExtResource("22_g4pvc")
 volume_db = 6.0
 autoplay = true
+
+[node name="MaskAudioPlayers" type="Node3D" parent="." unique_id=1149831196]
+unique_name_in_owner = true
+
+[node name="SummerSound" type="AudioStreamPlayer2D" parent="MaskAudioPlayers" unique_id=1057919671]
+stream = ExtResource("23_4bpm7")
+volume_db = 15.0
+
+[node name="WinterSound" type="AudioStreamPlayer2D" parent="MaskAudioPlayers" unique_id=898275407]
+stream = ExtResource("24_n64rs")
+volume_db = 15.0
+
+[node name="NightSound" type="AudioStreamPlayer2D" parent="MaskAudioPlayers" unique_id=1280040075]
+stream = ExtResource("25_i8dsc")
+volume_db = 15.0
+
+[node name="PsySound" type="AudioStreamPlayer2D" parent="MaskAudioPlayers" unique_id=1269440516]
+stream = ExtResource("26_p0nbg")
+volume_db = 15.0

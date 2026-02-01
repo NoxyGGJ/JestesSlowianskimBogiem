@@ -132,6 +132,8 @@ func set_mask(MaskIndex: int) -> void:
 	else:
 		%HTerrain._texture_set = load("res://Resources/Textures/TSPsy.tres")
 	
+	%MaskAudioPlayers.get_child(MaskIndex).play()
+	
 	%HTerrain._on_texture_set_changed()
 
 func _update_trees() -> void:
