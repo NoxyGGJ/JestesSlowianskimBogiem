@@ -46,6 +46,7 @@ func normal_attack() -> void:
 		projectile.rotation = global_rotation
 		projectile.release();
 		can_shoot = false
+		$FireRateTimer.start()
 
 func _on_fire_rate_timer_timeout() -> void:
 	can_shoot = true

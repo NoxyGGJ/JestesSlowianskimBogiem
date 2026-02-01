@@ -41,7 +41,8 @@ func _ready() -> void:
 	particles = $particles
 	timer = $Timer
 	collision = $CollisionShape3D
-	$explosionArea/explosionCollision.shape = $explosionArea/explosionCollision.shape.duplicate()
+	if do_explode:
+		$explosionArea/explosionCollision.shape = $explosionArea/explosionCollision.shape.duplicate()
 
 func _physics_process(delta: float) -> void:
 	if is_scaling:

@@ -6,11 +6,9 @@ extends Node3D
 @export var maxZ = 500
 @export var playerRandom = 15
 
-@export var objects = [
-	preload("res://Scenes/Enemy.tscn"),
-	preload("res://Scenes/EnemySnow.tscn"),
-	preload("res://Scenes/EnemyMarzana.tscn")
-]
+@export var e_skeleton = preload("res://Scenes/Enemy.tscn")
+@export var e_snowman = preload("res://Scenes/EnemySnow.tscn")
+@export var e_marzanna = preload("res://Scenes/EnemyMarzana.tscn")
 
 @onready var spawn_timer: Timer = $SpawnTimer
 
@@ -46,18 +44,41 @@ func _on_spawn_timer_timeout() -> void:
 		z = player.position.z + cos(ang)*dist
 			
 		var y = terrain.get_data().get_height_at(x,z) + 1.0
-		
-		#var random_index = rng.randi() % objects.size()
-		var random_index := -1
+
+		var object_scene = null
 		match GlobalObject.CurrentMask:
-			0:
-				random_index = 2 # Marzanna
-			1:
-				random_index = 1 # Balwan
-			2:
-				random_index = 0 # Szkielet
-		if random_index != -1:
-			var object_scene = objects[random_index]
+			0:	# Summer
+				if rng.randi() % 100 < difficulty.EnemyMixFactor:
+					object_scene = e_marzanna
+				else:
+					object_scene = e_skeleton
+				
+			1:	# Winter
+				if rng.randi() % 100 < difficulty.EnemyMixFactor:
+					object_scene = e_snowman
+				elif rng.randi() % 100 < 80:
+					object_scene = e_skeleton
+				else:
+					object_scene = e_marzanna
+				
+			2:	# Night
+				if rng.randi() % 100 < difficulty.EnemyMixFactor:
+					object_scene = e_skeleton
+				elif rng.randi() % 100 < 50:
+					object_scene = e_marzanna
+				else:
+					object_scene = e_snowman
+				
+			3:	# Psy
+				if rng.randi() % 100 < difficulty.EnemyMixFactor:
+					if rng.randi() % 100 < 50:
+						object_scene = e_marzanna
+					else:
+						object_scene = e_snowman
+				else:
+					object_scene = e_skeleton
+						
+		if object_scene:
 			var instance2 = object_scene.instantiate()
 			root.add_child(instance2)
 			instance2.position = Vector3(x, y, z)

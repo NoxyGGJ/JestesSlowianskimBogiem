@@ -43,10 +43,10 @@ FireRate = 0.5
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("4_e80uo")
 supportedMaskIndex = 1
-FireRate = 0.2
+FireRate = 0.1
 
 [node name="ArrowSpawner" parent="ShakeAnchor/head/Camera3D" unique_id=1365312235 instance=ExtResource("7_52ee3")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2842797e-08, -0.3745165, -0.80042243)
 projectile_scene = ExtResource("5_5ixxa")
 supportedMaskIndex = 2
-FireRate = 0.2
+FireRate = 0.4

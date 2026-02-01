@@ -23,7 +23,7 @@
 
 [sub_resource type="Resource" id="Resource_yyp3s"]
 script = ExtResource("2_32npc")
-MaxEnemies = 2
+MaxEnemies = 20
 MaxSpawnTime = 1.0
 SpeedMultiplier = 0.7
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
@@ -33,18 +33,22 @@ script = ExtResource("2_32npc")
 MaxEnemies = 4
 MinSpawnTime = 1.5
 MaxSpawnTime = 3.0
+EnemyMixFactor = 85
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_g4pvc"]
 script = ExtResource("2_32npc")
+EnemyMixFactor = 75
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_ifohm"]
 script = ExtResource("2_32npc")
+EnemyMixFactor = 65
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_17mqb"]
 script = ExtResource("2_32npc")
+EnemyMixFactor = 50
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
 [sub_resource type="Resource" id="Resource_4eo0i"]

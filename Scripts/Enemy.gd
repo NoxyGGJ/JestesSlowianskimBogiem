@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	var difficulty: DifficultyLevel = get_parent().getDifficulty()
 	var current_speed = speed * difficulty.SpeedMultiplier
 	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
-		current_speed *= 0.1
+		current_speed *= 0.35
 	
 	if stunTime > 0:
 		stunTime -= delta
