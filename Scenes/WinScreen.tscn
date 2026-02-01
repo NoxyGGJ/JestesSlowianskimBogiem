@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vu10b6bhrhtl" path="res://Resources/WinScreen.jpg" id="2_d8xbi"]
 [ext_resource type="AudioStream" uid="uid://dtppcmgwqboev" path="res://Audio/SFX/group_yay_cheer-101509.wav" id="3_82r0j"]
 
-[node name="GameOverScreen" type="Node2D" unique_id=1976456880]
+[node name="WinScreen" type="Node2D" unique_id=1976456880]
 script = ExtResource("1_d8xbi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1963494414]

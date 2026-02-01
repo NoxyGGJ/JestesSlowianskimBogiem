@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://v3wnh684yync" path="res://Resources/GameOverScreen.jpg" id="1_6a6fq"]
 [ext_resource type="Script" uid="uid://dpm4f54tyag2d" path="res://Scripts/GameOverScreen.gd" id="1_gk5la"]
+[ext_resource type="AudioStream" uid="uid://dx0p7afx8puwk" path="res://Audio/SFX/echec-370391-lose.wav" id="3_6hy6l"]
 
 [node name="GameOverScreen" type="Node2D" unique_id=1976456880]
 script = ExtResource("1_gk5la")
@@ -15,5 +16,10 @@ centered = false
 wait_time = 0.6
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1867447581]
+stream = ExtResource("3_6hy6l")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="timeout" from="InputEnableTimer" to="." method="_on_input_enable_timer_timeout"]
