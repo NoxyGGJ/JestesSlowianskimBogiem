@@ -24,8 +24,7 @@
 [sub_resource type="Resource" id="Resource_yyp3s"]
 script = ExtResource("2_32npc")
 MaxEnemies = 2
-MinSpawnTime = 1.5
-MaxSpawnTime = 3.0
+MaxSpawnTime = 1.0
 SpeedMultiplier = 0.7
 metadata/_custom_type_script = "uid://1rbpjvx56fnu"
 
@@ -103,7 +102,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Campfire" parent="ManualDesign" unique_id=1658491565 instance=ExtResource("15_p0nbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 291.15546, 18.33929, 204.6779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.66234, 24.216917, 215.79419)
 currentPoint = 1
 
 [node name="Campfire2" parent="ManualDesign" unique_id=1398046224 instance=ExtResource("15_p0nbg")]

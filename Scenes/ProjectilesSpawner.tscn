@@ -7,6 +7,7 @@ script = ExtResource("1_mc4jp")
 
 [node name="FireRateTimer" type="Timer" parent="." unique_id=2116268538]
 wait_time = 0.5
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

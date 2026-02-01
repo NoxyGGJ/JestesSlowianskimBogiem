@@ -17,6 +17,11 @@ func update_health(percent: float) -> void:
 		%InteriorLife.visible = true
 		%InteriorLife.size.x = percent * health_bar_max_width
 
+func ping_health() -> void:
+	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	t.tween_property($GuiCanvasLayer/LifeBar, "scale", Vector2(1.1, 1.1), 0.03)
+	t.tween_property($GuiCanvasLayer/LifeBar, "scale", Vector2(1.0, 1.0), 0.3)
+
 # Use index 0...3 or -1 to disable any masks.
 func update_mask_overlay(index: int) -> void:
 	var sprites_node = %MaskOverlaySprites

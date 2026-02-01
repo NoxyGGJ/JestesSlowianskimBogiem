@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dexq1r11bvb42"]
 
 [ext_resource type="Script" uid="uid://ch2ly8pi411hw" path="res://Scripts/Player.gd" id="1_xhfnw"]
-[ext_resource type="Script" uid="uid://c547gy43q1iab" path="res://Scripts/ShakeableCamera.gd" id="2_nn08x"]
+[ext_resource type="Script" path="res://Scripts/ShakeableCamera.gd" id="2_nn08x"]
 [ext_resource type="PackedScene" uid="uid://cu0awoyok3hbn" path="res://Projectiles/Fireball.tscn" id="3_kne1u"]
 [ext_resource type="PackedScene" uid="uid://bm4tcs6300bfc" path="res://Projectiles/IceMissiles.tscn" id="4_e80uo"]
 [ext_resource type="PackedScene" uid="uid://dnme4danrsnbd" path="res://Projectiles/Arrow.tscn" id="5_5ixxa"]

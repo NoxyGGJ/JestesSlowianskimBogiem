@@ -28,10 +28,11 @@ var distance: float = 0.0
 var attacking: bool = false
 var dead:bool = false
 const START_LIFE := 5
-@export var life: int = START_LIFE
+@export var life: float = START_LIFE
 var restartHit:bool = false
 var cooldown: float = 0.0
 var attackCooldown: float = 1.0
+var stunTime: float = 0.0
 
 var rng = RandomNumberGenerator.new()
 
@@ -54,28 +55,32 @@ func _physics_process(delta: float) -> void:
 	if type == EnemyType.MARZANA and GlobalObject.CurrentMask == 1:
 		current_speed *= 0.1
 	
-	if currentPlayer:
-		var currPos:Vector2 = Vector2(global_position.x, global_position.z)
-		var playerPos:Vector2 = Vector2(currentPlayer.global_position.x,
-										currentPlayer.global_position.z)
-		
-		var direction = global_position.direction_to(currentPlayer.global_position)
-		velocity = direction * current_speed
-		distance = currPos.distance_to(playerPos)
+	if stunTime > 0:
+		stunTime -= delta
+	else:
+		if currentPlayer:
+			var currPos:Vector2 = Vector2(global_position.x, global_position.z)
+			var playerPos:Vector2 = Vector2(currentPlayer.global_position.x,
+											currentPlayer.global_position.z)
+			
+			var direction = global_position.direction_to(currentPlayer.global_position)
+			var new_velocity = direction * current_speed
+			velocity = Vector3(new_velocity.x, velocity.y, new_velocity.z)
+			distance = currPos.distance_to(playerPos)
 
+		if type != EnemyType.SKELETON and type != EnemyType.BOSS and GlobalObject.CurrentMask == 2:
+			var skeletons = get_parent().enemy_cache	#find_children("*", "Enemy", false, false)
+			if !skeletons.is_empty():
+				var random_index = rng.randi() % skeletons.size()
+				var randomSkeleton = skeletons[random_index]
+				if randomSkeleton.type == EnemyType.SKELETON:
+					var dir = -global_position.direction_to(randomSkeleton.global_position)
+					velocity = dir * current_speed
+				
 	if dead:
 		animationSprite.animation = "Death"
 		return
-		
-	if type != EnemyType.SKELETON and type != EnemyType.BOSS and GlobalObject.CurrentMask == 2:
-		var skeletons = get_parent().enemy_cache	#find_children("*", "Enemy", false, false)
-		if !skeletons.is_empty():
-			var random_index = rng.randi() % skeletons.size()
-			var randomSkeleton = skeletons[random_index]
-			if randomSkeleton.type == EnemyType.SKELETON:
-				var dir = -global_position.direction_to(randomSkeleton.global_position)
-				velocity = dir * current_speed
-				
+
 	var wrap = wrap_to_player
 	var dx = position.x - currentPlayer.position.x
 	var dz = position.z - currentPlayer.position.z
@@ -176,8 +181,8 @@ func Die() -> void:
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
 	
-func Damage() -> void:
-	life -= 1
+func Damage(amount = 1.0) -> void:
+	life -= amount
 	cooldown = 1.0
 	updateLife()
 	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

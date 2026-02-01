@@ -9,6 +9,8 @@ extends CharacterBody3D
 @export var hit_trauma : float = 1.0
 @export var expload_trauma : float = 0.5
 var playerHealth: float = 1.0
+var heal_timer: float = 0.0
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -56,10 +58,14 @@ func hit() -> void:
 	%Gui.take_damage()
 	
 func heal(delta: float) -> void:
-	if playerHealth < 1.0:
-		playerHealth += delta * 0.01
-	
-	%Gui.update_health(playerHealth)
+	heal_timer += delta
+	if heal_timer >= 1.0:
+		heal_timer -= 1.0
+		playerHealth += 0.04
+		if playerHealth > 1.0:
+			playerHealth = 1.0
+		%Gui.update_health(playerHealth)
+		%Gui.ping_health()
 	
 func startExploadShake() -> void:
 	shake.add_trauma(expload_trauma)

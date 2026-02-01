@@ -24,14 +24,17 @@ func charged_attack() -> void:
 		projectile.currentPlayer = $"../../../.."
 		add_child(projectile)
 		is_release = false
+		can_shoot = false
+		$FireRateTimer.start()
+		
 	if Input.is_action_just_pressed("fire") and not is_release and projectile:
 		projectile.position = Vector3.ZERO
 		projectile.start_scaling();
+		
 	if Input.is_action_just_released("fire") and projectile:
-		projectile.reparent(get_tree().root)
+		projectile.reparent(get_parent().get_parent().get_parent().get_parent().get_parent())
 		projectile.rotation = global_rotation
 		projectile.release();
-		can_shoot = false
 		is_release = true
 		
 func normal_attack() -> void:

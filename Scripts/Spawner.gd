@@ -21,7 +21,7 @@ var player: CharacterBody3D
 
 func _ready() -> void:
 	rng.randomize()
-	spawn_timer.wait_time = 5.0
+	spawn_timer.wait_time = 1.0 #5.0
 	spawn_timer.start()
 	root = get_parent()
 	terrain = root.find_child("HTerrain")	

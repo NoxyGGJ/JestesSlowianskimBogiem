@@ -31,7 +31,7 @@ float value_noise(vec2 uv) {
 float calc_component(vec2 uv, vec2 motion)
 {
     vec2 scale = vec2(8.0, 4.0);
-    float n = value_noise(uv * scale + motion);
+    float n = value_noise(uv * scale + motion*4.0);
     return smoothstep(0.0, 1.0, n);
 }
 void fragment() {

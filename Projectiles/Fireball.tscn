@@ -133,13 +133,28 @@ scale_curve = SubResource("CurveTexture_neo6w")
 color = Color(0.06974216, 0.06974216, 0.06974216, 1)
 alpha_curve = SubResource("CurveTexture_28m7f")
 
-[node name="Projectile" type="Area3D" unique_id=395601081]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldoja"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+disable_specular_occlusion = true
+albedo_color = Color(1, 0.54901963, 0.36862746, 0.30588236)
+
+[node name="Projectile" type="Area3D" unique_id=395601081 node_paths=PackedStringArray("scaled_mesh")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+gravity_space_override = 1
+gravity = 4.5
 script = ExtResource("1_llehy")
-speed = 30.0
-max_scale = Vector3(1.5, 1.5, 1.5)
-speed_scaling = 0.5
+speed = 50.0
+scaling_time = 3.0
 do_explode = true
+max_damage = 5.0
+scaled_mesh = NodePath("base")
+mesh_min_scale = 0.1
+mesh_max_scale = 1.0
+area_max_scale = 16.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=38575158]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -200,7 +215,13 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="SphereFX" type="MeshInstance3D" parent="." unique_id=1827877777]
+transform = Transform3D(3.923, 0, 0, 0, 3.923, 0, 0, 0, 3.923, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_t7eop")
+surface_material_override/0 = SubResource("StandardMaterial3D_ldoja")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_max_life_time_timer_timeout"]
+[connection signal="timeout" from="MaxLifeTimeTimer" to="." method="_on_timer_timeout"]
