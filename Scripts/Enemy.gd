@@ -192,13 +192,25 @@ func isAttacking() -> bool:
 	
 func Die() -> void:
 	dead = true
-	collisionShape.disabled = true
 	
+	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
+		await get_tree().create_timer(1.0).timeout
+		Respawn()
+		return
+	
+	collisionShape.disabled = true
+
 	if healthBar:
 		healthBar.hide()
 	
 	await get_tree().create_timer(deadDestroyTimeout).timeout
 	queue_free()
+	
+func Respawn() -> void:
+	dead = false
+	life = START_LIFE
+	updateLife()
+	animationSprite.play("Idle")
 	
 func isDead() -> bool:
 	return dead
