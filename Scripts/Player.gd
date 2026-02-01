@@ -10,7 +10,7 @@ extends CharacterBody3D
 @export var expload_trauma : float = 0.5
 var playerHealth: float = 1.0
 var heal_timer: float = 0.0
-
+@onready var hit_audio_player = $HitAudioPlayer
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -56,6 +56,8 @@ func hit() -> void:
 	shake.add_trauma(hit_trauma)
 	%Gui.update_health(playerHealth)
 	%Gui.take_damage()
+	if hit_audio_player:
+		hit_audio_player.play()
 	
 func heal(delta: float) -> void:
 	heal_timer += delta

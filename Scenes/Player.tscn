@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm4tcs6300bfc" path="res://Projectiles/IceMissiles.tscn" id="4_e80uo"]
 [ext_resource type="PackedScene" uid="uid://dnme4danrsnbd" path="res://Projectiles/Arrow.tscn" id="5_5ixxa"]
 [ext_resource type="PackedScene" uid="uid://b87ksred84obf" path="res://Scenes/ProjectilesSpawner.tscn" id="7_52ee3"]
+[ext_resource type="AudioStream" uid="uid://bsm18jbou6t0a" path="res://Audio/SFX/punch-416719.wav" id="7_bhhdu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
 
@@ -54,3 +55,11 @@ FireRate = 0.3
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1192294628]
 current = true
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1434008278]
+stream = ExtResource("7_bhhdu")
+attenuation_model = 3
+volume_db = -5.0
+unit_size = 1.0
+max_distance = 40.0
+bus = &"SFX"
