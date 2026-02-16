@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://nb7qoyavd675" path="res://Resources/Textures/GrassSummer.png" id="6_pmxqn"]
 [ext_resource type="PackedScene" uid="uid://c57icetv33aaj" path="res://Scenes/GuiScene.tscn" id="7_yyp3s"]
 [ext_resource type="PackedScene" uid="uid://dexq1r11bvb42" path="res://Scenes/Player.tscn" id="8_g4pvc"]
+[ext_resource type="PackedScene" uid="uid://dnpbx4ust8rtl" path="res://Scenes/PauseMenu.tscn" id="9_n64rs"]
 [ext_resource type="PackedScene" uid="uid://dqqn72korsn2y" path="res://Scenes/Tree1.tscn" id="10_17mqb"]
 [ext_resource type="PackedScene" uid="uid://ifqx5xxy2bry" path="res://Resources/3D/Gate.glb" id="12_4bpm7"]
 [ext_resource type="PackedScene" uid="uid://qxm3rxjl6t3b" path="res://Resources/3D/Tents.glb" id="13_n64rs"]
@@ -121,6 +122,21 @@ metadata/_custom_type_script = "uid://cr81v46v6n1ys"
 
 [node name="Gui" parent="." unique_id=351606991 instance=ExtResource("7_yyp3s")]
 unique_name_in_owner = true
+
+[node name="PauseMenu" parent="Gui" unique_id=852670585 instance=ExtResource("9_n64rs")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 696.0
+offset_top = 357.00003
+offset_right = 696.0
+offset_bottom = 357.00003
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ManualDesign" type="Node3D" parent="." unique_id=1832900410]
 unique_name_in_owner = true

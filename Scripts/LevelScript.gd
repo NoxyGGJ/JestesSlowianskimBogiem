@@ -1,5 +1,6 @@
 class_name Level extends Node3D
 
+@onready var pause_menu: Control = $Gui/PauseMenu
 
 @export var difficultyLevel0 = DifficultyLevel.new()
 @export var difficultyLevel1 = DifficultyLevel.new()
@@ -26,6 +27,7 @@ var boss_spawned = false
 var terrain: Node3D
 var enemy_cache = []
 var finalBoss: CharacterBody3D
+var paused = false
 
 func _ready() -> void:
 	if udp_enabled:
@@ -117,6 +119,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Invincible cheat = %d" % int(GlobalObject.invincible_cheat))
 	elif event is InputEventKey and event.pressed and not event.echo and event.ctrl_pressed and event.keycode == KEY_B:
 		spawnBoss()
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		pause()
+		
+func pause() -> void:
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
+		
 		
 func set_mask(MaskIndex: int) -> void:
 	if GlobalObject.CurrentMask == MaskIndex:
