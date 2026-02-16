@@ -30,6 +30,8 @@ var finalBoss: CharacterBody3D
 var paused = false
 
 func _ready() -> void:
+	Engine.time_scale = 1
+	
 	if udp_enabled:
 		udp = PacketPeerUDP.new()
 		udp.bind(9571, "0.0.0.0") # listen on all interfaces
