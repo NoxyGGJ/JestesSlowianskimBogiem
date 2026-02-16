@@ -80,6 +80,7 @@ func _process(delta: float) -> void:
 		spawnBoss()
 		
 	if boss_spawned and finalBoss.isDead():
+		%Gui.get_game_timer().stop()
 		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://Scenes/WinScreen.tscn")
 		return

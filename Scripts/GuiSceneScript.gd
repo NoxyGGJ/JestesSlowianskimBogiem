@@ -1,11 +1,15 @@
 class_name GuiScene extends Node2D
 
+@export var game_timer: GameTimer
+
 var health_bar_max_width: int = 0
 var damage_overlay_in_progress = false
 
 func _ready() -> void:
 	health_bar_max_width = %InteriorLife.size.x
 	
+func get_game_timer() -> GameTimer:
+	return game_timer
 
 func _process(delta: float) -> void:
 	pass

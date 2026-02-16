@@ -11,12 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://c42us86pndhes" path="res://Resources/GUI/MaskOverlays/MaskOverlay4.png" id="5_a0emc"]
 [ext_resource type="Texture2D" uid="uid://b4u8hkma6t84h" path="res://Resources/GUI/LifeBarFrame.png" id="5_rtk21"]
 [ext_resource type="Texture2D" uid="uid://svv5uyfxskt0" path="res://Resources/GUI/Aim.png" id="9_t0qqd"]
+[ext_resource type="Script" uid="uid://byn276r40t707" path="res://Scripts/GameTimer.gd" id="12_rtk21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x58cy"]
 shader = ExtResource("2_aq4jo")
 
-[node name="GuiScene" type="Node2D" unique_id=351606991]
+[node name="GuiScene" type="Node2D" unique_id=351606991 node_paths=PackedStringArray("game_timer")]
 script = ExtResource("1_y7y7g")
+game_timer = NodePath("GuiCanvasLayer/GameTimer")
 
 [node name="GuiCanvasLayer" type="CanvasLayer" parent="." unique_id=1066602322]
 layer = 10
@@ -102,3 +104,36 @@ self_modulate = Color(1, 1, 1, 0.5254902)
 position = Vector2(800, 450)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_t0qqd")
+
+[node name="GameTimer" type="Panel" parent="GuiCanvasLayer" unique_id=963778816]
+offset_left = 1400.0
+offset_right = 1600.0
+offset_bottom = 56.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("12_rtk21")
+metadata/_edit_use_anchors_ = true
+
+[node name="Minutes" type="Label" parent="GuiCanvasLayer/GameTimer" unique_id=1821181367]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 65.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 40
+text = "00:"
+
+[node name="Seconds" type="Label" parent="GuiCanvasLayer/GameTimer" unique_id=390369339]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 121.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 40
+text = "00."
+
+[node name="MiliSeconds" type="Label" parent="GuiCanvasLayer/GameTimer" unique_id=732779914]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 189.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 40
+text = "000"
