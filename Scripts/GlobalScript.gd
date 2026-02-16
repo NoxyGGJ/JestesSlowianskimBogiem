@@ -8,6 +8,8 @@ var secondTotemFinished: bool = false
 var thirdTotemFinished: bool = false
 var foruthTotemFinished: bool = false
 
+var LastBestTime: String = ""
+
 func _ready() -> void:
 	pass
 	

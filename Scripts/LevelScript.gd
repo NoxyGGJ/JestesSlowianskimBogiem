@@ -61,6 +61,7 @@ func _process_udp_packets() -> void:
 func _process(delta: float) -> void:
 	var player = $Player
 	if player and player.playerHealth <= 0.0:
+		%Gui.get_game_timer().stop()
 		await get_tree().create_timer(0.75).timeout
 		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 		return
@@ -81,6 +82,7 @@ func _process(delta: float) -> void:
 		
 	if boss_spawned and finalBoss.isDead():
 		%Gui.get_game_timer().stop()
+		GlobalObject.LastBestTime = %Gui.get_game_timer().getTimeFormated()
 		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://Scenes/WinScreen.tscn")
 		return
