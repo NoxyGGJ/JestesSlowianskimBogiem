@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://d1wwldxb52ie2"]
+
+[ext_resource type="Script" uid="uid://bagxapa6udb03" path="res://Scripts/Leaderboard.gd" id="1_xvobe"]
+
+[node name="Leaderboard" type="Control" unique_id=1051917845]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xvobe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=896981380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Exit" type="Button" parent="." unique_id=983464470]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "X"
+
+[node name="Label" type="Label" parent="." unique_id=2136388413]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.5
+offset_right = 100.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "LEADERBOARD"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=801021103]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.081
+anchor_right = 1.0
+anchor_bottom = 0.192
+offset_top = 0.099998474
+offset_bottom = 0.19999695
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Easy_Button" type="Button" parent="HBoxContainer" unique_id=2136727417]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "EASY"
+
+[node name="Normal_Button" type="Button" parent="HBoxContainer" unique_id=1076329235]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "NORMAL"
+
+[node name="Hard_Button" type="Button" parent="HBoxContainer" unique_id=328932387]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "HARD"
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1187144676]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.21300001
+anchor_right = 1.0
+anchor_bottom = 0.22500001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1452677570]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23400001
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.3999939
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1197480648]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 9
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Easy_Button" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Normal_Button" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Hard_Button" to="." method="_on_hard_button_pressed"]

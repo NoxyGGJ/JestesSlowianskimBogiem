@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dg7ari0h141s8"]
+
+[ext_resource type="Script" uid="uid://dge16hc45ais4" path="res://Scripts/cell.gd" id="1_rdgq0"]
+
+[node name="ColorRect" type="ColorRect" unique_id=1691234184 node_paths=PackedStringArray("place", "playerName", "time")]
+custom_minimum_size = Vector2(0, 80)
+color = Color(0.5019608, 0.5019608, 0.5019608, 0.5019608)
+script = ExtResource("1_rdgq0")
+place = NodePath("Place")
+playerName = NodePath("Name")
+time = NodePath("Time")
+
+[node name="Place" type="Label" parent="." unique_id=199422142]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -21.0
+offset_right = 51.0
+offset_bottom = 21.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "100"
+
+[node name="Name" type="Label" parent="." unique_id=781226640]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -21.0
+offset_right = 1227.0
+offset_bottom = 21.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Very Long User Name "
+
+[node name="Time" type="Label" parent="." unique_id=1180018970]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -21.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "00:00.000"

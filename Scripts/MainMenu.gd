@@ -24,3 +24,6 @@ func _on_hard_pressed() -> void:
 	
 func startGame() -> void:
 	get_tree().change_scene_to_file("res:///Scenes/Level.tscn")
+
+func _on_leader_board_pressed() -> void:
+	get_tree().change_scene_to_file("res:///Scenes/Leaderboard.tscn")
