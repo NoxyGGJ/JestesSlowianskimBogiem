@@ -29,7 +29,7 @@ func layoutData(list:Array[PlayerData]) -> void:
 	for i in dataToDisplay.size():
 		var cell = defaultCell.instantiate()
 		var data = dataToDisplay[i]
-		cell.setPlace(str(i))
+		cell.setPlace(str(i+1))
 		cell.setName(data.PlayerName)
 		cell.setTime(data.PlayerTime)
 		
