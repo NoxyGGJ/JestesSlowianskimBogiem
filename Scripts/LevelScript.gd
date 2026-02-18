@@ -45,6 +45,21 @@ func _ready() -> void:
 		difficultyLevel3,
 		difficultyLevel4
 	]
+	
+	loadDifficulty(GlobalObject.gameDifficulty)
+	
+func loadDifficulty(diffculty: GlobalObject.GameDifficulty) -> void:
+	var loadPath = "res://Resources/Difficulty/"
+	var diff_name: String = GlobalObject.GameDifficulty.find_key(diffculty)
+	
+	for i in difficultyLevels.size():
+		var fileName = loadPath + diff_name + str(i) + ".tres"
+		var loadedObject = load(fileName)
+		
+		if loadedObject:
+			difficultyLevels[i] = loadedObject
+		else:
+			printerr("Cannot load: " + fileName)
 
 func _process_udp_packets() -> void:
 	while udp.get_available_packet_count() > 0:
@@ -62,7 +77,7 @@ func _process_udp_packets() -> void:
 			continue
 		set_mask(digit)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player = $Player
 	if player and player.playerHealth <= 0.0:
 		%Gui.get_game_timer().stop()

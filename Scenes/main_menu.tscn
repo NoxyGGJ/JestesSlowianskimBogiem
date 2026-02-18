@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://co2k4mqvh82dh" path="res://Scripts/MainMenu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://ce5cxqh2rfjcy" path="res://Resources/SplashScreen.jpg" id="2_7vrkn"]
 
-[node name="MainMenu" type="Control" unique_id=530259479]
+[node name="MainMenu" type="Control" unique_id=530259479 node_paths=PackedStringArray("difficulty", "main")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
+difficulty = NodePath("Difficulty")
+main = NodePath("Main")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=599779470]
 layout_mode = 0
@@ -18,7 +20,7 @@ offset_right = 1600.0
 offset_bottom = 900.0
 texture = ExtResource("2_7vrkn")
 
-[node name="VFlowContainer" type="VFlowContainer" parent="." unique_id=216695279]
+[node name="Main" type="VFlowContainer" parent="." unique_id=216695279]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.35
@@ -31,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="VFlowContainer" unique_id=1985233055]
+[node name="PlayButton" type="Button" parent="Main" unique_id=1985233055]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -40,7 +42,7 @@ toggle_mode = true
 text = "Play"
 metadata/_edit_group_ = true
 
-[node name="QuitButton" type="Button" parent="VFlowContainer" unique_id=686238852]
+[node name="QuitButton" type="Button" parent="Main" unique_id=686238852]
 clip_contents = true
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
@@ -49,6 +51,50 @@ text = "Quit
 "
 metadata/_edit_group_ = true
 
-[connection signal="pressed" from="VFlowContainer/PlayButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VFlowContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VFlowContainer/QuitButton" to="." method="_on_button_exit_pressed"]
+[node name="Difficulty" type="VFlowContainer" parent="." unique_id=1379896276]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.5
+anchor_right = 0.65
+anchor_bottom = 0.8
+offset_left = -140.0
+offset_top = -112.0
+offset_right = -120.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Easy" type="Button" parent="Difficulty" unique_id=1848104314]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+text = "Easy"
+metadata/_edit_group_ = true
+
+[node name="Normal" type="Button" parent="Difficulty" unique_id=147151059]
+clip_contents = true
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Normal"
+metadata/_edit_group_ = true
+
+[node name="Hard" type="Button" parent="Difficulty" unique_id=1131903055]
+clip_contents = true
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Hard"
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="Main/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Main/QuitButton" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="Difficulty/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Difficulty/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="Difficulty/Hard" to="." method="_on_hard_pressed"]

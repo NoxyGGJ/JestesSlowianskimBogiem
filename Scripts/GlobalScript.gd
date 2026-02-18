@@ -1,5 +1,16 @@
 class_name GlobalScript extends Node
 
+enum GameDifficulty
+{
+	UNKNOWN,
+	EASY,
+	NORMAL,
+	HARD,
+	INSANE
+}
+
+var gameDifficulty: GameDifficulty = GameDifficulty.NORMAL
+
 var CurrentMask: int = 0
 var invincible_cheat := false
 
@@ -13,7 +24,7 @@ var LastBestTime: String = ""
 func _ready() -> void:
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func reset() -> void:

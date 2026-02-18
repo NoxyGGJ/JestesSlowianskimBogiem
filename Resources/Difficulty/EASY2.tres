@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DifficultyLevel" format=3 uid="uid://bona85qjaq6ua"]
+
+[ext_resource type="Script" uid="uid://1rbpjvx56fnu" path="res://Scripts/DifficultyLevel.gd" id="1_3h63s"]
+
+[resource]
+script = ExtResource("1_3h63s")
+MaxEnemies = 20
+EnemyMixFactor = 75
+MarzannaSpeed = 5.0
+SnowmanFrostDamageFraction = 0.5
+metadata/_custom_type_script = "uid://1rbpjvx56fnu"
