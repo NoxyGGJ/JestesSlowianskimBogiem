@@ -1,10 +1,12 @@
 extends Control
 
 @onready var v_box_container: VBoxContainer = $ScrollContainer/VBoxContainer
+@onready var h_Easy_separator: HSeparator = $HBoxContainer/Easy_Button/HSeparator
+@onready var h_Normal_separator: HSeparator = $HBoxContainer/Normal_Button/HSeparator
+@onready var h_Hard_separator: HSeparator = $HBoxContainer/Hard_Button/HSeparator
 
 var leaderboard_data:LeaderboardData
 var defaultCell = preload("res://Scenes/Cell.tscn")
-
 
 func _ready() -> void:
 	leaderboard_data = GlobalObject.GetLeaderboardData()
@@ -16,10 +18,19 @@ func reloadWithDifficulty(difficulty:GlobalObject.GameDifficulty) -> void:
 		
 	match difficulty:
 		GlobalScript.GameDifficulty.EASY:
+			h_Easy_separator.show()
+			h_Normal_separator.hide()
+			h_Hard_separator.hide()
 			layoutData(leaderboard_data.easyList)
 		GlobalScript.GameDifficulty.NORMAL:
+			h_Easy_separator.hide()
+			h_Normal_separator.show()
+			h_Hard_separator.hide()
 			layoutData(leaderboard_data.normalList)
 		GlobalScript.GameDifficulty.HARD:
+			h_Easy_separator.hide()
+			h_Normal_separator.hide()
+			h_Hard_separator.show()
 			layoutData(leaderboard_data.hardList)
 	
 func layoutData(list:Array[PlayerData]) -> void:

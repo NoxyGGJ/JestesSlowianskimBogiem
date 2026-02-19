@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bagxapa6udb03" path="res://Scripts/Leaderboard.gd" id="1_xvobe"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xvobe"]
+color = Color(0, 1, 0, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_udga5"]
+color = Color(1, 1, 0, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_c6wcd"]
+color = Color(1, 0, 0, 1)
+thickness = 4
+
 [node name="Leaderboard" type="Control" unique_id=1051917845]
 layout_mode = 3
 anchors_preset = 15
@@ -37,10 +49,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -100.5
+offset_top = 8.36
 offset_right = 100.5
-offset_bottom = 39.0
+offset_bottom = 47.36
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 42
 text = "LEADERBOARD"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=801021103]
@@ -49,8 +62,8 @@ anchors_preset = -1
 anchor_top = 0.081
 anchor_right = 1.0
 anchor_bottom = 0.192
-offset_top = 0.099998474
-offset_bottom = 0.19999695
+offset_top = 9.830002
+offset_bottom = -10.069931
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -61,17 +74,62 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "EASY"
 
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Easy_Button" unique_id=787072506]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_xvobe")
+
 [node name="Normal_Button" type="Button" parent="HBoxContainer" unique_id=1076329235]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "NORMAL"
 
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Normal_Button" unique_id=718234458]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_udga5")
+
 [node name="Hard_Button" type="Button" parent="HBoxContainer" unique_id=328932387]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "HARD"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Hard_Button" unique_id=116444295]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_c6wcd")
 
 [node name="HSeparator" type="HSeparator" parent="." unique_id=1187144676]
 layout_mode = 1
