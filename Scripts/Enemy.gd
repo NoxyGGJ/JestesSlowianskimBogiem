@@ -33,6 +33,7 @@ const START_LIFE := 5
 var restartHit:bool = false
 var cooldown: float = 0.0
 var attackCooldown: float = 1.0
+var attackMultipler: float = 0.5
 var stunTime: float = 0.0
 var attackAnimTime:float = 0.0
 var death_audio_player: AudioStreamPlayer3D
@@ -51,6 +52,11 @@ func _ready() -> void:
 		life = 50
 		updateLife()
 		spawner = $AnimatedSprite3D/Spawner
+		
+	if GlobalObject.gameDifficulty == GlobalScript.GameDifficulty.NORMAL:
+		attackMultipler = 0.65		
+	elif GlobalObject.gameDifficulty == GlobalScript.GameDifficulty.HARD:
+		attackMultipler = 0.9
 
 func _fix_y():
 	position.y = get_parent().find_child("HTerrain").get_data().get_height_at(position.x, position.z) + 1.0
@@ -135,7 +141,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 			
 	if type == EnemyType.BOSS:
-		attackCooldown -= delta * 0.5
+		attackCooldown -= delta * attackMultipler
 		
 	if attackCooldown < 0:
 		attackCooldown = 1.0
