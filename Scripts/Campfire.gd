@@ -18,12 +18,19 @@ var capture_progress:float = 0.0
 var capturing: bool = false
 var captured: bool = false
 var local_time: float = 0.0
+var caputer_multipler:float = 17.0
 
 @export var currentPoint:CapturePoint = CapturePoint.NONE
 
 func _ready() -> void:
-	pass 
-
+	match GlobalObject.gameDifficulty:
+		GlobalScript.GameDifficulty.EASY:
+			caputer_multipler = 20.0
+		GlobalScript.GameDifficulty.NORMAL:
+			caputer_multipler = 17.0
+		GlobalScript.GameDifficulty.HARD:
+			caputer_multipler = 14.0
+			
 func _process(delta: float) -> void:
 	
 	if captured:
@@ -35,7 +42,7 @@ func _process(delta: float) -> void:
 	
 		
 	if capturing:
-		capture_progress += delta * 17.0
+		capture_progress += delta * caputer_multipler
 		loading_indicator.set_value(capture_progress)
 
 	if capture_progress >= 100:
