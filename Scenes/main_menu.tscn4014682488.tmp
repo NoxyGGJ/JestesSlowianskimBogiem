@@ -19,12 +19,15 @@ main = NodePath("Main")
 
 [node name="Background" type="TextureRect" parent="." unique_id=642090995]
 layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-scale = Vector2(0.7, 0.7)
+offset_right = 1600.0
+offset_bottom = 900.0
 texture = ExtResource("2_ce3w2")
 script = ExtResource("3_n45e2")
-duration = 10.0
+start_scale = null
+end_scale = null
+start_position = null
+end_position = null
+duration = null
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=599779470]
 layout_mode = 0
