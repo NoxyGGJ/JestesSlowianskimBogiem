@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d1wwldxb52ie2"]
 
 [ext_resource type="Script" uid="uid://bagxapa6udb03" path="res://Scripts/Leaderboard.gd" id="1_xvobe"]
+[ext_resource type="Texture2D" uid="uid://q6to20iwbj3l" path="res://Resources/Background/A.png" id="2_c6wcd"]
+[ext_resource type="Script" uid="uid://cl3ljy4rjlgwi" path="res://Scripts/KenBurns.gd" id="3_qaei5"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_xvobe"]
 color = Color(0, 1, 0, 1)
@@ -31,6 +33,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=993730811]
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_c6wcd")
+script = ExtResource("3_qaei5")
+duration = 10.0
 
 [node name="Exit" type="Button" parent="." unique_id=983464470]
 custom_minimum_size = Vector2(64, 64)

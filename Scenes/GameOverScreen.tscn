@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://v3wnh684yync" path="res://Resources/GameOverScreen.jpg" id="1_6a6fq"]
 [ext_resource type="Script" uid="uid://dpm4f54tyag2d" path="res://Scripts/GameOverScreen.gd" id="1_gk5la"]
 [ext_resource type="AudioStream" uid="uid://c67wy5ya2idvo" path="res://Audio/SFXNew/EndFail.wav" id="3_6hy6l"]
+[ext_resource type="Texture2D" uid="uid://bpodh3pmxe431" path="res://Resources/totem2.png" id="3_veks2"]
 
 [node name="GameOverScreen" type="Node2D" unique_id=1976456880]
 script = ExtResource("1_gk5la")
@@ -11,6 +12,11 @@ script = ExtResource("1_gk5la")
 scale = Vector2(1.667, 1.667)
 texture = ExtResource("1_6a6fq")
 centered = false
+
+[node name="Totem" type="Sprite2D" parent="." unique_id=342833450]
+position = Vector2(1326, 435)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_veks2")
 
 [node name="InputEnableTimer" type="Timer" parent="." unique_id=2077168175]
 wait_time = 0.6
