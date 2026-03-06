@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q6to20iwbj3l" path="res://Resources/Background/A.png" id="2_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://bpodh3pmxe431" path="res://Resources/totem2.png" id="3_1ehe0"]
 [ext_resource type="Script" uid="uid://cl3ljy4rjlgwi" path="res://Scripts/KenBurns.gd" id="3_n45e2"]
-[ext_resource type="Texture2D" uid="uid://biav2y0jkh4qp" path="res://Resources/SplashScreen2.png" id="4_opfnp"]
+[ext_resource type="FontFile" uid="uid://dx2x0kxb8xoc5" path="res://Resources/PaganWinter-jdBj.ttf" id="5_n45e2"]
 
 [node name="MainMenu" type="Control" unique_id=530259479 node_paths=PackedStringArray("difficulty", "main")]
 layout_mode = 3
@@ -25,12 +25,6 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ce3w2")
 script = ExtResource("3_n45e2")
 duration = 10.0
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=599779470]
-layout_mode = 0
-offset_right = 1600.0
-offset_bottom = 900.0
-texture = ExtResource("4_opfnp")
 
 [node name="Totem" type="TextureRect" parent="." unique_id=574442350]
 layout_mode = 1
@@ -129,6 +123,35 @@ layout_mode = 2
 toggle_mode = true
 text = "Hard"
 metadata/_edit_group_ = true
+
+[node name="Title" type="Label" parent="." unique_id=217308790]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -684.0
+offset_top = 42.0
+offset_right = 423.0
+offset_bottom = 230.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_n45e2")
+theme_override_font_sizes/font_size = 140
+text = "Jestes slowianskim bogiem"
+
+[node name="SubTitle" type="Label" parent="." unique_id=1009936342]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -682.0
+offset_top = 197.0
+offset_right = -5.0
+offset_bottom = 277.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.662452, 0.66245246, 0.6624523, 1)
+theme_override_fonts/font = ExtResource("5_n45e2")
+theme_override_font_sizes/font_size = 80
+text = "Zagraj w to sobie sobie"
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
