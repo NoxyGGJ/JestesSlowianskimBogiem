@@ -1,7 +1,7 @@
 class_name WinScreen extends Node
 
-@onready var time_label: Label = $Panel/TimeLabel
-@onready var text_edit: TextEdit = $Panel2/TextEdit
+@onready var time_label: Label = $Background/Panel/TimeLabel
+@onready var text_edit: TextEdit = $Background/Panel2/TextEdit
 
 func _ready() -> void:
 	
