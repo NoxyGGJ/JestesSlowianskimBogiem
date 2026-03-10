@@ -254,10 +254,10 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 					}
 				}
 
-				const int code_mask_0 = 0x025836A;		// 00010 01011 00000 11011 01010  ->  0 0010 0101 1000 0011 0110 1010
-				const int code_mask_1 = 0x0AD836A;		// 01010 11011 00000 11011 01010  ->  0 1010 1101 1000 0011 0110 1010
-				const int code_mask_2 = 0x027A36A;		// 00010 01111 01000 11011 01010  ->  0 0010 0111 1010 0011 0110 1010
-				const int code_mask_3 = 0x0258FEE;		// 00010 01011 00011 11111 01110  ->  0 0010 0101 1000 1111 1110 1110
+				const int code_mask_0 = 0x025836A;
+				const int code_mask_1 = 0x0AD836A;
+				const int code_mask_2 = 0x027A36A;
+				const int code_mask_3 = 0x0258FEE;
 				if( code == code_mask_0 )
 				{
 					printf("================ MASK 0 DETECTED! ================\n");
@@ -285,19 +285,35 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 }
 
 
-void FeatureDetector::ShowResult(BITMAP* buff, vector<int>& data, int shift)
+void FeatureDetector::ShowResult(BITMAP* buff, vector<int>& data, int shift, int dstX, int dstY, int dstW, int dstH)
 {
-	int cw = min(buff->w, width);
-	int ch = min(buff->h, height);
+	if( !buff || width <= 0 || height <= 0 )
+		return;
+	if( dstX >= buff->w || dstY >= buff->h )
+		return;
+	if( (int)data.size() < width * height || (int)markers.size() < width * height )
+		return;
 
-	for( int y=0; y<ch; y++ )
+	if( dstW <= 0 )
+		dstW = width;
+	if( dstH <= 0 )
+		dstH = height;
+
+	int cw = min(buff->w - max(0, dstX), dstW);
+	int ch = min(buff->h - max(0, dstY), dstH);
+	if( cw <= 0 || ch <= 0 )
+		return;
+
+	for( int y = 0; y < ch; ++y )
 	{
-		int* src = &data[y * width];
-		int* msrc = &markers[y * width];
-		for( int x=0; x<cw; x++ )
+		int sy = min(height - 1, (y * height) / dstH);
+		int* src = &data[sy * width];
+		int* msrc = &markers[sy * width];
+		for( int x = 0; x < cw; ++x )
 		{
-			int color = ((*src++ >> shift) & 0xFF) * 0x010101;
-			int marker = *msrc++;
+			int sx = min(width - 1, (x * width) / dstW);
+			int color = ((src[sx] >> shift) & 0xFF) * 0x010101;
+			int marker = msrc[sx];
 			if( marker )
 			{
 				if( marker == 1 )
@@ -306,7 +322,7 @@ void FeatureDetector::ShowResult(BITMAP* buff, vector<int>& data, int shift)
 					color = marker;
 			}
 
-			_putpixel32(buff, x, y, color);
+			_putpixel32(buff, dstX + x, dstY + y, color);
 		}
 	}
 }

@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <base.h>
@@ -45,5 +44,5 @@ public:
 	// Main entry
 	uint32_t Process(CameraPixels::Frame& frame);
 
-	void ShowResult(BITMAP* buff, vector<int>& data, int shift);
+	void ShowResult(BITMAP* buff, vector<int>& data, int shift, int dstX = 0, int dstY = 0, int dstW = -1, int dstH = -1);
 };
