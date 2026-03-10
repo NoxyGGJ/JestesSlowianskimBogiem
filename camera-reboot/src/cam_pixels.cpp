@@ -77,6 +77,7 @@ struct VideoFormatInfo {
   BITMAPINFOHEADER bih{};
   int width = 0;
   int height = 0;
+  bool topDown = true;
 };
 
 struct VideoInfoHeader2Compat {
@@ -95,6 +96,7 @@ struct VideoInfoHeader2Compat {
   };
   BITMAPINFOHEADER bmiHeader;
 };
+
 static bool extractVideoFormatInfo(const AM_MEDIA_TYPE& mt, VideoFormatInfo& out) {
   if (!mt.pbFormat) return false;
 
@@ -110,6 +112,7 @@ static bool extractVideoFormatInfo(const AM_MEDIA_TYPE& mt, VideoFormatInfo& out
 
   out.width = (int)out.bih.biWidth;
   out.height = out.bih.biHeight < 0 ? -(int)out.bih.biHeight : (int)out.bih.biHeight;
+  out.topDown = out.bih.biHeight < 0;
   return out.width > 0 && out.height > 0;
 }
 
@@ -143,6 +146,16 @@ static CameraPixels::PixelFormat subtypeToFormat(const GUID& st, const BITMAPINF
   return CameraPixels::PixelFormat::Unknown;
 }
 
+static CameraPixels::RowOrder rowOrderForFormat(CameraPixels::PixelFormat fmt, bool topDownFromHeader) {
+  switch (fmt) {
+    case CameraPixels::PixelFormat::BGRA32:
+    case CameraPixels::PixelFormat::BGR24:
+      return topDownFromHeader ? CameraPixels::RowOrder::TopDown : CameraPixels::RowOrder::BottomUp;
+    default:
+      return CameraPixels::RowOrder::TopDown;
+  }
+}
+
 static const wchar_t* pixelFormatName(CameraPixels::PixelFormat fmt) {
   switch (fmt) {
     case CameraPixels::PixelFormat::BGRA32: return L"BGRA32";
@@ -171,6 +184,10 @@ static inline void yuv_to_bgr(int Y, int U, int V, uint8_t& b, uint8_t& g, uint8
   r = clamp8(R);
   g = clamp8(G);
   b = clamp8(B);
+}
+
+static int mapRowIndex(const CameraPixels::Frame& frame, int y) {
+  return frame.rowOrder == CameraPixels::RowOrder::BottomUp ? (frame.height - 1 - y) : y;
 }
 
 static bool decode_mjpg_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& out) {
@@ -209,6 +226,7 @@ static bool decode_mjpg_to_bgra(const CameraPixels::Frame& in, CameraPixels::Fra
 
   out = {};
   out.format = CameraPixels::PixelFormat::BGRA32;
+  out.rowOrder = CameraPixels::RowOrder::TopDown;
   out.width = (int)w;
   out.height = (int)h;
   out.stride = (int)w * 4;
@@ -241,6 +259,7 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
 
   out = {};
   out.format = CameraPixels::PixelFormat::BGRA32;
+  out.rowOrder = CameraPixels::RowOrder::TopDown;
   out.width = in.width;
   out.height = in.height;
   out.stride = in.width * 4;
@@ -251,15 +270,11 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
   const int h = in.height;
 
   if (in.format == CameraPixels::PixelFormat::BGRA32) {
-    if ((int)in.data.size() == out.stride * h) {
-      out.data = in.data;
-      return true;
-    }
-
     int inStride = in.stride > 0 ? in.stride : w * 4;
     for (int y = 0; y < h; ++y) {
+      int srcY = mapRowIndex(in, y);
       std::memcpy(out.data.data() + (size_t)y * out.stride,
-                  in.data.data() + (size_t)y * inStride,
+                  in.data.data() + (size_t)srcY * inStride,
                   (size_t)std::min(out.stride, inStride));
     }
     return true;
@@ -268,7 +283,8 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
   if (in.format == CameraPixels::PixelFormat::BGR24) {
     int inStride = in.stride > 0 ? in.stride : w * 3;
     for (int y = 0; y < h; ++y) {
-      const uint8_t* src = in.data.data() + (size_t)y * inStride;
+      int srcY = mapRowIndex(in, y);
+      const uint8_t* src = in.data.data() + (size_t)srcY * inStride;
       uint8_t* dst = out.data.data() + (size_t)y * out.stride;
       for (int x = 0; x < w; ++x) {
         dst[4 * x + 0] = src[3 * x + 0];
@@ -283,7 +299,8 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
   if (in.format == CameraPixels::PixelFormat::YUY2 || in.format == CameraPixels::PixelFormat::UYVY) {
     int inStride = in.stride > 0 ? in.stride : w * 2;
     for (int y = 0; y < h; ++y) {
-      const uint8_t* s = in.data.data() + (size_t)y * inStride;
+      int srcY = mapRowIndex(in, y);
+      const uint8_t* s = in.data.data() + (size_t)srcY * inStride;
       uint8_t* d = out.data.data() + (size_t)y * out.stride;
       for (int x = 0; x < w; x += 2) {
         int Y0 = 0;
@@ -333,9 +350,10 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
     const uint8_t* UVp = in.data.data() + yPlaneBytes;
 
     for (int y = 0; y < h; ++y) {
+      int srcY = mapRowIndex(in, y);
       uint8_t* dst = out.data.data() + (size_t)y * out.stride;
-      const uint8_t* yrow = Yp + (size_t)y * yStride;
-      const uint8_t* uvrow = UVp + (size_t)(y / 2) * yStride;
+      const uint8_t* yrow = Yp + (size_t)srcY * yStride;
+      const uint8_t* uvrow = UVp + (size_t)(srcY / 2) * yStride;
       for (int x = 0; x < w; ++x) {
         int Yv = yrow[x];
         int U = uvrow[(x & ~1) + 0];
@@ -373,10 +391,11 @@ static bool convert_to_bgra(const CameraPixels::Frame& in, CameraPixels::Frame& 
     const uint8_t* Vp = (in.format == CameraPixels::PixelFormat::I420) ? plane2 : plane1;
 
     for (int y = 0; y < h; ++y) {
+      int srcY = mapRowIndex(in, y);
       uint8_t* dst = out.data.data() + (size_t)y * out.stride;
-      const uint8_t* yrow = Yp + (size_t)y * yStride;
-      const uint8_t* urow = Up + (size_t)(y / 2) * uvStride;
-      const uint8_t* vrow = Vp + (size_t)(y / 2) * uvStride;
+      const uint8_t* yrow = Yp + (size_t)srcY * yStride;
+      const uint8_t* urow = Up + (size_t)(srcY / 2) * uvStride;
+      const uint8_t* vrow = Vp + (size_t)(srcY / 2) * uvStride;
       for (int x = 0; x < w; ++x) {
         int Yv = yrow[x];
         int U = urow[x / 2];
@@ -502,6 +521,7 @@ struct CameraPixels::Impl {
   int width = 0;
   int height = 0;
   CameraPixels::PixelFormat fmt = CameraPixels::PixelFormat::Unknown;
+  CameraPixels::RowOrder rowOrder = CameraPixels::RowOrder::TopDown;
 
   bool obsWorkaround = false;
   uint64_t lastCounter = 0;
@@ -585,6 +605,7 @@ void CameraPixels::close() {
   impl_->width = 0;
   impl_->height = 0;
   impl_->fmt = PixelFormat::Unknown;
+  impl_->rowOrder = RowOrder::TopDown;
   impl_->lastCounter = 0;
   impl_->deviceName.clear();
 
@@ -678,6 +699,7 @@ bool CameraPixels::open(int deviceIndex) {
     impl_->width = 0;
     impl_->height = 0;
     impl_->fmt = PixelFormat::Unknown;
+    impl_->rowOrder = RowOrder::TopDown;
     impl_->lastCounter = 0;
   };
 
@@ -780,10 +802,12 @@ bool CameraPixels::open(int deviceIndex) {
       impl_->width = vfi.width;
       impl_->height = vfi.height;
       impl_->fmt = subtypeToFormat(cmt.subtype, vfi.bih);
+      impl_->rowOrder = rowOrderForFormat(impl_->fmt, vfi.topDown);
     } else {
       impl_->width = 0;
       impl_->height = 0;
       impl_->fmt = PixelFormat::Unknown;
+      impl_->rowOrder = RowOrder::TopDown;
     }
     FreeMediaType(cmt);
 
@@ -836,6 +860,7 @@ bool CameraPixels::read(Frame& out, uint32_t timeoutMs) {
   out.width = impl_->width;
   out.height = impl_->height;
   out.format = impl_->fmt;
+  out.rowOrder = impl_->rowOrder;
   out.timestamp100ns = ts;
   out.data = std::move(data);
 
@@ -871,7 +896,7 @@ bool CameraPixels::readBGRA(Frame& outBGRA, uint32_t timeoutMs) {
   Frame tmp;
   if (!read(tmp, timeoutMs)) return false;
 
-  if (tmp.format == PixelFormat::BGRA32) {
+  if (tmp.format == PixelFormat::BGRA32 && tmp.rowOrder == RowOrder::TopDown) {
     outBGRA = std::move(tmp);
     return true;
   }
@@ -882,8 +907,3 @@ bool CameraPixels::readBGRA(Frame& outBGRA, uint32_t timeoutMs) {
   }
   return true;
 }
-
-
-
-
-

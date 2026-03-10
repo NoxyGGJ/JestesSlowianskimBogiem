@@ -12,7 +12,7 @@ void SendUDP(uint8_t index)
 {
 	static UdpSender udp(9571); // localhost:9571
 
-	uint8_t payload[5] ={ 'M','A','S','K', index + '0' };
+	uint8_t payload[5] ={ 'M','A','S','K', static_cast<uint8_t>(index + '0') };
 	int n = udp.sendBytes(payload, sizeof(payload));
 
 	if( n < 0 )
@@ -243,7 +243,7 @@ uint32_t FeatureDetector::Process(CameraPixels::Frame& frame)
 						int fx = rx + ((dx2 * px + 2)>>2);
 						int fy = ry + ((dy2 * px + 2)>>2);
 
-						if(uint32_t(fx) < width && uint32_t(fy) < height)
+						if(uint32_t(fx) < uint32_t(width) && uint32_t(fy) < uint32_t(height))
 						{
 							int addr = fx + fy*width;
 							if( output[addr] )
@@ -310,3 +310,4 @@ void FeatureDetector::ShowResult(BITMAP* buff, vector<int>& data, int shift)
 		}
 	}
 }
+

@@ -18,8 +18,14 @@ public:
     MJPG      // compressed Motion-JPEG
   };
 
+  enum class RowOrder {
+    TopDown = 0,
+    BottomUp
+  };
+
   struct Frame {
     PixelFormat format = PixelFormat::Unknown;
+    RowOrder rowOrder = RowOrder::TopDown;
     int width = 0;
     int height = 0;
     int stride = 0;                 // bytes per row of the first plane (or pixels row for packed)
@@ -49,6 +55,7 @@ public:
   bool read(Frame& out, uint32_t timeoutMs = 2000);
 
   // Read one frame and convert to BGRA32 if possible.
+  // Returned BGRA frames are always top-down.
   bool readBGRA(Frame& outBGRA, uint32_t timeoutMs = 2000);
 
   // If something fails, this explains why.
