@@ -11,8 +11,11 @@ public:
     BGRA32,   // 4 bytes per pixel
     BGR24,    // 3 bytes per pixel
     YUY2,     // packed YUV 4:2:2
+    UYVY,     // packed YUV 4:2:2
     NV12,     // planar Y + interleaved UV (4:2:0)
-    I420      // planar Y + U + V (4:2:0)
+    I420,     // planar Y + U + V (4:2:0)
+    YV12,     // planar Y + V + U (4:2:0)
+    MJPG      // compressed Motion-JPEG
   };
 
   struct Frame {
@@ -45,7 +48,7 @@ public:
   // Returns false on timeout or if closed.
   bool read(Frame& out, uint32_t timeoutMs = 2000);
 
-  // Read one frame and convert to BGRA32 if possible (YUY2/NV12/BGR24/BGRA32).
+  // Read one frame and convert to BGRA32 if possible.
   bool readBGRA(Frame& outBGRA, uint32_t timeoutMs = 2000);
 
   // If something fails, this explains why.

@@ -85,7 +85,7 @@ int main()
 
 	CameraPixels cam;
 	CameraPixels::Frame f;
-	if( !cam.open(1) ) {
+	if( !cam.open(0) ) {
 		std::wcerr << L"open failed: " << cam.lastError() << L"\n";
 		return 1;
 	}
