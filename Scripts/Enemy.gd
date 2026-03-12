@@ -35,6 +35,8 @@ var cooldown: float = 0.0
 var attackCooldown: float = 1.0
 var attackMultipler: float = 0.5
 var stunTime: float = 0.0
+var respawnTime: float = 0.0
+var deadDestroyTime: float = 0.0
 var attackAnimTime:float = 0.0
 var respawnAnimTime:float = 0.0
 var death_audio_player: AudioStreamPlayer3D
@@ -112,8 +114,19 @@ func _physics_process(delta: float) -> void:
 				
 	if dead:
 		animationSprite.animation = "Death"
-		if type == EnemyType.SKELETON:
+		
+		if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
+			deadDestroyTime = deadDestroyTimeout
+			if respawnTime > 0.0:
+				respawnTime -= delta
+				if respawnTime <= 0.0:
+					Respawn()
 			wrap_enemy_position()
+		else:
+			deadDestroyTime -= delta
+			if deadDestroyTime <= 0.0:
+					queue_free()
+			
 		return
 
 	wrap_enemy_position()
@@ -215,21 +228,17 @@ func isAttacking() -> bool:
 func Die() -> void:
 	dead = true
 	
+	respawnTime = 2.0
+	deadDestroyTime = deadDestroyTimeout
+	
 	if death_audio_player:
 		death_audio_player.play()
 
-	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
-		await get_tree().create_timer(2.0).timeout
-		Respawn()
-		return
-	
-	collisionShape.disabled = true
+	if type != EnemyType.SKELETON:
+		collisionShape.disabled = true
 
 	if healthBar:
 		healthBar.hide()
-		
-	await get_tree().create_timer(deadDestroyTimeout).timeout
-	queue_free()
 	
 func Respawn() -> void:
 	dead = false
