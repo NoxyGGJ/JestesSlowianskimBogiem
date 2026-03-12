@@ -29,8 +29,6 @@ func _on_spawn_timer_timeout() -> void:
 	var difficulty = root.getDifficulty()
 
 	if get_parent().enemy_cache.size() < difficulty.MaxEnemies:
-		var random_value = rng.randf()
-		
 		var x = rng.randf_range(minX, maxX)
 		var z = rng.randf_range(minZ, maxZ)
 		

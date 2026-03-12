@@ -36,6 +36,7 @@ var attackCooldown: float = 1.0
 var attackMultipler: float = 0.5
 var stunTime: float = 0.0
 var attackAnimTime:float = 0.0
+var respawnAnimTime:float = 0.0
 var death_audio_player: AudioStreamPlayer3D
 
 var rng = RandomNumberGenerator.new()
@@ -60,6 +61,23 @@ func _ready() -> void:
 
 func _fix_y():
 	position.y = get_parent().find_child("HTerrain").get_data().get_height_at(position.x, position.z) + 1.0
+
+func wrap_enemy_position():
+	var wrap = wrap_to_player
+	var dx = position.x - currentPlayer.position.x
+	var dz = position.z - currentPlayer.position.z
+	if dx < -wrap:
+		position.x += wrap*2
+		_fix_y()
+	if dx > wrap:
+		position.x -= wrap*2
+		_fix_y()
+	if dz < -wrap:
+		position.z += wrap*2
+		_fix_y()
+	if dz > wrap:
+		position.z -= wrap*2
+		_fix_y()
 
 func _physics_process(delta: float) -> void:
 	var difficulty: DifficultyLevel = get_parent().getDifficulty()
@@ -94,24 +112,19 @@ func _physics_process(delta: float) -> void:
 				
 	if dead:
 		animationSprite.animation = "Death"
+		if type == EnemyType.SKELETON:
+			wrap_enemy_position()
 		return
 
-	var wrap = wrap_to_player
-	var dx = position.x - currentPlayer.position.x
-	var dz = position.z - currentPlayer.position.z
-	if dx < -wrap:
-		position.x += wrap*2
-		_fix_y()
-	if dx > wrap:
-		position.x -= wrap*2
-		_fix_y()
-	if dz < -wrap:
-		position.z += wrap*2
-		_fix_y()
-	if dz > wrap:
-		position.z -= wrap*2
-		_fix_y()
+	wrap_enemy_position()
 		
+	if respawnAnimTime > 0.0:
+		respawnAnimTime -= delta	
+		if respawnAnimTime > 0.0:
+			return
+		else:
+			animationSprite.play("Idle")
+
 	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 3:
 		animationSprite.animation = "Dance"
 		return
@@ -206,7 +219,7 @@ func Die() -> void:
 		death_audio_player.play()
 
 	if type == EnemyType.SKELETON and GlobalObject.CurrentMask == 2:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		Respawn()
 		return
 	
@@ -222,7 +235,11 @@ func Respawn() -> void:
 	dead = false
 	life = START_LIFE
 	updateLife()
-	animationSprite.play("Idle")
+	animationSprite.play("Respawn")
+	
+	var respawn_audio_player = find_child("RespawnAudioPlayer")
+	respawn_audio_player.play()
+	respawnAnimTime = 0.5
 	
 func isDead() -> bool:
 	return dead

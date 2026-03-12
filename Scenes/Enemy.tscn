@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rqu8p8pkspgm" path="res://Resources/Enemy/szkielet_dance.png" id="3_1exfc"]
 [ext_resource type="Texture2D" uid="uid://by0dkm6gbbikd" path="res://Resources/GUI/LifeBar.png" id="3_2hac7"]
 [ext_resource type="AudioStream" uid="uid://c5s7l5bhka4l5" path="res://Audio/SFXNew/EnemyDeathSkeleton.wav" id="5_1exfc"]
+[ext_resource type="AudioStream" uid="uid://bjq0a50lxu01t" path="res://Audio/SFXNew/EnemySkeletonRespawn.wav" id="6_mo1ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo1ky"]
 atlas = ExtResource("2_kpr8r")
@@ -101,6 +102,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_27ry8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uihya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1gy")
+}],
+"loop": false,
+"name": &"Respawn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qlal6")
 }, {
 "duration": 1.0,
@@ -125,6 +140,8 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_73x2u")
 animation = &"Attack"
 autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=407421949]
 shape = SubResource("CylinderShape3D_tt7e2")
@@ -138,6 +155,13 @@ region_rect = Rect2(63.822998, 11.922012, 122.21384, 32.390015)
 
 [node name="DeathAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=792000010]
 stream = ExtResource("5_1exfc")
+volume_db = 6.0
+unit_size = 1.0
+max_db = 4.0
+max_distance = 50.0
+
+[node name="RespawnAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=664291904]
+stream = ExtResource("6_mo1ky")
 volume_db = 6.0
 unit_size = 1.0
 max_db = 4.0

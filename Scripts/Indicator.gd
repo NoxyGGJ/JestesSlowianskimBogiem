@@ -3,7 +3,7 @@ extends Control
 func _ready() -> void:
 	hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func set_value(value):
