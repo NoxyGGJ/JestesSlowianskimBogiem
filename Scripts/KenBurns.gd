@@ -7,16 +7,16 @@ var end_position = Vector2(-200, -200)
 var tween:Tween
 var alphaTween:Tween
 var displaySize:Vector2 
-var images:Array[Image] = []
+var images:Array[Texture] = []
 
 func _ready() -> void:
 	
 	displaySize = get_viewport().get_visible_rect().size
 	
-	images.push_back(Image.load_from_file("res://Resources/Background/A.png"))
-	images.push_back(Image.load_from_file("res://Resources/Background/B.png"))
-	images.push_back(Image.load_from_file("res://Resources/Background/C.png"))
-	images.push_back(Image.load_from_file("res://Resources/Background/D.png"))
+	images.push_back(load("res://Resources/Background/A.png"))
+	images.push_back(load("res://Resources/Background/B.png"))
+	images.push_back(load("res://Resources/Background/C.png"))
+	images.push_back(load("res://Resources/Background/D.png"))
 	randomizeValues()
 	runTween()
 	
@@ -61,5 +61,5 @@ func randomizeValues() -> void:
 func loadNextImage() -> void:
 	scale = Vector2.ONE
 	position = Vector2.ZERO
-	texture = ImageTexture.create_from_image(images.pick_random())
+	texture = images.pick_random()
 	randomizeValues()
